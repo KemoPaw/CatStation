@@ -18,13 +18,13 @@ class Api::UsersController < ApplicationController
             render "api/users/show" #automatically checks under the views folder
 
         else
-            render json: @user.errors.full_messages, status: 400 #ajax call not resolve
+            render json: @user.errors.full_messages, status: 407 #ajax call not resolve
         end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :password, :email)
+        params.require(:users).permit(:username, :password, :email)
     end
 end

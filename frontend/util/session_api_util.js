@@ -4,19 +4,19 @@
 
 import { $CombinedState } from "redux"
 
-export const signup = (user) =>{
+export const signup = (users) =>{
     return $.ajax({
         url: "/api/users",
         method: 'POST',
-        data: {user}
+        data: {users}
     })
 }
 
-export const login = (user) => {
+export const login = (users) => {
     return $.ajax({
         url: "/api/session/new",
         method: 'GET',
-        data: { user }
+        data: { users }
     })
 }
 
