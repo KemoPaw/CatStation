@@ -1,7 +1,41 @@
 .login-signup {
-    background-color: pink;
+    background-color: rgb(23, 23, 23);
+    color: white;
+    text-decoration: none;
+    display: flex;
+    padding: 3px;
+    justify-content: flex-end;
+
+}
+
+.header-link {
+    color:white;
+    text-decoration: none;
+    padding: 7px;
+    margin: 5px;
+    text-transform: uppercase;
+    
+    
+}
+
+.blue-button {
+    background-color: rgb(21, 175, 240);
+    border-radius: 5px;
+}
+
+.blue-button:hover {
+    background-color: rgb(13, 142, 196);
+    border-radius: 5px;
+}
+
+.login-form-container {
+    background-color: cyan;;
 }
 
 .header-group {
-    
+    background-color: yellow;
+}
+
+.header-name {
+    background-color: pink;
 }
