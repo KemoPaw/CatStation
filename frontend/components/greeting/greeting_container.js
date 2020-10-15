@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
+import {withRouter} from 'react-router-dom';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
@@ -13,7 +14,10 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Greeting);
+)(Greeting));
+
+//passes in the Router Params to use the the greetings container
+

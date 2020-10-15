@@ -58,11 +58,12 @@ class SessionForm extends React.Component {
   render() {
     let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div></div>
     return (
-      <div className="login-form-container">
+      <div className="signup-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          Welcome to CatStation-app!
           <br/>
-          Please {this.props.formType} or {this.props.navLink}
+          <img src={window.brentURL} id="catstation-logo" />
+          <h1 className="signup-big-text" >Sign Up</h1>
+          <p className="signup-text">Join the leading showcase platform for games, film, media &amp; entertainment artists</p>
           {errors}
           
           <div className="login-form">
@@ -84,7 +85,9 @@ class SessionForm extends React.Component {
               />
             </label>
             <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <input className="session-submit" type="submit" value="Sign up" />
+            <br/>
+            <p>Already have an account? {this.props.navLink}</p>
           </div>
         </form>
       </div>
