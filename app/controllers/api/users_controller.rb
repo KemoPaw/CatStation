@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
             render "api/users/show" #automatically checks under the views folder
             
         else
-            render json: @user.errors.full_messages, status: 407 #ajax call not resolve
+            render json: @user.errors.full_messages, status: 401 #ajax call not resolve
         end
     end
     

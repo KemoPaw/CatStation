@@ -10,6 +10,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.state.errors;
+  } 
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -22,17 +26,17 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  // renderErrors() {
-  //   return(
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   renderUsername(){
     if (this.props.formType === 'signup') {
@@ -52,13 +56,15 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div></div>
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
           Welcome to CatStation-app!
           <br/>
           Please {this.props.formType} or {this.props.navLink}
-          {/* {this.renderErrors()} */}
+          {errors}
+          
           <div className="login-form">
             <br/>
             {this.renderUsername()}
