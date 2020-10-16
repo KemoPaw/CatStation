@@ -24,7 +24,8 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user); //passed throught the props
+    this.props.processForm(user).then //passed throught the props
+    (() => this.props.closeModal());
   }
 
   renderErrors() {
@@ -46,6 +47,7 @@ class SessionForm extends React.Component {
     };
 
     this.props.processForm(demouser); //dispatches info to backend?
+    this.props.closeModal();
 
   }
 
