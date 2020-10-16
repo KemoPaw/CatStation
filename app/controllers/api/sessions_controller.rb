@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
             render "api/session/show" #check pokedex for how to tell rails to render that jbuild file!
 
         else
-            render json: ['Invalid username or password'], status: 400
+            render json: ['Invalid email or password'], status: 400
 
         end
 
