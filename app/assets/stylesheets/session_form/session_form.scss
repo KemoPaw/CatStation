@@ -15,6 +15,21 @@
     padding: 7px;
     margin: 5px;
     text-transform: uppercase;
+    background-color: rgb(34, 34, 34);
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Commissioner', sans-serif;
+}
+
+.header-name{
+    color:white;
+    padding: 7px;
+    margin: 5px;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Commissioner', sans-serif;
+
 }
 
 #catstation-logo {
@@ -37,31 +52,81 @@
     background-color: cornflowerblue;
 }
 
+
+li {
+    color:rgb(174, 82, 82);
+}
+
+#splash-image {
+    width: 100%;
+}
+
+
+// //////////////////////////      SIGNUP PAGE CSS STUFFIES
+
+#catstation-logo-su {
+    height: 40px;
+    width: auto;
+    padding: 2%;
+
+}
+
 .signup-form-container {
      background-color: rgb(23, 23, 23);
      color:  white;
      text-align: center;
      min-height: 1200px;
      text-decoration: none;
+     font-family: 'Commissioner', sans-serif;
+     
 }
 
 .signup-big-text{
-    font-size: 150%;   
+    font-size: 300%;  
+    font-weight: 500;
+    margin: 15px;
 }
 
 .signup-text{
+    font-size: 150%;
     color: rgb(90, 90, 90);
+    font-weight: 200;
 }
 
+// .form-header-text {
+//     font-weight: 200;
+//     background-color: darkturquoise;
+// }
 
-.header-group {
-    background-color: yellow;
+.signup-form-box {
+    background-color: rgb(34, 34, 34);
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 25px 25px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.header-name {
-    background-color: pink;
+.signup-form-box > label{
+    text-align: left;
 }
 
-li {
-    color: pink;
+.signup-form-input {
+    background-color: rgb(23, 23, 23);
+    border-color:dimgray;
+    border-width: thin;
+    border-style: solid;
+
 }
+
+.form-header-text  {
+    background-color:	rgb(51, 51, 51);
+    font-weight: 200;
+    text-align: left;
+    width: 105% ;
+    padding: 12px;
+}
+
