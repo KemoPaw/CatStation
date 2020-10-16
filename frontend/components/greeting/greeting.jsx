@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
+//props now has access to openModel()
 
 const Greeting = ( props ) => {
   
@@ -13,7 +13,8 @@ const Greeting = ( props ) => {
 
       <div>
           <Link to="/signup" className="header-link">Sign Up</Link>
-          <Link to="/login" className="header-link blue-button">Sign In</Link>
+          <button onClick={() => props.openModal("login")}>Sign In</button>
+          {/* <Link to="/login" className="header-link blue-button">Sign In</Link> */}
       </div>
     </nav>
   );
