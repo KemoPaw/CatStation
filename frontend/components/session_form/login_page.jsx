@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SessionForm extends React.Component {
+class loginPageForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,16 +55,16 @@ class SessionForm extends React.Component {
   render() {
     let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div></div>
     return (
-      <div className="login-form-container">
+      <div className="login-page-container">
         <p className="signup-big-text">Sign In</p>
         <form onSubmit={this.handleSubmit} className="login-page-box">
-
-          <br />
-
+          
+          <br/>
+         
           {errors}
-
+          
           <div className="login-page">
-            <br />
+            <br/>
             <label className="login-label">Your Email <br />
               <input type="text"
                 value={this.state.email}
@@ -73,7 +73,7 @@ class SessionForm extends React.Component {
                 placeholder="email@example.com"
               />
             </label>
-            <br />
+            <br/>
             <label className="login-label">Password <br />
               <input type="password"
                 value={this.state.password}
@@ -82,9 +82,9 @@ class SessionForm extends React.Component {
                 placeholder="password"
               />
             </label>
-            <br />
+            <br/>
             <input className="login-submit" type="submit" value="Sign In" />
-            <button className="login-submit" type="button" onClick={this.demoUser}>Demo User</button>
+            <button className="login-submit"  type="button" onClick={this.demoUser}>Demo User</button>
             <p className="login-b-text">Please Sign In or {this.props.navLink} </p>
 
           </div>
@@ -94,4 +94,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default loginPageForm;

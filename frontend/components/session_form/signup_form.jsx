@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="signup-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -46,41 +46,41 @@ class SessionForm extends React.Component {
           <h1 className="signup-big-text" >Sign Up</h1>
           <p className="signup-text">Join the leading showcase platform for games, film, media &amp;</p>
           <p className="signup-text"> entertainment artists</p>
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <br/>
-          {errors}
-          
-          <div className="signup-form-box">
-                <p className="form-header-text">Sign up with your email</p>
-                <br/>
-                <label>Username <br/>
-                <input
-                    className ="signup-form-input" type="text"
-                    value={this.state.username}
-                    onChange={this.update('username')}
-                  />
-                </label>
-                <br />
-                <label>Email <br/>
-                  <input className ="signup-form-input" type="text"
-                    value={this.state.email}
-                    onChange={this.update('email')}
-                
-                  />
-                </label>
-                <br />
-                <label>Password <br/>
-                  <input className ="signup-form-input" type="password"
-                    value={this.state.password}
-                    onChange={this.update('password')}
 
-                  />
+        <form onSubmit={this.handleSubmit} className="signup-form-box">
+                <div className="form-header-text">Sign up with your email</div>
+                {errors}
+                <label className="signup-label" id="signup-label-username">Username
+                <div id="signup-username">
+                    <input
+                        className ="signup-form-input" type="text"
+                        placeholder="E.g. cat-lover"
+                        value={this.state.username}
+                        onChange={this.update('username')}
+                      />
+                </div>
                 </label>
-                <br />
-                <input className="session-submit" type="submit" value="Sign up" />
-                <br/>
-                <p>Already have an account? {this.props.navLink}</p>
-          </div>
+                <label className="signup-label">Email
+                <div id="signup-email">
+                      <input className ="signup-form-input" type="text"
+                        placeholder="E.g. cat@cat.com"
+                        value={this.state.email}
+                        onChange={this.update('email')}
+                      />
+              </div>
+                </label>
+                <label className="signup-label">Password
+                <div id="signup-password">
+                      <input className ="signup-form-input" type="password"
+                        value={this.state.password}
+                        onChange={this.update('password')}
+                      />
+              </div>
+                </label>
+                
+                    <input className="login-submit" type="submit" value="Sign me up!" />
+              
+                 <p className="login-b-text">Already have an account? {this.props.navLink}</p>
         </form>
       </div>
     );

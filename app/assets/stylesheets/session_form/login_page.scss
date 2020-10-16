@@ -1,0 +1,83 @@
+.login-page-container{
+    border-top: rgb(31, 31, 31) 3px solid;
+    background-color: rgb(23, 23, 23);
+     color:  white;
+     text-align: center;
+     min-height: 1200px;
+     text-decoration: none;
+     font-family: 'Commissioner', sans-serif;
+}
+
+
+
+.login-page-box {
+    width: 400px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 25px 25px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(34, 34, 34);
+    border-radius: 3px;
+
+}
+
+.login-form-box > label{
+    text-align: left;
+    margin: 10px;
+    font-weight: 300;
+}
+
+.login-submit {
+    padding: 5px;
+    margin: 5px 10px;
+    background-color: rgb(34, 34, 34);
+    border-color:dimgray;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 2.5px;
+    color: rgb(206, 206, 206);
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.login-submit:hover {
+    background-color: black;
+    color: white;
+}
+
+.login-page {
+    align-content: flex-start;
+}
+
+.login-label {
+    text-align: left;
+}
+
+.login-b-text {
+    padding: 10px;
+    font-weight: lighter;
+}
+
+.login-b-text-link {
+    color: rgb(21, 175, 240);
+    text-decoration: none;
+}
+
+
+///////////LOGIN FORM (MODAL)
+
+.login-form-container{
+    border-top: rgb(31, 31, 31) 3px solid;
+    background-color: rgb(23, 23, 23);
+     color:  white;
+     text-align: center;
+     min-height: 400px;
+     text-decoration: none;
+     font-family: 'Commissioner', sans-serif;
+}
+
