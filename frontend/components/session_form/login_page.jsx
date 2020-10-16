@@ -13,6 +13,7 @@ class loginPageForm extends React.Component {
 
   componentDidMount() {
     this.state.errors;
+    this.props.clearErrors();
   } 
 
   update(field) {

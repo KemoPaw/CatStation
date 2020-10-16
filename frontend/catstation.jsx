@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     const store = configureStore();
     ReactDOM.render(<Root store={store}/>, root);
-    window.login = login;
-    window.signup = signup;
-    window.logout = logout;
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    // window.login = login;
+    // window.signup = signup;
+    // window.logout = logout;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
     //this first argumentm is a React component, which is why we're inporting React in line 3
 })
