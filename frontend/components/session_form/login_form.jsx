@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <p className="signup-big-text">Sign In</p>
-        <form onSubmit={this.handleSubmit} className="login-page-box">
+        <form onSubmit={this.handleSubmit} className="login-page-modal">
 
           <br />
 
