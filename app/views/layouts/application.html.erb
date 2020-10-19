@@ -8,6 +8,17 @@
         window.brentURL = "<%= image_url('catstation-logo.png') %>";
         window.splashURL = "<%= image_url('splash-image.png') %>";
     </script>
+
+    <script>
+        <% if logged_in? %>
+            window.currentUser = {
+              "id": <%= current_user.id %>,
+              "username": "<%= current_user.username %>",
+              "email": "<%= current_user.email %>"
+            };
+        <% end %>
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@200;500;600;700&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
