@@ -1,0 +1,1 @@
+json.extract! photo, :id, :title, :description, :uploader_id
