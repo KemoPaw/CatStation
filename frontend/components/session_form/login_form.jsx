@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
 
   componentDidMount() {
     this.state.errors;
+    this.props.closeModal;
     this.props.clearErrors();
   } 
 
@@ -58,7 +59,7 @@ class SessionForm extends React.Component {
     return (
       <div className="login-form-container">
         <p className="signup-big-text">Sign In</p>
-        <form onSubmit={this.handleSubmit} className="login-page-modal">
+        <form onSubmit={this.handleSubmit} className="login-page-box">
 
           <br />
 
