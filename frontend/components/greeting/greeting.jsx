@@ -22,7 +22,7 @@ const Greeting = ( props ) => {
   );
   
   const personalGreeting = () => (
-      <nav className="login-signup">
+      <nav className="logged-in-nav">
           <div>
               <Link to="/"><img src={window.brentURL} id="catstation-logo" /></Link>
           </div>

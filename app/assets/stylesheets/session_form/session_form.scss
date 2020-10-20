@@ -11,6 +11,20 @@
     
 }
 
+.logged-in-nav {
+     background-color: rgb(23, 23, 23);
+    color: white;
+    text-decoration: none;
+    padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logged-in-nav > div {
+    display: flex;
+}
+
 .header-link {
     color:white;
     text-decoration: none;
