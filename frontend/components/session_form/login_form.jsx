@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class SessionForm extends React.Component {
   }
 
   navLink() {
-    <Link className="login-b-text-link" to="/signup" onClick={() => this.props.closeModal()}>Sign Up</Link>
+    return (<Link className="login-b-text-link" to="/signup" onClick={() => this.props.closeModal()}>Sign Up</Link>);
     // this.props.closeModal();
   }
 
@@ -99,7 +100,7 @@ class SessionForm extends React.Component {
             <input className="login-submit" type="submit" value="Sign In" />
             <button className="login-submit" type="button" onClick={this.demoUser}>Demo User</button>
             
-            <p className="login-b-text">Please Sign In or {this.navLink} </p>
+            <p className="login-b-text">Please Sign In or {this.navLink()} </p>
 
           </div>
         </form>

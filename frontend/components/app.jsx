@@ -7,7 +7,7 @@ import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_page_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-
+import PhotoIndex from './photo/photo_index_container';
 
 
 const App = () => (
@@ -19,7 +19,10 @@ const App = () => (
         <Switch>
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+            <Route exact path="/" component={PhotoIndex} />
+            <Redirect to="/" />
         </Switch>
+
     </div>
 );
 
