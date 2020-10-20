@@ -37,6 +37,10 @@
     font-family: 'Commissioner', sans-serif;
 }
 
+.header-link:hover {
+    background-color: black;
+}
+
 .header-name{
     color:white;
     padding: 7px;
@@ -62,7 +66,9 @@
 .blue-button:hover {
     background-color: rgb(13, 142, 196);
     border-radius: 5px;
+    cursor: pointer;
 }
+
 
 
 

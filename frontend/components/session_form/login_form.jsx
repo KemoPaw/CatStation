@@ -9,6 +9,8 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demoUser = this.demoUser.bind(this);
+    this.clickLink = this.clickLink.bind(this);
+    this.navLink = this.navLink.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +55,15 @@ class SessionForm extends React.Component {
 
   }
 
+  clickLink() {
+    this.props.closeModal();
+  }
+
+  navLink() {
+    <Link className="login-b-text-link" to="/signup" onClick={() => this.props.closeModal()}>Sign Up</Link>
+    // this.props.closeModal();
+  }
+
 
   render() {
     let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div></div>
@@ -87,7 +98,8 @@ class SessionForm extends React.Component {
             <br />
             <input className="login-submit" type="submit" value="Sign In" />
             <button className="login-submit" type="button" onClick={this.demoUser}>Demo User</button>
-            <p className="login-b-text">Please Sign In or {this.props.navLink} </p>
+            
+            <p className="login-b-text">Please Sign In or {this.navLink} </p>
 
           </div>
         </form>
