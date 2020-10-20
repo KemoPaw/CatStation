@@ -14,4 +14,4 @@ export const recievePhotos = (photos) => {
 export const fetchPhotos = () => dispatch => {
     return (APIUtil.fetchPhotos())
         .then(photos => dispatch(recievePhotos(photos)))
-}
+};
