@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
 
 User.destroy_all
 Photo.destroy_all
@@ -39,7 +40,7 @@ photo19 = Photo.create({title: "photo19", description: "photo19 des", uploader_i
 photo20 = Photo.create({title: "photo20", description: "photo20 des", uploader_id: seeduser4.id})
 
 
-photo1.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-1.jpg'), filename: 'cat1-1.jpg')
+photo1.image.attach(io: open("https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-1.jpg"), filename: 'cat1-1.jpg')
 photo2.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-2.jpg'), filename: 'cat1-2.jpg')
 photo3.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-3.jpg'), filename: 'cat1-3.jpg')
 photo4.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-4.jpg'), filename: 'cat1-4.jpg')
