@@ -15,14 +15,15 @@ class PhotoIndex extends React.Component {
                 <p> WE'RE IN PHOTO_INDEX.JSX</p>
                 <ul>
                     {
-                        photos.map(photo=> (
-                            <PhotoIndexItem
+                        photos.map(photo=> {
+                            debugger
+                            return (<PhotoIndexItem
                                 key={photo.id}
-                                title={photo.title}
+                                photo={photo}
                                 description={photo.description}
                                 uploader_id={photo.uploader_id}
-                            />
-                        ))
+                            />)
+                        })
                     }
                 </ul>
              
