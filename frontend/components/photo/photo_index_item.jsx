@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 
 const PhotoIndexItem = props => {
-    debugger
-    return (<li>
-        <img src={props.photo.photoUrl} height="100px" width="100px" alt="Hello from img tag"/>
+    return (<li className="photo-index-li">
+        <img className="photo-index-img" src={props.photo.photoUrl} />
     </li>)
 }
 

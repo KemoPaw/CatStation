@@ -11,12 +11,9 @@ class PhotoIndex extends React.Component {
         const { photos } = this.props;
         return(
             <div>
-
-                <p> WE'RE IN PHOTO_INDEX.JSX</p>
-                <ul>
+                <ul className="photo-index-ul">
                     {
                         photos.map(photo=> {
-                            debugger
                             return (<PhotoIndexItem
                                 key={photo.id}
                                 photo={photo}
