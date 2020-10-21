@@ -40,5 +40,28 @@ photo20 = Photo.create({title: "photo20", description: "photo20 des", uploader_i
 
 
 photo1.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-1.jpg'), filename: 'cat1-1.jpg')
+photo2.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-2.jpg'), filename: 'cat1-2.jpg')
+photo3.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-3.jpg'), filename: 'cat1-3.jpg')
+photo4.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-4.jpg'), filename: 'cat1-4.jpg')
+photo5.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-5.jpg'), filename: 'cat1-5.jpg')
+photo6.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-6.jpg'), filename: 'cat1-6.jpg')
+photo7.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-7.jpg'), filename: 'cat1-7.jpg')
+photo8.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-8.jpg'), filename: 'cat1-8.jpg')
+photo9.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-9.jpg'), filename: 'cat1-9.jpg')
+photo10.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-10.jpg'), filename: 'cat1-10.jpg')
+photo11.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-11.jpg'), filename: 'cat1-11.jpg')
+photo12.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-12.jpg'), filename: 'cat1-12.jpg')
+photo13.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-13.jpg'), filename: 'cat1-13.jpg')
+photo14.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-14.jpg'), filename: 'cat1-14.jpg')
+photo15.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-15.jpg'), filename: 'cat1-15.jpg')
+photo16.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-16.jpg'), filename: 'cat1-16.jpg')
+photo17.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-17.jpg'), filename: 'cat1-17.jpg')
+photo18.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-18.jpg'), filename: 'cat1-18.jpg')
+photo19.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-19.jpg'), filename: 'cat1-19.jpg')
+photo20.image.attach(io: open('https://catstation-seeds.s3-us-west-1.amazonaws.com/cat1-20.jpg'), filename: 'cat1-20.jpg')
+
+
+
+
 
 
