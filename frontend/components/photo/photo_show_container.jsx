@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { fetchPhoto } from '../../actions/photo_actions'
-import PhotoIndex from './photo_index';
+import PhotoShow from './photo_show';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return ({
-        photo: Object.values(state.entities.photos)
+        photo: state.entities.photos[ownProps.match.params.photoId]
     });
 };
 
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoShow);

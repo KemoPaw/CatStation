@@ -8,6 +8,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_page_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import PhotoIndex from './photo/photo_index_container';
+import PhotoShowContainer from './photo/photo_show_container';
 
 
 const App = () => (
@@ -19,6 +20,8 @@ const App = () => (
         <Switch>
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+            <AuthRoute exact path="/photos" component={PhotoIndex} />
+            <AuthRoute exact path="/photos/:photoId" component={PhotoShowContainer} />
             <Route exact path="/" component={PhotoIndex} />
             <Redirect to="/" />
         </Switch>
