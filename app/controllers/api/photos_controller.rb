@@ -22,6 +22,13 @@ class Api::PhotosController < ApplicationController
     end
 
     def destroy
+        @photo = Photo.with_attached_image.find(params[:id])
+
+        if @photo && @photo.delete
+            render json: {}
+        else
+            render json: ["Photo not found"], status: 404
+        end
     end
 
     private

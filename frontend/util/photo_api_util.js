@@ -12,3 +12,10 @@ export const fetchPhoto = photoId => {
         method: "GET"
     })
 }
+
+export const deletePhoto = photoId => {
+    return $.ajax({
+        url: `/api/photos/${photoId}`,
+        method: "DELETE"
+    })
+}
