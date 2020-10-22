@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import {signup, login, logout} from "./actions/session_actions";
-import {fetchPhotos} from "./actions/photo_actions";
+import {fetchPhotos, fetchPhoto} from "./actions/photo_actions";
 import configureStore from './store/store'
 
 
@@ -12,16 +12,6 @@ import Root from './components/root';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
-
-    // let preLoadedState = undefined;
-    // if (window.currentUser) {
-    //     preLoadedState = {
-    //         entities: {
-    //             users: window.currentUser
-    //         }
-    //     }
-    // }
-    // const store = configureStore(preLoadedState);
     
     let store;
     if (window.currentUser) {
@@ -49,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ReactDOM.render(<Root store={store}/>, root);
     window.fetchPhotos = fetchPhotos;
+    window.fetchPhoto = fetchPhoto;
     // window.login = login;
     // window.signup = signup;
     // window.logout = logout;

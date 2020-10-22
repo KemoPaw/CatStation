@@ -1,4 +1,4 @@
-import { RECEIVE_PHOTOS} from "../actions/photo_actions";
+import { RECEIVE_PHOTOS, RECEIVE_PHOTO} from "../actions/photo_actions";
 
 
 const photosReducer = (state = {}, action) => {
@@ -7,6 +7,8 @@ const photosReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_PHOTOS:
             return Object.assign({}, state, action.photos);
+        case RECEIVE_PHOTOS:
+            return { [action.photo.id]: action.photo }
         default:
             return state;
     }

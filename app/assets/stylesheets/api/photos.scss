@@ -5,13 +5,15 @@
 .photo-index-ul {
  display: flex;
   flex-wrap: wrap;
-  padding: 0 4px;
+  padding: 0px;
 }
 
 .photo-index-li {
- flex: 25%;
+  flex: 25%;
+ 
   max-width: 25%;
-  padding: 0 4px
+  max-height: 25%;
+  padding: 0px
 }
 
 .photo-index-img {

@@ -6,7 +6,7 @@ class Api::PhotosController < ApplicationController
     end
 
     def show
-        @photo = Photo.with_attached_images.find(params[:id])
+        @photo = Photo.with_attached_image.find(params[:id])
         # @photo = Photo.find(params[:id])
         render "api/photos/show"
     end
