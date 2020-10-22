@@ -18,10 +18,10 @@ const App = () => (
             <GreetingContainer />
         </header>
         <Switch>
+            <AuthRoute exact path="/photos/:photoId" component={PhotoShowContainer} />
+            <AuthRoute exact path="/photos" component={PhotoIndex} />
             <AuthRoute exact path="/login" component={LogInFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-            <AuthRoute exact path="/photos" component={PhotoIndex} />
-            <AuthRoute exact path="/photos/:photoId" component={PhotoShowContainer} />
             <Route exact path="/" component={PhotoIndex} />
             <Redirect to="/" />
         </Switch>

@@ -17,8 +17,6 @@ class PhotoIndex extends React.Component {
                             return (<PhotoIndexItem
                                 key={photo.id}
                                 photo={photo}
-                                description={photo.description}
-                                uploader_id={photo.uploader_id}
                             />)
                         })
                     }
