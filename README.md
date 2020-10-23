@@ -29,7 +29,7 @@ Another feature that I took on was to not only show off all the images on a "Pho
 - Have a full CRUD for my photos feature, where users are able to also upload and edit their photos
 - Have users be able to comment on images
 - Have users have their own profiles that show off their own uploaded work(s)
-- Have certain restrictions for users
+- Have certain restrictions for users:
   - Only logged in users can upload photos and comment on posts
   - User can only delete their own photos
 
