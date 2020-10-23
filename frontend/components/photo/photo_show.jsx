@@ -8,6 +8,7 @@ class PhotoShow extends React.Component{
 
     removePhoto(){
         this.props.deletePhoto(this.props.photo.id);
+        this.props.history.push(`/photos`);
     }
 
 

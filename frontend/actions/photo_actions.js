@@ -42,6 +42,6 @@ export const fetchPhoto = (photoId) => dispatch => {
 
 export const deletePhoto = (photoId) => dispatch => {
     return (APIUtil.deletePhoto(photoId))
-        .then(photo => dispatch(removePhoto(photo)))
+        .then(() => dispatch(removePhoto(photoId)))
 };
 
