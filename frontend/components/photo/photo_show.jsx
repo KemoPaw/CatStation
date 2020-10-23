@@ -16,17 +16,25 @@ class PhotoShow extends React.Component{
     render(){
         if (!this.props.photo) return null;
         return(
-            <div>
-                <h1>Title: {this.props.photo.title}</h1>
-                <h3>Description: {this.props.photo.description}</h3>
+            <div className="photo-show-div">
 
-                <div>
-                    <button type="button" onClick={() => this.removePhoto()}>Remove Photo</button>
+                <div className="photo-show-content">
+                    <img height="auto" width="75%" src={this.props.photo.photoUrl} />
+                </div>
+
+
+                <div className="photo-show-content">
+                    <h1 className="photo-show-text">{this.props.photo.title}</h1>
+                    <h3 className="photo-show-text">{this.props.photo.description}</h3>
+
+                    <div>
+                        <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button>
+                    </div>
                 </div>
 
                 {/* <h5>Uploaded by: {this.props.photo.uploader_id}</h5> */}
 
-                <img  height="700px" width="auto" src={this.props.photo.photoUrl} />
+               
                 
             </div>
         )

@@ -36,3 +36,38 @@
   height: 300px;
   padding: 0px;
 }
+
+.photo-show-div{
+  background-color:rgb(34, 34, 34);
+  display: flex;
+  justify-content: space-between;
+}
+
+.photo-show-content{
+  padding: 5px;
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+  flex-direction: column;
+}
+
+.photo-show-remove {
+  font-family: 'Commissioner', sans-serif;
+  background-color: rgb(225, 33, 47);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  margin: 10px;
+
+ 
+}
+
+.photo-show-text{
+  margin: 10px;
+  font-family: 'Commissioner', sans-serif;
+  color: white;
+  padding: 5px;
+ 
+}
