@@ -18,10 +18,19 @@ One of the features that I took on was end-to-end User Auth, this entailed havin
 
 Another feature that I took on was to not only show off all the images on a "Photo Index Component", but to also have the feature to delete the image permanently from the databse. This involved setting up a "destroy" function all the way from the Photos Controller in my backend to be passed as an ajax call in my "photo_api_util" file to be called in my "Photo Show Container". One of the pitfalls that I had was that although I was deleting photos from my database upon a click of a button; my "Photo Index Component" would not re-render until I had refreshed the page. Although this feature worked, it had made using it clunky and not acceptable. I ended up realizing to use a ".then" statement after the button was involked to "push" a new URL to my history stack that automatically re-rendered the "Photo Index Component" and also re-routing to it automatically upon deleting a photo. 
 
+# Current Features
+
+- Users are able to Sign Up, Sign In, and Sign Out depending on the "Logged In Status"
+- Users are able to view the current gallery of photos and can click them to view more information abou the piece
+- Users are able to delete the photo, and be re-routed to the Photo Index Page again
+
 # Future Features
 
 - Have a full CRUD for my photos feature, where users are able to also upload and edit their photos
 - Have users be able to comment on images
 - Have users have their own profiles that show off their own uploaded work(s)
+- Have certain restrictions for users
+  - Only logged in users can upload photos and comment on posts
+  - User can only delete their own photos
 
 
