@@ -1,7 +1,7 @@
 # CatStation
 
 [CatStation Live Site](https://catstation-app.herokuapp.com/)
-CatStation is a Full-stack clone project to clone [ArtStation](https://www.artstation.com)
+CatStation is a Full-Stack Project to clone [ArtStation](https://www.artstation.com)
 
 # Technology
 
