@@ -7,9 +7,19 @@ class PhotoShow extends React.Component{
     }
 
     removePhoto(){
-        this.props.deletePhoto(this.props.photo.id).then(() => {
-            this.props.history.push(`/photos`);
-        })
+        console.log(this.props.photo.uploader_id);
+        let checkArr = Object.values(this.props.users).map((user) => user.id);
+        console.log(checkArr);
+        // console.log(this.props.users);
+        // console.log(this.props.cureentUser);
+        if(this.props.photo.uploader_id === this.session.user.id){
+             this.props.deletePhoto(this.props.photo.id).then(() => {
+               this.props.history.push(`/photos`);
+             });
+        } else {
+            console.log("no")
+        }
+       
     }
 
 
@@ -28,6 +38,7 @@ class PhotoShow extends React.Component{
                     <h3 className="photo-show-text">{this.props.photo.description}</h3>
 
                     <div>
+                        {/* {this.props.photo.uploader_id === this.state.user.id ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div></div>} */}
                         <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button>
                     </div>
                 </div>

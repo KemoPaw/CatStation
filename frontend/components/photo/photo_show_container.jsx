@@ -5,9 +5,12 @@ import { fetchPhoto, deletePhoto } from '../../actions/photo_actions'
 import PhotoShow from './photo_show';
 
 const mapStateToProps = (state, ownProps) => {
-    return ({
-        photo: state.entities.photos[ownProps.match.params.photoId]
-    });
+    return {
+      photo: state.entities.photos[ownProps.match.params.photoId],
+      users: state.entities.users,
+      cureentUSer: state.session.id
+
+    };
 };
 
 const mapDispatchToProps = dispatch => {
