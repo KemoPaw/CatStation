@@ -5,15 +5,27 @@
 .photo-show-div{
   background-color:rgb(34, 34, 34);
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.photo-show-content{
-  padding: 5px;
-  display: flex;
-  // align-items: center;
-  // justify-content: center;
+.photo-show-img {
+  // padding: 5px;
+  // display: flex;
+  align-items: center;
+  justify-content: center;
+  // flex-direction: column;
+  width: 600px;
+  height: 100%;
+}
+
+.photo-show-content {
+  // display: flex;
+  align-self: start;
+  // width: auto;
+  justify-content: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .photo-show-remove {

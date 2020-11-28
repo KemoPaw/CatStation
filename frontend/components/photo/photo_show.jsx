@@ -28,7 +28,7 @@ class PhotoShow extends React.Component{
         return(
             <div className="photo-show-div">
 
-                <div className="photo-show-content">
+                <div className="photo-show-img">
                     <img height="auto" width="75%" src={this.props.photo.photoUrl} />
                 </div>
 
