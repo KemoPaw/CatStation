@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
                 </label>
                 <label className="signup-label">Email
                 <div id="signup-email">
-                      <input className ="signup-form-input" type="text"
+                      <input className ="signup-form-input" type="email"
                         placeholder="E.g. cat@cat.com"
                         value={this.state.email}
                         onChange={this.update('email')}
