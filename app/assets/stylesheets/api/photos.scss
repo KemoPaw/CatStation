@@ -6,15 +6,23 @@
  display: flex;
   flex-wrap: wrap;
   padding: 0px;
+  margin: 0px;
 }
 
 .photo-index-li {
   // flex: 25%;
  
-  max-width: 20%;
-  max-height: 20%;
-  padding: 0px
+  width: 20%;
+  height: 20%;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  object-fit: cover;
+  // height: 40vh;
 }
+.photo-index-li > a{
+  background-color: BLUE;
+  }
 
 .photo-index-img {
 // // max-height: 100%;
@@ -30,11 +38,13 @@
   // vertical-align: middle;
   // width: 100%;
 
+  overflow: hidden;
   
   object-fit: cover;
   width:  300px;
   height: 300px;
   padding: 0px;
+  margin: 0px;
 }
 
 .photo-show-div{
