@@ -40,7 +40,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div></div>
+    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div className="signup-no-errors"></div>
     return (
       <div className="signup-form-container">
           <img src={window.brentURL} id="catstation-logo-su" />
@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="signup-form-box">
                 <div className="form-header-text">Sign up with your email</div>
                 {errors}
-                <label className="signup-label" id="signup-label-username">Username
+                <label className="signup-label" id="signup-label-username">* Username
                 <div id="signup-username">
                     <input
                         className ="signup-form-input" type="text"
@@ -61,7 +61,7 @@ class SessionForm extends React.Component {
                       />
                 </div>
                 </label>
-                <label className="signup-label">Email
+                <label className="signup-label">* Email
                 <div id="signup-email">
                       <input className ="signup-form-input" type="email"
                         placeholder="E.g. cat@cat.com"
@@ -70,7 +70,7 @@ class SessionForm extends React.Component {
                       />
               </div>
                 </label>
-                <label className="signup-label">Password
+                <label className="signup-label">* Password
                 <div id="signup-password">
                       <input className ="signup-form-input" type="password"
                         value={this.state.password}

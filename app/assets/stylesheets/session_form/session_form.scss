@@ -138,9 +138,12 @@
 }
 
 .signup-label{
+    margin-left: 5px;
     text-align: left;
     margin: 10px;
     font-weight: 300;
+    line-height: 1.8;
+    color: #bbb;
 }
 
 .signup-form-input {
@@ -174,6 +177,14 @@
 
 .signup-errors {
     padding-top: 10px; 
+    display: block;
+    height: 50px;
+}
+
+.signup-no-errors{
+     padding-top: 10px; 
+    display: block;
+    height: 50px;
 }
 
 input[type=text] {
