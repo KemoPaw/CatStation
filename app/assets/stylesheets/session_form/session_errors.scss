@@ -1,11 +1,24 @@
-ul > li {
+// ul > li {
+//     color:rgb(174, 82, 82);
+// }
+
+// .errors-ul {
+//     padding: 2px;
+// }
+
+// .errors-li {
+//     padding: 15px;
+// }
+
+.signin-errors {
     color:rgb(174, 82, 82);
+    padding-top: 10px; 
+    display: block;
+    height: 30px;
 }
 
-.errors-ul {
-    padding: 2px;
-}
-
-.errors-li {
-    padding: 15px;
+.signin-no-errors{
+     padding-top: 10px; 
+    display: block;
+    height: 30px;
 }

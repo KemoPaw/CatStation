@@ -31,9 +31,9 @@ class loginPageForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul class="errors-ul">
+      <ul class="signin-errors">
         {this.props.errors.map((error, i) => (
-          <li className="errors-li" 
+          <li 
           key={`error-${i}`}>
             {error}
           </li>
@@ -55,15 +55,15 @@ class loginPageForm extends React.Component {
 
 
   render() {
-    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div></div>
+    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div className="signin-no-errors"></div>
     return (
       <div className="login-page-container">
         <p className="signup-big-text">Sign In</p>
         <form onSubmit={this.handleSubmit} className="login-page-box">
-          
+          {errors}
           <br/>
          
-          {errors}
+          
           
           <div className="login-page">
             <br/>
