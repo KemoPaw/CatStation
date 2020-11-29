@@ -35,13 +35,15 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <div className="login-modal-errors">
+      <ul >
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
           </li>
         ))}
       </ul>
+      </div>
     );
   }
 
@@ -67,7 +69,7 @@ class SessionForm extends React.Component {
 
 
   render() {
-    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div></div>
+    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div className="login-modal-no-errors"></div>
     return (
       <div className="login-form-container">
         <p className="signup-big-text">Sign In</p>

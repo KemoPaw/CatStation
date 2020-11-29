@@ -12,7 +12,7 @@
 
 .login-page-box {
     width: 400px;
-    height: 300px;
+    height: 320px;
     margin-left: auto;
     margin-right: auto;
     padding: 0px 25px 25px ;
@@ -68,7 +68,9 @@
 }
 
 .login-label {
-    text-align: left;
+    // text-align: left;
+    align-self: start;
+    color: #bbb;
 }
 
 .login-b-text {
@@ -97,6 +99,20 @@
      text-decoration: none;
 }
 
+
+.login-modal-errors {
+    color:rgb(174, 82, 82);
+    padding-top: 30px; 
+    display: block;
+    height: 30px;
+}
+
+.login-modal-no-errors {
+    color:rgb(174, 82, 82);
+    padding-top: 30px; 
+    display: block;
+    height: 30px;
+}
 // .login-form-container{
     
 //     background-color: rgb(23, 23, 23);

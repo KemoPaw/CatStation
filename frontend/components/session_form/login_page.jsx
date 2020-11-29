@@ -67,7 +67,7 @@ class loginPageForm extends React.Component {
           
           <div className="login-page">
             <br/>
-            <label className="login-label">Your Email <br />
+            <label className="login-label">Email <br />
               <input type="email"
                 value={this.state.email}
                 onChange={this.update('email')}
