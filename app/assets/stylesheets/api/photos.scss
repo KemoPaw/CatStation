@@ -9,20 +9,26 @@
   justify-content: space-between;
 }
 
-.photo-show-img {
-  // padding: 5px;
-  // display: flex;
-  align-items: center;
-  justify-content: center;
-  // flex-direction: column;
-  width: 600px;
-  height: 100%;
-}
+// .photo-show-img {
+//   // padding: 5px;
+//   // display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   // flex-direction: column;
+//   // max-width: 500px;
+//   height: 100%;
+// }
+.photo-show-img > img {
+  position:relative;
+  // width: 75%;
+  max-width:70%;
 
+}
 .photo-show-content {
   // display: flex;
   align-self: start;
-  // width: auto;
+  // width: 27%;
+  width: 20%;
   justify-content: center;
   flex-direction: column;
   text-align: center;

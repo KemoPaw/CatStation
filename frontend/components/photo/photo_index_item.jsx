@@ -8,7 +8,7 @@ const PhotoIndexItem = props => {
         <li className="photo-index-li">
             
             <Link className="sample" to={`/photos/${props.photo.id}`}>
-                <img className="photo-index-img" src={props.photo.photoUrl} />
+                <img width="100%" className="photo-index-img" src={props.photo.photoUrl} />
             </Link>
 
         </li>

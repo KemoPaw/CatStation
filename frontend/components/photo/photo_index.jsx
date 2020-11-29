@@ -10,7 +10,7 @@ class PhotoIndex extends React.Component {
     render() {
         const { photos } = this.props;
         return(
-            <div>
+            <div className="photo-index-div">
                 <ul className="photo-index-ul">
                     {
                         photos.map(photo=> {

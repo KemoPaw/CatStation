@@ -1,3 +1,10 @@
+.photo-index-div {
+    // padding-top: 8px;
+    order: 6;
+    flex-basis: 100%;
+    min-width: 0;
+}
+
 .photo-index-ul {
  display: flex;
   flex-wrap: wrap;
@@ -11,9 +18,11 @@
   width: 20%;
   height: 20%;
   overflow: hidden;
-  padding: 0px;
-  margin: 0px;
-  object-fit: cover;
+//   padding: 0px;
+//   margin: 0px;
+//   object-fit: cover;
+    border-style: none;
+    vertical-align: middle;
   // height: 40vh;
 }
 .photo-index-li > a{
