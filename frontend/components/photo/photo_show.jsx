@@ -35,7 +35,9 @@ class PhotoShow extends React.Component{
 
                 <div className="photo-show-content">
                     <h1 className="photo-show-title">{this.props.photo.title}</h1>
+                    <h1 color="white">{this.props.photo.uploader_id}</h1>
                     <h3 className="photo-show-text">{this.props.photo.description}</h3>
+                    <h3>{this.props.currentUser}</h3>
 
                     <div>
                         {/* {this.props.photo.uploader_id === this.state.user.id ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div></div>} */}
