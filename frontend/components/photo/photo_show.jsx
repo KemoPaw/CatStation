@@ -46,8 +46,13 @@ class PhotoShow extends React.Component{
 
 
     render(){
-        let delButton = (this.props.photo.uploader_id === this.props.currentUser.id) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
+
+        // let delButton = ((this.props.photo.uploader_id === this.props.currentUser.id) && (this.props.currentUser.id !== undefined)) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
         if (!this.props.photo) return null;
+        // if (!this.props.currentUser) return null;
+        let delButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
+
+
         return(
             <div className="photo-show-div">
 
