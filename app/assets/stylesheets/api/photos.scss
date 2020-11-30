@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.photo-show-div{
+.photo-show-div {
   background-color:rgb(34, 34, 34);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
 // .photo-show-img {
@@ -18,20 +18,39 @@
 //   // max-width: 500px;
 //   height: 100%;
 // }
-.photo-show-img > img {
-  position:relative;
-  // width: 75%;
-  max-width:70%;
 
+
+.photo-show-img {
+  // position:relative;
+  // // width: 75%;
+  // // max-width:70%;
+  // width: 600px;
+
+  display: block;
+    // max-width: 100%;
+    // height: auto;
+    // background-color: blue;
+
+}
+
+.photo-show-img > img {
+  display: block;
+
+  width: 800px;
+  height: auto;
 }
 .photo-show-content {
   // display: flex;
-  align-self: start;
+  // align-self: start;
+  // background-color: red;
   // width: 27%;
-  width: 20%;
+  display: block;
+  // width: 20%;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  width: 50%;
+
 }
 
 .photo-show-remove {
@@ -47,8 +66,19 @@
  
 }
 
+.photo-show-title{
+  margin: 10px;
+  font-family: 'Commissioner', sans-serif;
+  color: white;
+  padding: 5px;
+  font-size: 25px;
+  text-transform: uppercase;
+ 
+}
+
 .photo-show-text{
   margin: 10px;
+  font-size: 15px;
   font-family: 'Commissioner', sans-serif;
   color: white;
   padding: 5px;

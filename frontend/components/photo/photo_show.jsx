@@ -34,7 +34,7 @@ class PhotoShow extends React.Component{
 
 
                 <div className="photo-show-content">
-                    <h1 className="photo-show-text">{this.props.photo.title}</h1>
+                    <h1 className="photo-show-title">{this.props.photo.title}</h1>
                     <h3 className="photo-show-text">{this.props.photo.description}</h3>
 
                     <div>
