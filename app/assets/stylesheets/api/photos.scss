@@ -54,16 +54,21 @@
 }
 
 .photo-show-remove {
-  font-family: 'Commissioner', sans-serif;
+  // font-family: 'Commissioner', sans-serif;
   background-color: rgb(225, 33, 47);
   color: white;
   border-radius: 5px;
   padding: 5px;
+  // height: 10px;
   cursor: pointer;
   border: none;
   margin: 10px;
+}
 
- 
+.photo-show-remove-div {
+  padding: 5px;
+  margin: 10px;
+  display: none;
 }
 
 .photo-show-title{

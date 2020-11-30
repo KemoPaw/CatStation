@@ -11,23 +11,20 @@ class PhotoShow extends React.Component{
     }
 
     removePhoto(){
-        console.log(this.props.photo.uploader_id);
-        let checkArr = Object.values(this.props.users).map((user) => user.id);
-        console.log(checkArr);
-        // console.log(this.props.users);
-        // console.log(this.props.cureentUser);
-        if(this.props.photo.uploader_id === this.session.user.id){
-             this.props.deletePhoto(this.props.photo.id).then(() => {
-               this.props.history.push(`/photos`);
-             });
-        } else {
-            console.log("no")
-        }
+        // console.log(this.props.photo.uploader_id);
+        // let checkArr = Object.values(this.props.users).map((user) => user.id);
+        // console.log(this.props.currentUser);
+
+        // console.log(this.props.currentUser.id);
+       
+        this.props.deletePhoto(this.props.photo.id).then(() => {
+        this.props.history.push(`/photos`)});
+       
        
     }
 
     userIdToUsername(userId){
-        console.log(this.props.users);
+        // console.log(this.props.users);
         // console.log(Object.values(this.props.users));
         // console.log(typeof Object.values(this.props.users));
         let username = "";
@@ -45,13 +42,11 @@ class PhotoShow extends React.Component{
         // console.log("Hello");
 
         // console.log(Object.keys(this.props.users));
-
-       
-        
     }
 
 
     render(){
+        let delButton = (this.props.photo.uploader_id === this.props.currentUser.id) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
         if (!this.props.photo) return null;
         return(
             <div className="photo-show-div">
@@ -70,7 +65,8 @@ class PhotoShow extends React.Component{
 
                     <div>
                         {/* {this.props.photo.uploader_id === this.state.user.id ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div></div>} */}
-                        <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button>
+                        {/* <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> */}
+                        {delButton}
                     </div>
                 </div>
 
