@@ -66,25 +66,29 @@ class loginPageForm extends React.Component {
           
           
           <div className="login-page">
-            <br/>
-            <label className="login-label">Email <br />
+            
+            <label className="login-label"> Your Email 
+            <div className="login-div">
               <input type="email"
                 value={this.state.email}
                 onChange={this.update('email')}
-                className="signup-form-input"
+                className="login-form-input"
                 placeholder="email@example.com"
               />
+              </div>
             </label>
-            <br/>
-            <label className="login-label">Password <br />
+           
+            <label className="login-label">  Password 
+            <div className="login-div">
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                className="signup-form-input"
+                className="login-form-input"
                 placeholder="password"
               />
+              </div>
             </label>
-            <br/>
+            
             <input className="login-submit" type="submit" value="Sign In" />
             <button className="login-submit"  type="button" onClick={this.demoUser}>Demo User</button>
             <p className="login-b-text">Please Sign In or {this.props.navLink} </p>

@@ -23,6 +23,20 @@
     background-color: rgb(34, 34, 34);
     border-radius: 5px;
 }
+.login-form-input {
+    background-color: rgb(23, 23, 23);
+    border-color:dimgray;
+    border-width: thin;
+    border-style: solid;
+    margin: 10px 0px;
+    padding: 5px;
+    width: 400px;
+    height: 30px;
+    border-radius: 2.5px;
+    outline: none;
+    color: white;
+
+}
 
 .login-page-modal {
     width: 400px;
@@ -68,9 +82,20 @@
 }
 
 .login-label {
-    // text-align: left;
-    align-self: start;
+    flex-direction: column;
+    display: flex;
+    text-align: left;
+    // margin-left: 5px;
+
+    // align-self: start;
     color: #bbb;
+        // display: inline-block;
+    max-width: 100%;
+}
+
+.login-label > #text{
+    // padding-left: 20px;
+    // margin-left: 30px;
 }
 
 .login-b-text {
@@ -104,14 +129,14 @@
     color:rgb(174, 82, 82);
     padding-top: 5px; 
     display: block;
-    height: 30px;
+    height: 20px;
 }
 
 .login-modal-no-errors {
     color:rgb(174, 82, 82);
     padding-top: 5px; 
     display: block;
-    height: 30px;
+    height: 20px;
 }
 // .login-form-container{
     
