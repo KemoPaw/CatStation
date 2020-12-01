@@ -8,6 +8,8 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_page_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import PhotoIndex from './photo/photo_index_container';
+import PhotoUploadForm from './photo/photo_upload_form';
+
 import PhotoShowContainer from './photo/photo_show_container';
 
 
@@ -20,6 +22,8 @@ const App = () => (
         <Switch>
             <Route exact path="/photos/:photoId" component={PhotoShowContainer} />
             <Route exact path="/photos" component={PhotoIndex} />
+            <Route exact path="/upload" component={PhotoUploadForm} />
+
             <Route exact path="/signin" component={LogInFormContainer} />
             <Route exact path="/signup" component={SignUpFormContainer} />
             <Route exact path="/" component={PhotoIndex} />
