@@ -28,6 +28,8 @@ const Greeting = ( props ) => {
           </div>
 
           <div>
+                <button className="header-link" >Upload Photo</button>
+
                 <h2 className="header-name">Hello, {props.currentUser.username}!</h2>
                 <button className="header-link" onClick={props.logout}>Log Out</button>
           </div>
