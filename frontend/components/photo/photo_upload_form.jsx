@@ -9,15 +9,18 @@ class PhotoUploadForm extends React.Component {
              super(props);
              this.state = {
                 //  photo: this.props.photo,
-                 image: null,
-                 title: "",
-                 description: "",
-                 uploader_id: this.props.currentUser.id, 
+                image: null,
+                title: "",
+                description: "",
+                uploader_id: this.props.currentUser.id, 
+                imageFile: null,
+                imageUrl: null,
             }
-             this.handleChange = this.handleChange.bind(this)
+            //  this.handleChange = this.handleChange.bind(this)
              this.formSubmission = this.formSubmission.bind(this);
             //  this.handleTitle = this.handleTitle.bind(this);
              this.handleInput = this.handleInput.bind(this);
+            this.handleImagePreview = this.handleImagePreview.bind(this);
 
        }
        
@@ -26,10 +29,20 @@ class PhotoUploadForm extends React.Component {
 //     console.log(this.state);
 //   }
 
-   handleChange(event) {
-    this.setState({
-      imageFile: URL.createObjectURL(event.target.files[0])
-    })
+   handleImagePreview(e) {
+    // this.setState({
+    //   imageFile: URL.createObjectURL(event.target.files[0])
+    // })
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    reader.onloadend = () =>
+    this.setState({ imageUrl: reader.result, imageFile: file });
+
+    if (file) {
+    reader.readAsDataURL(file);
+    } else {
+    this.setState({ imageUrl: "", imageFile: null });
+    }
   }
 
     handleInput(field){
@@ -51,15 +64,20 @@ class PhotoUploadForm extends React.Component {
 
         formData.append('photo[description]', this.state.description);
         formData.append('photo[uploader_id]', this.state.uploader_id); 
-        formData.append('photo[image]', this.state.imageFile);
+        if (this.state.imageFile) {
+                formData.append('photo[image]', this.state.imageFile);
+        } 
+        // formData.append('photo[image]', this.state.imageFile);
+        // formData.append('photo[photoUrl]', this.state.imageFile);
+
         
      
         // this.props.createPhoto(this.state);
         // this.props.createPhoto(formData);
         console.log(this.state);
-        // for (var key of formData.entries()) {
-        // console.log(key[0] + ', ' + key[1]);
-        // }
+        for (var key of formData.entries()) {
+        console.log(key[0] + ', ' + key[1]);
+        }
 
         this.props.createPhoto(formData);
 
@@ -89,7 +107,7 @@ class PhotoUploadForm extends React.Component {
                 <input type="file" 
                     id="photoFile"
                     accept="image/png, image/jpeg"
-                    onChange={this.handleChange}
+                    onChange={this.handleImagePreview}
                     
                     />
                     <img
@@ -126,7 +144,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createPhoto: (photo) => dispatch(createPhoto(photo)),
+        createPhoto: photo => dispatch(createPhoto(photo)),
     };
 };
 

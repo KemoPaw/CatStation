@@ -41,8 +41,8 @@ export const fetchPhoto = (photoId) => dispatch => {
 };
 
 export const createPhoto = photo => dispatch => {
-    return APIUtil.createPhoto(photo)
-        .then(photo => dispatch(receivePhoto(photo)))
+    return (APIUtil.createPhoto(photo))
+        .then(photo => dispatch(recievePhoto(photo)))
 };
 
 export const deletePhoto = (photoId) => dispatch => {
