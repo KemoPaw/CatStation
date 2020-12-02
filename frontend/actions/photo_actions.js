@@ -8,14 +8,14 @@ export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 
 
 
-export const recievePhotos = (photos) => {
+export const receivePhotos = (photos) => {
     return ({
         type: RECEIVE_PHOTOS,
         photos
     })
 }
 
-export const recievePhoto = (photo) => {
+export const receivePhoto = (photo) => {
     return ({
         type: RECEIVE_PHOTO,
         photo
@@ -31,18 +31,18 @@ export const removePhoto = (photoId) => {
 
 export const fetchPhotos = () => dispatch => {
     return (APIUtil.fetchPhotos())
-        .then(photos => dispatch(recievePhotos(photos)))
+        .then(photos => dispatch(receivePhotos(photos)))
 };
 
 
 export const fetchPhoto = (photoId) => dispatch => {
     return (APIUtil.fetchPhoto(photoId))
-        .then(photo => dispatch(recievePhoto(photo)))
+        .then(photo => dispatch(receivePhoto(photo)))
 };
 
 export const createPhoto = photo => dispatch => {
     return (APIUtil.createPhoto(photo))
-        .then(photo => dispatch(recievePhoto(photo)))
+        .then(photo => dispatch(receivePhoto(photo)))
 };
 
 export const deletePhoto = (photoId) => dispatch => {
