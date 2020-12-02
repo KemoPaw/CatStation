@@ -119,7 +119,7 @@ class PhotoUploadForm extends React.Component {
                     
                     />
                     <img
-                    src={this.state.image}
+                    src={this.state.imageUrl}
                     />
             </div>
               
