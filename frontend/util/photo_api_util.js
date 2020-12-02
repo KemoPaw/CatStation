@@ -16,7 +16,7 @@ export const fetchPhoto = photoId => {
 
 export const createPhoto = photo => {
     return $.ajax({
-        url: `/api/photos/`,
+        url: `/api/photos`,
         method: "POST",
         data: photo,
         contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)

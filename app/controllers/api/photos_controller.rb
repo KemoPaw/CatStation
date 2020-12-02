@@ -15,6 +15,7 @@ class Api::PhotosController < ApplicationController
         @photo = Photo.new(photo_params)
         if @photo.save
             render "api/photos/show" #automatically checks under the views folder
+            # render json: ['photo uploaded?']
             
         else
             render json: @photo.errors.full_messages, status: 401 #ajax call not resolve

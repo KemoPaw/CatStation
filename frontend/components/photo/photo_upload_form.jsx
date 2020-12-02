@@ -2,26 +2,67 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPhoto } from '../../actions/photo_actions'
-// import PhotoShow from './photo_show';
+
 
 class PhotoUploadForm extends React.Component {
        constructor(props){
              super(props);
              this.state = {
-                 file: null
+                //  photo: this.props.photo,
+                 image: null,
+                 title: "",
+                 description: "",
+                 uploader_id: this.props.currentUser.id, 
             }
              this.handleChange = this.handleChange.bind(this)
+             this.formSubmission = this.formSubmission.bind(this);
+            //  this.handleTitle = this.handleTitle.bind(this);
+             this.handleInput = this.handleInput.bind(this);
+
        }
        
 
-  componentDidMount() {
-    // this.props.fetchPost(this.props.match.params.postId);
-  }
+//   componentDidMount() {
+//     console.log(this.state);
+//   }
 
    handleChange(event) {
     this.setState({
-      file: URL.createObjectURL(event.target.files[0])
+      imageFile: URL.createObjectURL(event.target.files[0])
     })
+  }
+
+    handleInput(field){
+        // console.log(field.currentTarget.value)
+        return (e) => this.setState({ [field]: e.currentTarget.value })
+    }
+
+  formSubmission(e){
+        e.preventDefault();
+        // console.log(this.state);
+        // const formData = new FormData();
+        // debugger
+        // formData.append('photo[title]', this.state.title);
+        const formData = new FormData();
+        formData.append('photo[title]', this.state.title);
+
+        console.log(this.state.title);
+        // debugger
+
+        formData.append('photo[description]', this.state.description);
+        formData.append('photo[uploader_id]', this.state.uploader_id); 
+        formData.append('photo[image]', this.state.imageFile);
+        
+     
+        // this.props.createPhoto(this.state);
+        // this.props.createPhoto(formData);
+        console.log(this.state);
+        // for (var key of formData.entries()) {
+        // console.log(key[0] + ', ' + key[1]);
+        // }
+
+        this.props.createPhoto(formData);
+
   }
 
   render() {
@@ -30,25 +71,43 @@ class PhotoUploadForm extends React.Component {
     return (
       <div>
           <h1>Hello from Photo upload Form!</h1>
-          <form>
-              <label> Photo File Upload:
-                  <input type="file" 
+          <form onSubmit={this.formSubmission}>
+            <div>
+                <label> Photo Title:
+                        <input type="text"
+                            id="upload-photo-input-box"
+                            value={this.state.title} 
+                            onChange={this.handleInput("title")}
+                        />
+                </label>
+            </div>
+
+            <div>
+                <label> Photo File Upload:
+                
+              </label>
+                <input type="file" 
                     id="photoFile"
                     accept="image/png, image/jpeg"
                     onChange={this.handleChange}
                     
                     />
                     <img
-                    src={this.state.file}
+                    src={this.state.image}
                     />
+            </div>
+              
 
+            <div>
+                <label> Photo Details:
+                    <input type="text"
+                        id="upload-photo-input-box"
+                     value={this.state.description} 
+                    onChange={this.handleInput("description")}
+                    />
               </label>
-              <label> Photo Title:
-                    <input type="text"/>
-              </label>
-              <label> Photo Description:
-                    <input type="text"/>
-              </label>
+            </div>
+            <input className="login-submit" type="submit" value="Upload Photo" />
           </form>
       </div>
     );
@@ -57,8 +116,9 @@ class PhotoUploadForm extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-      photo: state.entities.photos[ownProps.match.params.photoId],
-      users: state.entities.users,
+    //   photo: state.entities.photos[ownProps.match.params.photoId],
+    //   users: state.entities.users,
+        // photo: { title: "", description: "", uploader_id: state.session.id, imageFile: null}, 
       currentUser: state.entities.users[state.session.id],
 
     };
