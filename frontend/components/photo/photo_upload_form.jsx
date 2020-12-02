@@ -21,6 +21,7 @@ class PhotoUploadForm extends React.Component {
             //  this.handleTitle = this.handleTitle.bind(this);
              this.handleInput = this.handleInput.bind(this);
             this.handleImagePreview = this.handleImagePreview.bind(this);
+            this.uponSubmitRedirect = this.uponSubmitRedirect.bind(this);
 
        }
        
@@ -79,9 +80,16 @@ class PhotoUploadForm extends React.Component {
         // console.log(key[0] + ', ' + key[1]);
         // }
 
-        this.props.createPhoto(formData);
+        this.props.createPhoto(formData)
+        .then(res => {
+                    this.uponSubmitRedirect(res)
+        })
 
   }
+
+   uponSubmitRedirect(res) { 
+        this.props.history.push(`/photos/${res.photo.id}`)
+    }
 
   render() {
 
