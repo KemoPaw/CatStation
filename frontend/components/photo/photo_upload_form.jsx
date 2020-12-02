@@ -54,13 +54,13 @@ class PhotoUploadForm extends React.Component {
         e.preventDefault();
         // console.log(this.state);
         // const formData = new FormData();
-        // debugger
+    
         // formData.append('photo[title]', this.state.title);
         const formData = new FormData();
         formData.append('photo[title]', this.state.title);
 
-        console.log(this.state.title);
-        // debugger
+        // console.log(this.state.title);
+        
 
         formData.append('photo[description]', this.state.description);
         formData.append('photo[uploader_id]', this.state.uploader_id); 
@@ -74,10 +74,10 @@ class PhotoUploadForm extends React.Component {
      
         // this.props.createPhoto(this.state);
         // this.props.createPhoto(formData);
-        console.log(this.state);
-        for (var key of formData.entries()) {
-        console.log(key[0] + ', ' + key[1]);
-        }
+        // console.log(this.state);
+        // for (var key of formData.entries()) {
+        // console.log(key[0] + ', ' + key[1]);
+        // }
 
         this.props.createPhoto(formData);
 
