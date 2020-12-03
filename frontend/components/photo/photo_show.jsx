@@ -10,7 +10,7 @@ class PhotoShow extends React.Component{
         this.state = {
             body: "",
             user_id: this.props.currentUser.id,
-            photo_id: this.props.photo.id,
+            // photo_id: this.props.photo.id,
         }
         this.removePhoto = this.removePhoto.bind(this);
         this.userIdToUsername = this.userIdToUsername.bind(this);
@@ -23,7 +23,13 @@ class PhotoShow extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchPhoto(this.props.photo.id);
+        // this.props.fetchPhoto(this.props.photo.id);
+        let arr = this.props.location.pathname.split("/");
+        // console.log(arr);
+        let photoArrItem = arr[arr.length -1];
+
+        this.props.fetchPhoto(photoArrItem);
+
         // console.log(this.state);
 
     }
@@ -85,6 +91,9 @@ class PhotoShow extends React.Component{
     }
     //think about how your state may change
     render(){
+        // console.log(this.props);
+        if (!this.props.photo) return null;
+
         const allComments = (!this.props.photo.comments) ? <h1>there r no comments , shame</h1> : 
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
@@ -101,17 +110,17 @@ class PhotoShow extends React.Component{
             </form>;
 
         // let delButton = ((this.props.photo.uploader_id === this.props.currentUser.id) && (this.props.currentUser.id !== undefined)) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
-        if (!this.props.photo) return null;
+        // if (!this.props.photo) return null;
         // if (!this.props.currentUser) return null;
         let delButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
         // let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={`/photos/${this.props.photo.id}/edit`}>Edit Photo </Link> : <div className="photo-show-remove-div"></div>
-        // let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={{
-        //                                                                                                                 pathname: `/photos/${this.props.photo.id}/edit`,
-        //                                                                                                                 state: {
-        //                                                                                                                     photo: true
-        //                                                                                                                 }
-        //                                                                                                                 }}>Edit Photo </Link>
-        //                                                                                                                  : <div className="photo-show-remove-div"></div>
+         let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={{
+                                                                                                                        pathname: `/photos/${this.props.photo.id}/edit`,
+                                                                                                                        state: {
+                                                                                                                            photo: true
+                                                                                                                        }
+                                                                                                                        }}>Edit Photo </Link>
+                                                                                                                        : <div className="photo-show-remove-div"></div>
 
 
 
@@ -134,7 +143,7 @@ class PhotoShow extends React.Component{
                         {/* {this.props.photo.uploader_id === this.state.user.id ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div></div>} */}
                         {/* <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> */}
                         {delButton}
-                        {/* {editButton} */}
+                        {editButton}
                     </div>
                     <div className="comments-div">
                         {/* <h1>Comments Div</h1> */}

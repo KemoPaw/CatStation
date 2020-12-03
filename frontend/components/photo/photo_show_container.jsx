@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
       photo: state.entities.photos[ownProps.match.params.photoId],
       users: state.entities.users,
       currentUser: state.entities.users[state.session.id],
-
     };
 };
 
@@ -22,8 +21,6 @@ const mapDispatchToProps = dispatch => {
         fetchPhoto: (photoId) => dispatch(fetchPhoto(photoId)),
         deletePhoto: (photoId) => dispatch(deletePhoto(photoId)),
         createComment: (comment) => dispatch(createComment(comment)),
-
-
     };
 };
 

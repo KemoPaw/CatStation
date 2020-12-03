@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { createPhoto } from '../../actions/photo_actions'
-import { fetchPhoto } from '../../util/photo_api_util';
+import { createPhoto, fetchPhoto } from '../../actions/photo_actions'
+// import { fetchPhoto } from '../../actions/photo_api_util';
 
 
 class PhotoEditForm extends React.Component {
@@ -25,8 +25,15 @@ class PhotoEditForm extends React.Component {
 
   componentDidMount() {
     // this.props.fetchPhoto(this.props.match.params.photo.id);
-    const {photo} = this.props.location.state
-    console.log(photo);
+    // const {photo} = this.props.location.state
+    // console.log(photo);
+
+      let arr = this.props.location.pathname.split("/");
+      console.log(arr);
+      let photoArrItem = arr[arr.length -2];
+      console.log(photoArrItem);
+
+      this.props.fetchPhoto(photoArrItem);
   }
 
    handleImagePreview(e) {
