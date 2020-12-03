@@ -24,7 +24,7 @@ class PhotoShow extends React.Component{
 
     componentDidMount(){
         this.props.fetchPhoto(this.props.photo.id);
-        console.log(this.state);
+        // console.log(this.state);
 
     }
 
@@ -95,9 +95,9 @@ class PhotoShow extends React.Component{
             </ul>
 
         const makeComment = (!this.props.currentUser) ? <h1>PLEASE SING IN </h1> : 
-            <form>
-                <textarea  value={this.state.body} onChange={this.handleInput("body")} />
-                <button onClick={this.handleCommentSubmit}>Submit</button>
+            <form className="comment-create-form">
+                <textarea  placeholder="Write a comment ..." className="comment-textarea" value={this.state.body} onChange={this.handleInput("body")} />
+                <button className="comment-submit" onClick={this.handleCommentSubmit}>Submit</button>
             </form>;
 
         // let delButton = ((this.props.photo.uploader_id === this.props.currentUser.id) && (this.props.currentUser.id !== undefined)) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
@@ -136,8 +136,8 @@ class PhotoShow extends React.Component{
                         {delButton}
                         {/* {editButton} */}
                     </div>
-                    <div>
-                        <h1>Comments Div</h1>
+                    <div className="comments-div">
+                        {/* <h1>Comments Div</h1> */}
                         {makeComment}
                         {allComments}
 
