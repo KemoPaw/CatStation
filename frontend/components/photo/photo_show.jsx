@@ -1,13 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PhotoEditForm from './photo_edit_form';
+
+
 
 class PhotoShow extends React.Component{
     constructor(props){
         super(props);
+        this.state = {
+            body: "",
+            user_id: this.props.currentUser.id,
+            photo_id: this.props.photo.id,
+        }
         this.removePhoto = this.removePhoto.bind(this);
         this.userIdToUsername = this.userIdToUsername.bind(this);
+        // this.handleCommentChange = this.handleCommentChange.bind(this);
+        this.handleInput = this.handleInput.bind(this);
+        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+
+
+
     }
 
     componentDidMount(){
+        this.props.fetchPhoto(this.props.photo.id);
+        console.log(this.state);
+
     }
 
     removePhoto(){
@@ -22,6 +40,11 @@ class PhotoShow extends React.Component{
        
        
     }
+
+    // editPhoto(){
+    //     // console.log('wish we could just edit a photo like this :( ');
+    //     this.props.history.push(`/edit/`);
+    // }
 
     userIdToUsername(userId){
         // console.log(this.props.users);
@@ -45,12 +68,51 @@ class PhotoShow extends React.Component{
     }
 
 
+    handleCommentSubmit(e) {
+        e.preventDefault();
+        // debugger
+        this.props.createComment(Object.assign ({}, this.state)).then(() => this.setState({body : "" }));
+    }
+    // handleCommentChange(){
+    //     return e => this.setState({body: e.currentTarget.value});
+    // }
+
+      handleInput(field){
+        // console.log(field.currentTarget.value)
+        // debugger
+
+        return (e) => this.setState({ [field]: e.currentTarget.value })
+    }
+    //think about how your state may change
     render(){
+        const allComments = (!this.props.photo.comments) ? <h1>there r no comments , shame</h1> : 
+            <ul>
+                {Object.values(this.props.photo.comments).map( (ele, idx) => {
+                    return(
+                        <li key={idx}>{ele.body}</li>
+                    )
+                })}
+            </ul>
+
+        const makeComment = (!this.props.currentUser) ? <h1>PLEASE SING IN </h1> : 
+            <form>
+                <textarea  value={this.state.body} onChange={this.handleInput("body")} />
+                <button onClick={this.handleCommentSubmit}>Submit</button>
+            </form>;
 
         // let delButton = ((this.props.photo.uploader_id === this.props.currentUser.id) && (this.props.currentUser.id !== undefined)) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
         if (!this.props.photo) return null;
         // if (!this.props.currentUser) return null;
         let delButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
+        // let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={`/photos/${this.props.photo.id}/edit`}>Edit Photo </Link> : <div className="photo-show-remove-div"></div>
+        // let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={{
+        //                                                                                                                 pathname: `/photos/${this.props.photo.id}/edit`,
+        //                                                                                                                 state: {
+        //                                                                                                                     photo: true
+        //                                                                                                                 }
+        //                                                                                                                 }}>Edit Photo </Link>
+        //                                                                                                                  : <div className="photo-show-remove-div"></div>
+
 
 
         return(
@@ -72,6 +134,13 @@ class PhotoShow extends React.Component{
                         {/* {this.props.photo.uploader_id === this.state.user.id ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div></div>} */}
                         {/* <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> */}
                         {delButton}
+                        {/* {editButton} */}
+                    </div>
+                    <div>
+                        <h1>Comments Div</h1>
+                        {makeComment}
+                        {allComments}
+
                     </div>
                 </div>
 

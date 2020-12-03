@@ -8,7 +8,9 @@ const photosReducer = (state = {}, action) => {
         case RECEIVE_PHOTOS:
             return Object.assign({}, state, action.photos);
         case RECEIVE_PHOTO:
-            return { [action.photo.id]: action.photo }
+            // debugger
+            return Object.assign({}, state, { [action.photo.id]: action.photo }, {comments: action.photo.comments});
+            // return { [action.photo.id]: action.photo }
         case REMOVE_PHOTO:
             let nextState = Object.assign({}, state)
             delete nextState[action.photoId]
