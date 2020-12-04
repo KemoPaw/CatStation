@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { createPhoto, fetchPhoto } from '../../actions/photo_actions'
+import { createPhoto, fetchPhoto, updatePhoto } from '../../actions/photo_actions'
 // import { fetchPhoto } from '../../actions/photo_api_util';
 
 
@@ -16,6 +16,7 @@ class PhotoEditForm extends React.Component {
                 uploader_id: this.props.currentUser.id, 
                 imageFile: null,
                 imageUrl: null,
+                // id: this.props.photo.id,
             }
             // this.state = this.props.photo;
 
@@ -76,9 +77,29 @@ class PhotoEditForm extends React.Component {
 
   formSubmission(e){
         e.preventDefault();
-      console.log(this.state.title);
-      console.log(this.state);
-      console.log('wish we could just submit it like so')
+      // console.log(this.state.title);
+      // console.log(this.state);
+      console.log('wish we could just submit it like so');
+       const formData = new FormData();
+        formData.append('photo[title]', this.state.title);
+
+        // console.log(this.state.title);
+        
+
+        formData.append('photo[description]', this.state.description);
+        formData.append('photo[uploader_id]', this.state.uploader_id); 
+        formData.append('photo[id]', this.props.photo.id); 
+
+        if (this.state.imageFile) {
+                formData.append('photo[image]', this.state.imageFile);
+        } 
+
+        // console.log(this.state);
+        for (var key of formData.entries()) {
+        console.log(key[0] + ', ' + key[1]);
+        }
+
+        this.props.updatePhoto(formData)
 
   }
 
@@ -106,7 +127,7 @@ class PhotoEditForm extends React.Component {
                 </label>
             </div>
 
-            {/* <div>
+            <div>
                 <label> Photo File Upload:
                 
               </label>
@@ -119,7 +140,7 @@ class PhotoEditForm extends React.Component {
                     <img
                     src={this.props.photo.imageUrl}
                     />
-            </div> */}
+            </div>
               
 
             <div>
@@ -151,7 +172,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchPhoto: photoId => dispatch(fetchPhoto(photoId)),
-        createPhoto: photo => dispatch(createPhoto(photo)),
+        // createPhoto: photo => dispatch(createPhoto(photo)),
+        updatePhoto: photo => dispatch(updatePhoto(photo)),
+
     };
 };
 
