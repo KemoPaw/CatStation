@@ -79,19 +79,22 @@ class PhotoEditForm extends React.Component {
         e.preventDefault();
       // console.log(this.state.title);
       // console.log(this.state);
-      console.log('wish we could just submit it like so');
+      // console.log('wish we could just submit it like so');
+      let defTitle = (this.state.title === "") ? this.props.photo.title : this.state.title;
+      let defDes = (this.state.description === "") ? this.props.photo.description : this.state.description;
+      let defImg = (this.state.imageFile === null) ? this.props.photo.imageFile : this.state.imageFile;
        const formData = new FormData();
-        formData.append('photo[title]', this.state.title);
+        formData.append('photo[title]', defTitle);
 
         // console.log(this.state.title);
         
 
-        formData.append('photo[description]', this.state.description);
+        formData.append('photo[description]', defDes);
         formData.append('photo[uploader_id]', this.state.uploader_id); 
         formData.append('photo[id]', this.props.photo.id); 
 
         if (this.state.imageFile) {
-                formData.append('photo[image]', this.state.imageFile);
+                formData.append('photo[image]', defImg);
         } 
 
         // console.log(this.state);
