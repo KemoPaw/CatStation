@@ -18,13 +18,6 @@ class PhotoEditForm extends React.Component {
                 imageUrl: null,
                 // id: this.props.photo.id,
             }
-            // this.state = this.props.photo;
-
-            //  this.state = {
-            //    photo: this.props.photo,
-
-            // }
-            //  this.handleChange = this.handleChange.bind(this)
              this.formSubmission = this.formSubmission.bind(this);
             //  this.handleTitle = this.handleTitle.bind(this);
              this.handleInput = this.handleInput.bind(this);
@@ -103,6 +96,9 @@ class PhotoEditForm extends React.Component {
         }
 
         this.props.updatePhoto(formData)
+        .then(res => {
+                    this.uponSubmitRedirect(res)
+        })
 
   }
 
