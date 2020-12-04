@@ -34,6 +34,10 @@ class PhotoShow extends React.Component{
 
     }
 
+    componentWillUnmount(){
+        localStorage.removeItem('username');
+    }
+
     removePhoto(){
         // console.log(this.props.photo.uploader_id);
         // let checkArr = Object.values(this.props.users).map((user) => user.id);
@@ -53,9 +57,6 @@ class PhotoShow extends React.Component{
     // }
 
     userIdToUsername(userId){
-        // console.log(this.props.users);
-        // console.log(Object.values(this.props.users));
-        // console.log(typeof Object.values(this.props.users));
         let username = "";
 
         Object.values(this.props.users).map(ele => {
@@ -65,12 +66,8 @@ class PhotoShow extends React.Component{
             }
         })
 
+
         return username;
-
-        // console.log(typeof this.props.users);
-        // console.log("Hello");
-
-        // console.log(Object.keys(this.props.users));
     }
 
 
@@ -93,6 +90,19 @@ class PhotoShow extends React.Component{
     render(){
         // console.log(this.props);
         if (!this.props.photo) return null;
+        let uploaderUsername = this.userIdToUsername(this.props.photo.uploader_id);
+        if (uploaderUsername !== "") localStorage.setItem('username', uploaderUsername);
+        if (uploaderUsername === "") localStorage.getItem('username');
+
+        let finalUsername = (!uploaderUsername === "") ? uploaderUsername : localStorage.getItem('username');
+        // console.log(finalUsername);
+        // let tester = (uploaderUsername === "") ? "nada" : "yes yes";
+        // console.log(tester);
+        // console.log(typeof uploaderUsername);
+
+        // let persistUsername = (uploaderUsername === "") ? localStorage.getItem('username') : localStorage.setItem('username', uploaderUsername);
+        // let finalUsername = persistUsername;
+        // console.log(uploaderUsername);
 
         const allComments = (!this.props.photo.comments) ? <h1>there r no comments , shame</h1> : 
             <ul>
@@ -135,7 +145,7 @@ class PhotoShow extends React.Component{
 
                 <div className="photo-show-content">
                     <h1 className="photo-show-title">{this.props.photo.title}</h1>
-                    <h1 className="photo-show-title">{this.userIdToUsername(this.props.photo.uploader_id)}</h1>
+                    <h1 className="photo-show-title">{finalUsername}</h1>
                     {/* <h1 className="photo-show-title">{this.props.users}</h1> */}
 
                     <h3 className="photo-show-text">{this.props.photo.description}</h3>
