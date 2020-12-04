@@ -114,13 +114,14 @@ class PhotoShow extends React.Component{
         // if (!this.props.currentUser) return null;
         let delButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
         // let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={`/photos/${this.props.photo.id}/edit`}>Edit Photo </Link> : <div className="photo-show-remove-div"></div>
-         let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={{
-                                                                                                                        pathname: `/photos/${this.props.photo.id}/edit`,
-                                                                                                                        state: {
-                                                                                                                            photo: true
-                                                                                                                        }
-                                                                                                                        }}>Edit Photo </Link>
-                                                                                                                        : <div className="photo-show-remove-div"></div>
+         let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? 
+         <Link to={{
+        pathname: `/photos/${this.props.photo.id}/edit`,
+        state: {
+            photo: true
+        }
+        }}>Edit Photo </Link>
+        : <div className="photo-show-remove-div"></div>
 
 
 
