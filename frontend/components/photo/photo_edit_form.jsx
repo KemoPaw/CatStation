@@ -8,10 +8,20 @@ import { createPhoto, fetchPhoto } from '../../actions/photo_actions'
 class PhotoEditForm extends React.Component {
        constructor(props){
              super(props);
+                this.state = {
+                //  photo: this.props.photo,
+                image: null,
+                title: "",
+                description: "",
+                uploader_id: this.props.currentUser.id, 
+                imageFile: null,
+                imageUrl: null,
+            }
             // this.state = this.props.photo;
 
             //  this.state = {
-            //     photo: this.props.photo,
+            //    photo: this.props.photo,
+
             // }
             //  this.handleChange = this.handleChange.bind(this)
              this.formSubmission = this.formSubmission.bind(this);
@@ -29,9 +39,9 @@ class PhotoEditForm extends React.Component {
     // console.log(photo);
 
       let arr = this.props.location.pathname.split("/");
-      console.log(arr);
+      // console.log(arr);
       let photoArrItem = arr[arr.length -2];
-      console.log(photoArrItem);
+      console.log(this.state);
 
       this.props.fetchPhoto(photoArrItem);
   }
@@ -53,12 +63,22 @@ class PhotoEditForm extends React.Component {
   }
 
     handleInput(field){
-        // console.log(field.currentTarget.value)
+        // console.log(field.currentTarget.value);
+        // console.log(this.state.title);
+
         // return (e) => this.setState({ [field]: e.currentTarget.value })
+        //    return e => { 
+        //     let photo = this.state.photo;
+        //     photo[field] = e.target.value;
+        //     this.setState( { photo })
+        // }
     }
 
   formSubmission(e){
-       
+        e.preventDefault();
+      console.log(this.state.title);
+      console.log(this.state);
+      console.log('wish we could just submit it like so')
 
   }
 
@@ -67,11 +87,53 @@ class PhotoEditForm extends React.Component {
     }
 
   render() {
+      console.log(this.props.photo)
+        if (!this.props.photo) return null;
 
 
     return (
       <div>
           <h1>Hello from Photo EDIT Form!</h1>
+           <form onSubmit={this.formSubmission}>
+            <div>
+                <label> Photo Title:
+                        <input type="text"
+                            id="upload-photo-input-box"
+                            placeholder={this.props.photo.title}
+                            value={this.state.title} 
+                            onChange={e => this.setState({ title: e.target.value })}
+                        />
+                </label>
+            </div>
+
+            {/* <div>
+                <label> Photo File Upload:
+                
+              </label>
+                <input type="file" 
+                    id="photoFile"
+                    accept="image/png, image/jpeg"
+                    onChange={this.handleImagePreview}
+                    
+                    />
+                    <img
+                    src={this.props.photo.imageUrl}
+                    />
+            </div> */}
+              
+
+            <div>
+                <label> Photo Details:
+                    <input type="text"
+                        id="upload-photo-input-box"
+                        placeholder={this.props.photo.description}
+                     value={this.state.description} 
+                    onChange={e => this.setState({ description: e.target.value })}
+                    />
+              </label>
+            </div>
+            <input className="login-submit" type="submit" value="Update Photo" />
+          </form>
       </div>
     );
   }
