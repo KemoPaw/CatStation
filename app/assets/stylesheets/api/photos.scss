@@ -61,7 +61,8 @@
 
 .photo-show-remove {
   // font-family: 'Commissioner', sans-serif;
-  background-color: rgb(225, 33, 47);
+  // background-color: rgb(225, 33, 47);
+  background-color: #f44336;
   color: white;
   border-radius: 5px;
   padding: 5px;
@@ -69,6 +70,14 @@
   cursor: pointer;
   border: none;
   margin: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  // transition-duration: 0.4s;
+}
+
+.photo-show-remove:hover {
+  background-color: rgb(225, 33, 47);
+
 }
 
 .photo-show-remove-div {
@@ -76,6 +85,38 @@
   margin: 10px;
   display: none;
 }
+
+.photo-show-edit {
+  // font-family: 'Commissioner', sans-serif;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  // height: 10px;
+  cursor: pointer;
+  border: none;
+  margin: 10px;
+  font-family: 'Commissioner', sans-serif;
+  font-size: 15px;
+  // transition-duration: 0.4s;
+  // font-weight: lighter;
+
+}
+
+.photo-show-edit:hover {
+  background-color: #43a147;
+}
+
+// .photo-show-edit > * {
+//   text-decoration: none;
+// }
+
+.photo-show-edit-div {
+  padding: 5px;
+  margin: 10px;
+  display: none;
+}
+
 
 .photo-show-title{
   margin: 10px;

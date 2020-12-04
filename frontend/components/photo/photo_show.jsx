@@ -17,9 +17,6 @@ class PhotoShow extends React.Component{
         // this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-
-
-
     }
 
     componentDidMount(){
@@ -113,7 +110,7 @@ class PhotoShow extends React.Component{
                 })}
             </ul>
 
-        const makeComment = (!this.props.currentUser) ? <h1>PLEASE SING IN </h1> : 
+        const makeComment = (!this.props.currentUser) ? <h1> PLEASE SIGN IN </h1> : 
             <form className="comment-create-form">
                 <textarea  placeholder="Write a comment ..." className="comment-textarea" value={this.state.body} onChange={this.handleInput("body")} />
                 <button className="comment-submit" onClick={this.handleCommentSubmit}>Submit</button>
@@ -125,13 +122,15 @@ class PhotoShow extends React.Component{
         let delButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
         // let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={`/photos/${this.props.photo.id}/edit`}>Edit Photo </Link> : <div className="photo-show-remove-div"></div>
          let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? 
-         <Link to={{
+         <Link className="photo-show-edit" 
+         style={{ textDecoration: 'none' }}
+         to={{
         pathname: `/photos/${this.props.photo.id}/edit`,
         state: {
             photo: true
         }
         }}>Edit Photo </Link>
-        : <div className="photo-show-remove-div"></div>
+        : <div className="photo-show-edit-div"></div>
 
 
 
