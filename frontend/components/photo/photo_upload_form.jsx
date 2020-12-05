@@ -95,8 +95,9 @@ class PhotoUploadForm extends React.Component {
 
 
     return (
-      <div>
+      <div className="photo-upload-div">
           <h1>Hello from Photo upload Form!</h1>
+          <h1 >{this.state.title}</h1>
           <form onSubmit={this.formSubmission}>
             <div>
                 <label> Photo Title:
