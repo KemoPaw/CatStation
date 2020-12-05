@@ -96,17 +96,18 @@ class PhotoUploadForm extends React.Component {
 
     return (
       <div className="photo-upload-div">
-          <h1>Hello from Photo upload Form!</h1>
-          <h1 >{this.state.title}</h1>
+          <h1>Upload a new Photo</h1>
+          <h1 className="photo-upload-h1-title">{this.state.title}</h1>
           <form onSubmit={this.formSubmission}>
-            <div>
-                <label> Photo Title:
+
+            <div className="photo-upload-input-title">
+                <label className="photo-upload-title-label"> Photo Title </label>
                         <input type="text"
                             id="upload-photo-input-box"
                             value={this.state.title} 
                             onChange={this.handleInput("title")}
                         />
-                </label>
+                
             </div>
 
             <div>
