@@ -29,19 +29,29 @@
   // width: 600px;
 
   display: block;
+  // width: 800px;
+    flex-basis: 100%;
+    min-width: 0;
   // position: relative 
     // max-width: 100%;
     // height: auto;
     // background-color: blue;
+background-color: black;
+     align-items: center;
+  justify-content: center;
+  padding: 10px;
+
 
 }
 
 .photo-show-img > img {
-  display: flex;
+  // display: flex;
+  height: auto;
+// background-color: black;
+  width: 900px;
+  vertical-align: middle;
+  // display: flex;
 
-  width: 800px;
-  //    align-items: center;
-  // justify-content: center;
 
 
 }
@@ -56,6 +66,27 @@
   flex-direction: column;
   text-align: center;
   width: 50%;
+
+}
+
+.photo-show-close-div > * {
+  color: gray;
+}
+
+.photo-show-close-div:hover > * {
+  color:white;
+  cursor: pointer;
+}
+
+.photo-show-close-div  {
+  margin: 10px auto;
+  height: 15px;
+  width: 15px;;
+  // display: block;
+  // padding: 5px;
+  // margin: 1px;
+  // justify-content: flex-end;
+   display: flex; 
 
 }
 

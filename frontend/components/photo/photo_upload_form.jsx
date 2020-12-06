@@ -113,7 +113,7 @@ class PhotoUploadForm extends React.Component {
             </div>
 
             <div className="photo-upload-input-upload" >
-                <label> Photo File Upload </label>
+                {/* <label> Photo File Upload </label> */}
                 <div className="photo-uplaod-div">
                   <input type="file" 
                     id="photoFile"
