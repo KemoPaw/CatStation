@@ -8,14 +8,23 @@
     color: white;
     border-top: rgb(31, 31, 31) 3px solid;
     padding: 5px;
-    height: 100vh;
+    height: 110vh;
+}
+
+.photo-upload-title {
+    // margin: 15px;
+    color: #bbb;
+    font-weight: lighter;
+    padding: 15px;
+
 }
 
 .photo-upload-h1-title {
     height: 25px;
     // padding: 20px 5px;
-    margin: 20px 5px;
+    margin: 0px 5px;
     font-size: 30px;
+    padding: 15px;
 }
 
 .photo-upload-input-title {
@@ -26,6 +35,43 @@
     flex-direction: column;
 }
 
+
+.photo-upload-input-upload {
+    background-color: transparent;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+.photo-uplaod-div {
+    // background-color: cyan;
+    border: #333 2px dashed;
+    border-radius: 7px;
+
+    padding: 15px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    height: 350px;
+    // width: 100%;
+    // flex-direction: column;
+
+}
+
+#photo-upload-preview-img {
+    // max-height: 150px;
+    // max-width: auto;
+    padding: 5px;
+    max-height: 300px;
+    max-width: 300px;
+    height: auto;
+    width: auto;
+
+    // position: relative;
+}
+
+
 .photo-upload-title-label {
     // background-color: blue;
     color: #bbb;
@@ -35,6 +81,7 @@
     align-items: center;
     font-weight: lighter;
 }
+
 .photo-upload-input-div {
     background-color: #222222;
     // margin: 10px;
@@ -46,7 +93,6 @@
 }
 
 #upload-photo-input-box {
-
     width: 100%;
     color: white;
     // border-style: none;
@@ -55,4 +101,34 @@
     background-color: #171717;
     border: 1px solid #333;
     // background-color: red;
+}
+
+#upload-photo-input-box {
+    width: 100%;
+    color: white;
+    // border-style: none;
+    height: 30px;
+    resize: none;
+    background-color: #171717;
+    border: 1px solid #333;
+    // background-color: red;
+}
+
+.photo-upload-submit {
+    padding: 5px;
+    margin: 5px 10px;
+    background-color: rgb(34, 34, 34);
+    border-color:dimgray;
+    border-width: thin;
+    border-style: solid;
+    border-radius: 2.5px;
+    color: rgb(206, 206, 206);
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.photo-upload-submit:hover {
+    background-color: black;
+    color: white;
 }

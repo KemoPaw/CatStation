@@ -96,7 +96,7 @@ class PhotoUploadForm extends React.Component {
 
     return (
       <div className="photo-upload-div">
-          <h1>Upload a New Photo</h1>
+          <h1 className="photo-upload-title">Upload a New Photo</h1>
           <h1 className="photo-upload-h1-title">{this.state.title}</h1>
           <form onSubmit={this.formSubmission}>
 
@@ -112,19 +112,21 @@ class PhotoUploadForm extends React.Component {
                 
             </div>
 
-            <div>
-                <label> Photo File Upload:
-                
-              </label>
-                <input type="file" 
+            <div className="photo-upload-input-upload" >
+                <label> Photo File Upload </label>
+                <div className="photo-uplaod-div">
+                  <input type="file" 
                     id="photoFile"
                     accept="image/png, image/jpeg"
                     onChange={this.handleImagePreview}
                     
                     />
                     <img
+                    id="photo-upload-preview-img"
                     src={this.state.imageUrl}
                     />
+                </div>
+                
             </div>
               
 
@@ -132,14 +134,14 @@ class PhotoUploadForm extends React.Component {
                 <label className="photo-upload-title-label"> Photo Details</label>
                   <div className="photo-upload-input-div">
                       <input type="text"
-                          id="upload-photo-input-box"
+                        id="upload-photo-input-box"
                       value={this.state.description} 
                       onChange={this.handleInput("description")}
                       />
                   </div>
              
             </div>
-            <input className="login-submit" type="submit" value="Upload Photo" />
+            <input className="photo-upload-submit" type="submit" value="Upload Photo" />
           </form>
       </div>
     );
