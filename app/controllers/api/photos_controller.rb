@@ -18,7 +18,9 @@ class Api::PhotosController < ApplicationController
             # render json: ['photo uploaded?']
             
         else
-            render json: @photo.errors.full_messages, status: 401 #ajax call not resolve
+             render json: ['Please fill out all of the fields'], status: 400
+            # render json: @photo.errors.full_messages, status: 401
+             #ajax call not resolve
         end
     end
 

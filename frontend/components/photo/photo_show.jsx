@@ -113,7 +113,7 @@ class PhotoShow extends React.Component{
         const makeComment = (!this.props.currentUser) ? <h1> PLEASE SIGN IN </h1> : 
             <form className="comment-create-form">
                 <textarea  placeholder="Write a comment ..." className="comment-textarea" value={this.state.body} onChange={this.handleInput("body")} />
-                <button className="comment-submit" onClick={this.handleCommentSubmit}>Submit</button>
+                <button className="comment-submit" onClick={this.handleCommentSubmit}>Submit Comment</button>
             </form>;
 
         // let delButton = ((this.props.photo.uploader_id === this.props.currentUser.id) && (this.props.currentUser.id !== undefined)) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
