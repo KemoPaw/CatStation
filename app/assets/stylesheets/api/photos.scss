@@ -40,6 +40,8 @@ background-color: black;
      align-items: center;
   justify-content: center;
   padding: 10px;
+  overflow: scroll;
+
 
 
 }
@@ -66,6 +68,7 @@ background-color: black;
   flex-direction: column;
   text-align: center;
   width: 50%;
+  overflow: scroll;
 
 }
 

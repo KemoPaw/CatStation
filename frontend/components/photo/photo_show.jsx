@@ -143,11 +143,11 @@ class PhotoShow extends React.Component{
 
 
                 <div className="photo-show-content">
-                    <div className="photo-show-close-div">
+                    {/* <div className="photo-show-close-div">
                         <Link to="/photos">
                             <i class="fas fa-times-circle"></i>
                         </Link>
-                    </div>
+                    </div> */}
                     <h1 className="photo-show-title">{this.props.photo.title}</h1>
                     <h1 className="photo-show-title">{finalUsername}</h1>
                     {/* <h1 className="photo-show-title">{this.props.users}</h1> */}
