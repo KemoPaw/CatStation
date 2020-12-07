@@ -112,47 +112,51 @@ class PhotoEditForm extends React.Component {
 
 
     return (
-      <div>
-          <h1>Hello from Photo EDIT Form!</h1>
+      <div className="photo-upload-div">
+          <h1 className="photo-upload-title">Edit Your Photo</h1>
+          {/* <h1 className="photo-upload-h1-title">{this.state.title}</h1> */}
            <form onSubmit={this.formSubmission}>
-            <div>
-                <label> Photo Title:
+            <div className="photo-upload-input-title">
+                <label className="photo-upload-title-label"> Photo Title </label>
                         <input type="text"
                             id="upload-photo-input-box"
                             placeholder={this.props.photo.title}
                             value={this.state.title} 
                             onChange={e => this.setState({ title: e.target.value })}
                         />
-                </label>
+               
             </div>
 
-            <div>
-                <label> Photo File Upload:
-                
-              </label>
-                <input type="file" 
-                    id="photoFile"
-                    accept="image/png, image/jpeg"
-                    onChange={this.handleImagePreview}
-                    
-                    />
-                    <img
-                    src={this.props.photo.imageUrl}
-                    />
+            <div className="photo-upload-input-upload">
+                {/* <label> Photo File Upload: </label> */}
+                <div className="photo-uplaod-div">
+                    <input type="file" 
+                        id="photoFile"
+                        accept="image/png, image/jpeg"
+                        onChange={this.handleImagePreview}
+                        
+                        />
+                        <img
+                        id="photo-upload-preview-img"
+                        src={this.props.photo.imageUrl}
+                        />
+                </div>
             </div>
               
 
-            <div>
-                <label> Photo Details:
+           <div className="photo-upload-input-title">
+                <label className="photo-upload-title-label"> Photo Details </label>
+                 <div className="photo-upload-input-div">
                     <input type="text"
                         id="upload-photo-input-box"
                         placeholder={this.props.photo.description}
                      value={this.state.description} 
                     onChange={e => this.setState({ description: e.target.value })}
                     />
-              </label>
+                 </div>
+             
             </div>
-            <input className="login-submit" type="submit" value="Update Photo" />
+            <input className="photo-upload-submit" type="submit" value="Update Photo" />
           </form>
       </div>
     );
