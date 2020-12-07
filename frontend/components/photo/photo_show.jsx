@@ -20,6 +20,7 @@ class PhotoShow extends React.Component{
     }
 
     componentDidMount(){
+        window.scrollTo(0, 0);
         // this.props.fetchPhoto(this.props.photo.id);
         let arr = this.props.location.pathname.split("/");
         // console.log(arr);
