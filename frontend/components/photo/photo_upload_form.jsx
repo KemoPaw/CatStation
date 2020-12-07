@@ -178,7 +178,7 @@ const mapStateToProps = (state, ownProps) => {
     //   users: state.entities.users,
         // photo: { title: "", description: "", uploader_id: state.session.id, imageFile: null}, 
       currentUser: state.entities.users[state.session.id],
-      errors: state.errors.session,
+      // errors: state.errors.session,
 
     };
 };
@@ -186,7 +186,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         createPhoto: photo => dispatch(createPhoto(photo)),
-        clearErrors: () => dispatch(clearErrors()),
+        // clearErrors: () => dispatch(clearErrors()),
     };
 };
 

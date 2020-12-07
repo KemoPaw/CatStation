@@ -10,7 +10,7 @@ class PhotoShow extends React.Component{
         this.state = {
             body: "",
             user_id: this.props.currentUser.id,
-            // photo_id: this.props.photo.id,
+            photo_id: this.props.photo.id,
         }
         this.removePhoto = this.removePhoto.bind(this);
         this.userIdToUsername = this.userIdToUsername.bind(this);
@@ -20,6 +20,8 @@ class PhotoShow extends React.Component{
     }
 
     componentDidMount(){
+        // console.log(this.state);
+
         window.scrollTo(0, 0);
         // this.props.fetchPhoto(this.props.photo.id);
         let arr = this.props.location.pathname.split("/");
@@ -102,11 +104,11 @@ class PhotoShow extends React.Component{
         // let finalUsername = persistUsername;
         // console.log(uploaderUsername);
 
-        const allComments = (!this.props.photo.comments) ? <h1>there r no comments , shame</h1> : 
+        const allComments = (!this.props.photo.comments) ? <h1>no comments avalible</h1> : 
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
                     return(
-                        <li key={idx}>{ele.body}</li>
+                        <li key={idx} className="photo-show-comment-item">{ele.body}</li>
                     )
                 })}
             </ul>

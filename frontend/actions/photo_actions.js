@@ -44,8 +44,8 @@ export const fetchPhoto = (photoId) => dispatch => {
 
 export const createPhoto = photo => dispatch => {
     return (APIUtil.createPhoto(photo))
-        .then(photo => dispatch(receivePhoto(photo))),
-        err => dispatch(receiveErrors(err.responseJSON))
+        .then(photo => dispatch(receivePhoto(photo)))
+        // err => dispatch(receiveErrors(err.responseJSON))
 };
 
 export const updatePhoto = photo => dispatch => {
