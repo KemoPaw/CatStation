@@ -107,8 +107,13 @@ class PhotoShow extends React.Component{
         const allComments = (!this.props.photo.comments) ? <h1>no comments avalible</h1> : 
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
+                    let commentUsername = this.userIdToUsername(ele.user_id);
                     return(
-                        <li key={idx} className="photo-show-comment-item">{ele.body}</li>
+                        <li key={idx} className="photo-show-comment-item">
+                            {ele.body}
+                            <br/>
+                            by: {commentUsername}
+                        </li>
                     )
                 })}
             </ul>
