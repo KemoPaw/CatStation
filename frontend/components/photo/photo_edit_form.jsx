@@ -37,7 +37,12 @@ class PhotoEditForm extends React.Component {
       let photoArrItem = arr[arr.length -2];
       // console.log(this.state);
 
-      this.props.fetchPhoto(photoArrItem);
+      this.props.fetchPhoto(photoArrItem)
+      .then(this.setState({title: this.props.photo.title}))
+      .then(this.setState({description: this.props.photo.description}))
+      .then(this.setState({imageUrl: this.props.photo.imageUrl}))
+
+
   }
 
    handleImagePreview(e) {

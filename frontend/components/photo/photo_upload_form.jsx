@@ -105,7 +105,7 @@ class PhotoUploadForm extends React.Component {
 
     renderErrors() {
       return(
-        <ul className="signup-errors">
+        <ul className="photo-upload-errors">
           {this.props.errors.map((error, i) => (
             <li key={`error-${i}`}>
               {error}
@@ -117,7 +117,7 @@ class PhotoUploadForm extends React.Component {
 
 
   render() {
-    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div className="signup-no-errors"></div>
+    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div className="photo-upload-no-errors"></div>
     // console.log(this.props.errors);
 
     return (

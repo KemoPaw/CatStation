@@ -1,5 +1,7 @@
 #upload-photo-input-box {
-    color: black;
+    color: white;
+    background-color: rgb(23, 23, 23);
+
 }
 
 .photo-upload-div {
@@ -131,4 +133,19 @@
 .photo-upload-submit:hover {
     background-color: black;
     color: white;
+}
+
+
+.photo-upload-errors {
+    color:rgb(174, 82, 82);
+    // padding-top: 10px; 
+    display: block;
+    height: 20px;
+}
+
+.photo-upload-no-errors{
+    color:rgb(174, 82, 82);
+    // padding-top: 10px; 
+    display: block;
+    height: 20px;
 }
