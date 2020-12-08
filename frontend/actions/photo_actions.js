@@ -5,6 +5,7 @@ import * as APIUtil from "../util/photo_api_util";
 export const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
+export const RECEIVE_PHOTO_ERRORS = "RECEIVE_PHOTO_ERRORS";
 
 
 
@@ -30,6 +31,13 @@ export const removePhoto = (photoId) => {
     })
 }
 
+export const receiveErrors = (errors) => {
+    return ({
+        type: RECEIVE_PHOTO_ERRORS,
+        errors
+    });
+}
+
 export const fetchPhotos = () => dispatch => {
     return (APIUtil.fetchPhotos())
         .then(photos => dispatch(receivePhotos(photos)))
@@ -45,7 +53,7 @@ export const fetchPhoto = (photoId) => dispatch => {
 export const createPhoto = photo => dispatch => {
     return (APIUtil.createPhoto(photo))
         .then(photo => dispatch(receivePhoto(photo)))
-        // err => dispatch(receiveErrors(err.responseJSON))
+        .fail(err => dispatch(receiveErrors(err.responseJSON)))
 };
 
 export const updatePhoto = photo => dispatch => {

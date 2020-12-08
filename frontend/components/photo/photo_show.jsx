@@ -9,10 +9,11 @@ class PhotoShow extends React.Component{
         super(props);
         this.state = {
             body: "",
-            user_id: this.props.currentUser.id,
-            photo_id: this.props.photo.id,
+            // user_id: this.props.currentUser.id,
+            photo_id: "",
         }
         this.removePhoto = this.removePhoto.bind(this);
+        this.removeComment = this.removeComment.bind(this);
         this.userIdToUsername = this.userIdToUsername.bind(this);
         // this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -25,10 +26,14 @@ class PhotoShow extends React.Component{
         window.scrollTo(0, 0);
         // this.props.fetchPhoto(this.props.photo.id);
         let arr = this.props.location.pathname.split("/");
-        // console.log(arr);
         let photoArrItem = arr[arr.length -1];
-
-        this.props.fetchPhoto(photoArrItem);
+        // console.log(photoArrItem);
+        this.props.fetchUsers();
+        this.props.fetchPhoto(photoArrItem)
+        .then(() => {
+            this.setState({photo_id: photoArrItem})
+        })
+        // console.log(photoArrItem);
 
         // console.log(this.state);
 
@@ -51,6 +56,11 @@ class PhotoShow extends React.Component{
        
     }
 
+    removeComment(){
+        console.log("Hello from comment Remove!");
+
+    }
+
     // editPhoto(){
     //     // console.log('wish we could just edit a photo like this :( ');
     //     this.props.history.push(`/edit/`);
@@ -65,8 +75,6 @@ class PhotoShow extends React.Component{
                 username = this.props.users[ele.id].username;
             }
         })
-
-
         return username;
     }
 
@@ -108,9 +116,11 @@ class PhotoShow extends React.Component{
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
                     let commentUsername = this.userIdToUsername(ele.user_id);
+                    let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment()}><i className="fas fa-trash"></i></button> : <p>not your comment</p>
                     return(
                         <li key={idx} className="photo-show-comment-item">
-                            {ele.body}
+                            {ele.body} 
+                            {commentDeleteBtn}
                             <br/>
                             by: {commentUsername}
                         </li>
@@ -118,7 +128,7 @@ class PhotoShow extends React.Component{
                 })}
             </ul>
 
-        const makeComment = (!this.props.currentUser) ? <h1> PLEASE SIGN IN </h1> : 
+        const makeComment = (!this.props.currentUser) ? <h1></h1> : 
             <form className="comment-create-form">
                 <textarea  placeholder="Write a comment ..." className="comment-textarea" value={this.state.body} onChange={this.handleInput("body")} />
                 <button className="comment-submit" onClick={this.handleCommentSubmit}>Submit Comment</button>

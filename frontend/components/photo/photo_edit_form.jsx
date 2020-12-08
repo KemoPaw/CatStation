@@ -35,7 +35,7 @@ class PhotoEditForm extends React.Component {
       let arr = this.props.location.pathname.split("/");
       // console.log(arr);
       let photoArrItem = arr[arr.length -2];
-      console.log(this.state);
+      // console.log(this.state);
 
       this.props.fetchPhoto(photoArrItem);
   }

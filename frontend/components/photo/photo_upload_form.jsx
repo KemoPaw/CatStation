@@ -23,13 +23,14 @@ class PhotoUploadForm extends React.Component {
              this.handleInput = this.handleInput.bind(this);
             this.handleImagePreview = this.handleImagePreview.bind(this);
             this.uponSubmitRedirect = this.uponSubmitRedirect.bind(this);
-            // this.renderErrors = this.renderErrors.bind(this);
+            this.renderErrors = this.renderErrors.bind(this);
           
        }
        
 
   componentDidMount() {
       // console.log(this.state.errors);
+      // console.log(this.state);
     // this.props.clearErrors();
   }
 
@@ -94,6 +95,7 @@ class PhotoUploadForm extends React.Component {
         .then(res => {
                     this.uponSubmitRedirect(res)
         })
+        // .fail(() => {console.log(this.props.errors)})
 
   }
 
@@ -101,21 +103,22 @@ class PhotoUploadForm extends React.Component {
         this.props.history.push(`/photos/${res.photo.id}`)
     }
 
-  //   renderErrors() {
-  //     return(
-  //       <ul className="signup-errors">
-  //         {this.props.errors.map((error, i) => (
-  //           <li key={`error-${i}`}>
-  //             {error}
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     );
-  // }
+    renderErrors() {
+      return(
+        <ul className="signup-errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+  }
 
 
   render() {
-    // let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div className="signup-no-errors"></div>
+    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div className="signup-no-errors"></div>
+    // console.log(this.props.errors);
 
     return (
       <div className="photo-upload-div">
@@ -164,7 +167,7 @@ class PhotoUploadForm extends React.Component {
                   </div>
              
             </div>
-             {/* {errors} */}
+             {errors}
             <input className="photo-upload-submit" type="submit" value="Upload Photo" />
           </form>
       </div>
@@ -178,7 +181,7 @@ const mapStateToProps = (state, ownProps) => {
     //   users: state.entities.users,
         // photo: { title: "", description: "", uploader_id: state.session.id, imageFile: null}, 
       currentUser: state.entities.users[state.session.id],
-      // errors: state.errors.session,
+      errors: state.entities.photos,
 
     };
 };

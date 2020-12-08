@@ -1,4 +1,4 @@
-import { RECEIVE_PHOTOS, RECEIVE_PHOTO, REMOVE_PHOTO} from "../actions/photo_actions";
+import { RECEIVE_PHOTOS, RECEIVE_PHOTO, REMOVE_PHOTO, RECEIVE_PHOTO_ERRORS} from "../actions/photo_actions";
 
 
 const photosReducer = (state = {}, action) => {
@@ -15,6 +15,8 @@ const photosReducer = (state = {}, action) => {
             let nextState = Object.assign({}, state)
             delete nextState[action.photoId]
             return nextState;
+        case RECEIVE_PHOTO_ERRORS:
+            return action.errors;
         default:
             return state;
     }

@@ -19,15 +19,25 @@ class Api::CommentsController < ApplicationController
         end
     end
 
+    # def destroy
+    #     @comment = Comment.find(params[:id])
+
+    #     if @comment && @comment.delete
+    #         render "api/photos/show"
+    #     else
+    #         render json: ["Comment not found"], status: 404
+    #     end
+    # end
+
     def destroy
         @comment = Comment.find(params[:id])
+        tempId = @comment.photo_id
+        @comment.destroy
+        @photo = Photo.find(tempId)
+        render "api/photos/show"
 
-        if @comment && @comment.delete
-            render "api/photos/show"
-        else
-            render json: ["Comment not found"], status: 404
-        end
-    end
+        # render :delete
+     end
 
     private
 
