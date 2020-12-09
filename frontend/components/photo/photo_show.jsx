@@ -21,8 +21,6 @@ class PhotoShow extends React.Component{
     }
 
     componentDidMount(){
-        // console.log(this.state);
-
         window.scrollTo(0, 0);
         // this.props.fetchPhoto(this.props.photo.id);
         let arr = this.props.location.pathname.split("/");
@@ -33,6 +31,10 @@ class PhotoShow extends React.Component{
         .then(() => {
             this.setState({photo_id: photoArrItem})
         })
+        .then(() => {
+            this.setState({photo_id: this.props.currentUser.id})
+        })
+
         // console.log(photoArrItem);
 
         // console.log(this.state);
@@ -56,15 +58,11 @@ class PhotoShow extends React.Component{
        
     }
 
-    removeComment(){
-        console.log("Hello from comment Remove!");
-
+    removeComment(ele){
+        // console.log(ele.id);
+        this.props.deleteComment(ele.id)
+        .then(window.location.reload())
     }
-
-    // editPhoto(){
-    //     // console.log('wish we could just edit a photo like this :( ');
-    //     this.props.history.push(`/edit/`);
-    // }
 
     userIdToUsername(userId){
         let username = "";
@@ -82,7 +80,9 @@ class PhotoShow extends React.Component{
     handleCommentSubmit(e) {
         e.preventDefault();
         // debugger
-        this.props.createComment(Object.assign ({}, this.state)).then(() => this.setState({body : "" }));
+        this.props.createComment(Object.assign ({}, this.state))
+        .then(() => this.setState({body : "" }))
+        .then(window.location.reload());
     }
     // handleCommentChange(){
     //     return e => this.setState({body: e.currentTarget.value});
@@ -116,7 +116,7 @@ class PhotoShow extends React.Component{
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
                     let commentUsername = this.userIdToUsername(ele.user_id);
-                    let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment()}><i className="fas fa-trash"></i></button> : <p></p>
+                    let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
                     return(
                         <li key={idx} className="photo-show-comment-item">
                             {ele.body} 
