@@ -116,7 +116,7 @@ class PhotoShow extends React.Component{
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
                     let commentUsername = this.userIdToUsername(ele.user_id);
-                    let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment()}><i className="fas fa-trash"></i></button> : <p>not your comment</p>
+                    let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment()}><i className="fas fa-trash"></i></button> : <p></p>
                     return(
                         <li key={idx} className="photo-show-comment-item">
                             {ele.body} 
