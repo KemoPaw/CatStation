@@ -37,6 +37,8 @@ class PhotoEditForm extends React.Component {
       let photoArrItem = arr[arr.length -2];
       // console.log(this.state);
 
+      // console.log(this.state)
+
       this.props.fetchPhoto(photoArrItem)
       .then(this.setState({title: this.props.photo.title}))
       .then(this.setState({description: this.props.photo.description}))
@@ -96,9 +98,9 @@ class PhotoEditForm extends React.Component {
         } 
 
         // console.log(this.state);
-        for (var key of formData.entries()) {
-        console.log(key[0] + ', ' + key[1]);
-        }
+        // for (var key of formData.entries()) {
+        // console.log(key[0] + ', ' + key[1]);
+        // }
 
         this.props.updatePhoto(formData)
         .then(res => {
@@ -112,7 +114,7 @@ class PhotoEditForm extends React.Component {
     }
 
   render() {
-      console.log(this.props.photo)
+      // console.log(this.props.photo)
         if (!this.props.photo) return null;
 
 
@@ -143,7 +145,7 @@ class PhotoEditForm extends React.Component {
                         />
                         <img
                         id="photo-upload-preview-img"
-                        src={this.props.photo.imageUrl}
+                        src={this.state.imageUrl}
                         />
                 </div>
             </div>
