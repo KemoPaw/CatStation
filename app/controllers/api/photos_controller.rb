@@ -13,7 +13,7 @@ class Api::PhotosController < ApplicationController
 
     def create
         @photo = Photo.new(photo_params)
-        if @photo.save
+        if @photo.save && @photo.image.attached?
             render "api/photos/show" #automatically checks under the views folder
             # render json: ['photo uploaded?']
             

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
       resources :photos
       resources :users, only: [:create, :index, :show]
-      resources :comments, only: [:create, :update, :destroy]
+      resources :comments, only: [:index, :create, :update, :destroy]
       resource :session, only: [:new, :create, :destroy]
   end
   #look for root method in the static pages controller

@@ -1,9 +1,10 @@
 class Api::CommentsController < ApplicationController
 
-    # def index 
-    #     @comments = Comment.all
-    #     render "api/photos/index"
-    # end
+    def index 
+        @comments = Comment.all
+        render "api/comments/index"
+
+    end
 
     def create
         # debugger

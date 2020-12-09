@@ -117,7 +117,7 @@ class PhotoUploadForm extends React.Component {
 
 
   render() {
-    let errors = (this.props.errors.length > 0) ? this.renderErrors() : <div className="photo-upload-no-errors"></div>
+    let errors = ((this.state.imageFile === null) && (this.props.errors.length > 0)) ? this.renderErrors() : <div className="photo-upload-no-errors"></div>
     // console.log(this.props.errors);
 
     return (
