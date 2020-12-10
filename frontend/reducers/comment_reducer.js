@@ -6,12 +6,12 @@ const commentsReducer = (state = {}, action) => {
 
     switch (action.type) {
  
-        case RECEIVE_COMMENT:
-            return { [action.comment.id]: action.comment }
-        case REMOVE_COMMENT:
-            let nextState = Object.assign({}, state)
-            delete nextState[action.commentId]
-            return nextState;
+        // case RECEIVE_COMMENT:
+        //     return { [action.comment.id]: action.comment}
+        // case REMOVE_COMMENT:
+        //     let nextState = Object.assign({}, state)
+        //     delete nextState[action.commentId]
+        //     return nextState;
         // case RECEIVE_PHOTO: 
         //     return action.photo.comments
         default:

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PhotoEditForm from './photo_edit_form';
+// import CommentEditForm from './comment_edit_form';
 
 
 
@@ -11,13 +12,17 @@ class PhotoShow extends React.Component{
             body: "",
             // user_id: this.props.currentUser.id,
             photo_id: "",
+            // editClicked: false,
+            // currentCommentId: null,
         }
         this.removePhoto = this.removePhoto.bind(this);
+        this.reviseComment = this.reviseComment.bind(this);
         this.removeComment = this.removeComment.bind(this);
         this.userIdToUsername = this.userIdToUsername.bind(this);
         // this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+        // this.handleEditCommentSubmit = this.handleEditCommentSubmit.bind(this);
     }
 
     componentDidMount(){
@@ -32,13 +37,8 @@ class PhotoShow extends React.Component{
             this.setState({photo_id: photoArrItem})
         })
         .then(() => {
-            this.setState({photo_id: this.props.currentUser.id})
+            this.setState({user_id: this.props.currentUser.id})
         })
-
-        // console.log(photoArrItem);
-
-        // console.log(this.state);
-
     }
 
     componentWillUnmount(){
@@ -46,22 +46,35 @@ class PhotoShow extends React.Component{
     }
 
     removePhoto(){
-        // console.log(this.props.photo.uploader_id);
-        // let checkArr = Object.values(this.props.users).map((user) => user.id);
-        // console.log(this.props.currentUser);
-
-        // console.log(this.props.currentUser.id);
        
         this.props.deletePhoto(this.props.photo.id).then(() => {
         this.props.history.push(`/photos`)});
-       
-       
     }
 
     removeComment(ele){
-        // console.log(ele.id);
         this.props.deleteComment(ele.id)
-        .then(window.location.reload())
+    }
+
+    reviseComment(ele){
+        // this.setState({editClicked : true, currentCommentId : ele.id}); 
+        // let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button>;
+        // let commentEditForm = <form>
+        //     <input type="text" placeholder={ele.body}> </input>  
+        //     {commentSaveBtn}
+        //     </form>;
+
+        document.getElementById(ele.id).innerHTML = '<input type="text">  </input>';
+        // '<form> <input type="text" placeholder={ele.body}> </input> <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button> </form>';
+        // console.log(commentSaveBtn);
+        
+        console.log(ele);
+        // console.log(ele.id);
+      
+     
+    }
+
+    handleEditCommentSubmit(){
+        console.log("Hello! from this.handleEditCommentSubmit");
     }
 
     userIdToUsername(userId){
@@ -79,16 +92,15 @@ class PhotoShow extends React.Component{
 
     handleCommentSubmit(e) {
         e.preventDefault();
-        // debugger
-        this.props.createComment(Object.assign ({}, this.state))
-        .then(() => this.setState({body : "" }))
-        .then(window.location.reload());
-    }
-    // handleCommentChange(){
-    //     return e => this.setState({body: e.currentTarget.value});
-    // }
+  
 
-      handleInput(field){
+        this.props.createComment(Object.assign({}, this.state))
+        .then(() => this.setState({body : "" }))
+        // .then(window.location.reload());
+    }
+
+
+    handleInput(field){
         // console.log(field.currentTarget.value)
         // debugger
 
@@ -102,24 +114,22 @@ class PhotoShow extends React.Component{
         if (uploaderUsername !== "") localStorage.setItem('username', uploaderUsername);
         if (uploaderUsername === "") localStorage.getItem('username');
 
+
         let finalUsername = (!uploaderUsername === "") ? uploaderUsername : localStorage.getItem('username');
-        // console.log(finalUsername);
-        // let tester = (uploaderUsername === "") ? "nada" : "yes yes";
-        // console.log(tester);
-        // console.log(typeof uploaderUsername);
 
-        // let persistUsername = (uploaderUsername === "") ? localStorage.getItem('username') : localStorage.setItem('username', uploaderUsername);
-        // let finalUsername = persistUsername;
-        // console.log(uploaderUsername);
 
-        const allComments = (!this.props.photo.comments) ? <h1>no comments avalible</h1> : 
+        const allComments = (!this.props.photo.comments) ? <h1></h1> : 
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
                     let commentUsername = this.userIdToUsername(ele.user_id);
                     let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
+                    let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.reviseComment(ele)}><i className="fas fa-edit"></i></button> : <p></p>
+
+
                     return(
-                        <li key={idx} className="photo-show-comment-item">
-                            {ele.body} 
+                        <li  key={idx} className="photo-show-comment-item">
+                            <p id={ele.id}>{ele.body}</p>
+                            {commentUpdateBtn}
                             {commentDeleteBtn}
                             <br/>
                             by: {commentUsername}
