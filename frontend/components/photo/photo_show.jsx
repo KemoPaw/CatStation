@@ -22,7 +22,7 @@ class PhotoShow extends React.Component{
         // this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-        // this.handleEditCommentSubmit = this.handleEditCommentSubmit.bind(this);
+        this.handleEditCommentSubmit = this.handleEditCommentSubmit.bind(this);
     }
 
     componentDidMount(){
@@ -63,18 +63,32 @@ class PhotoShow extends React.Component{
         //     {commentSaveBtn}
         //     </form>;
 
-        document.getElementById(ele.id).innerHTML = '<input type="text">  </input>';
+        // this.setState({body: ele.body}) // new state should overwrite the ajax call
+
+        // document.getElementById(ele.id).innerHTML = "<input id=`${ele.id}` type='text'>  </input>";
+
+        console.log(document.getElementById("comment-input").value);
+
+
+
+
         // '<form> <input type="text" placeholder={ele.body}> </input> <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button> </form>';
         // console.log(commentSaveBtn);
         
-        console.log(ele);
+        // console.log(ele);
         // console.log(ele.id);
       
      
     }
 
-    handleEditCommentSubmit(){
-        console.log("Hello! from this.handleEditCommentSubmit");
+    handleEditCommentSubmit(e){
+         e.preventDefault();
+
+        // this.setState({body: newComm})
+        // .then(console.log(this.state))
+        // .then(this.props.updateComment(Object.assign({}, this.state)));
+
+        // console.log("Hello! from this.handleEditCommentSubmit");
     }
 
     userIdToUsername(userId){
@@ -95,7 +109,7 @@ class PhotoShow extends React.Component{
   
 
         this.props.createComment(Object.assign({}, this.state))
-        .then(() => this.setState({body : "" }))
+        // .then(() => this.setState({body : "" }))
         // .then(window.location.reload());
     }
 
@@ -128,7 +142,8 @@ class PhotoShow extends React.Component{
 
                     return(
                         <li  key={idx} className="photo-show-comment-item">
-                            <p id={ele.id}>{ele.body}</p>
+                            <div id={ele.id}>{ele.body}</div>
+                             <input id="comment-input" type='text'>  </input>
                             {commentUpdateBtn}
                             {commentDeleteBtn}
                             <br/>
