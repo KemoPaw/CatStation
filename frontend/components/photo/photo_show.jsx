@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PhotoEditForm from './photo_edit_form';
-// import CommentEditForm from './comment_edit_form';
+
 
 
 
@@ -12,17 +12,18 @@ class PhotoShow extends React.Component{
             body: "",
             // user_id: this.props.currentUser.id,
             photo_id: "",
-            // editClicked: false,
+            showEdit: false,
             // currentCommentId: null,
         }
         this.removePhoto = this.removePhoto.bind(this);
-        this.reviseComment = this.reviseComment.bind(this);
+        // this.reviseComment = this.reviseComment.bind(this);
         this.removeComment = this.removeComment.bind(this);
         this.userIdToUsername = this.userIdToUsername.bind(this);
         // this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
         this.handleEditCommentSubmit = this.handleEditCommentSubmit.bind(this);
+        this.toggleEditForm = this.toggleEditForm.bind(this);
     }
 
     componentDidMount(){
@@ -58,7 +59,7 @@ class PhotoShow extends React.Component{
     reviseComment(ele){
         // this.setState({editClicked : true, currentCommentId : ele.id}); 
         // let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button>;
-        // let commentEditForm = <form>
+        // let commEditForm = <form>
         //     <input type="text" placeholder={ele.body}> </input>  
         //     {commentSaveBtn}
         //     </form>;
@@ -67,7 +68,7 @@ class PhotoShow extends React.Component{
 
         // document.getElementById(ele.id).innerHTML = "<input id=`${ele.id}` type='text'>  </input>";
 
-        console.log(document.getElementById("comment-input").value);
+        // console.log(document.getElementById("comment-input").value);
 
 
 
@@ -75,14 +76,26 @@ class PhotoShow extends React.Component{
         // '<form> <input type="text" placeholder={ele.body}> </input> <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button> </form>';
         // console.log(commentSaveBtn);
         
-        // console.log(ele);
+        console.log(ele);
         // console.log(ele.id);
       
      
     }
 
+    toggleEditForm() {
+        if (this.state.showEdit === false) {
+            this.setState({showEdit : true})
+        } else {
+            this.setState({showEdit : false})
+        }
+
+    }
+
     handleEditCommentSubmit(e){
-         e.preventDefault();
+        //  e.preventDefault();
+         console.log("made it inside handle edit comment submit");
+         console.log(e);
+
 
         // this.setState({body: newComm})
         // .then(console.log(this.state))
@@ -128,6 +141,8 @@ class PhotoShow extends React.Component{
         if (uploaderUsername !== "") localStorage.setItem('username', uploaderUsername);
         if (uploaderUsername === "") localStorage.getItem('username');
 
+   
+
 
         let finalUsername = (!uploaderUsername === "") ? uploaderUsername : localStorage.getItem('username');
 
@@ -135,16 +150,30 @@ class PhotoShow extends React.Component{
         const allComments = (!this.props.photo.comments) ? <h1></h1> : 
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
+
                     let commentUsername = this.userIdToUsername(ele.user_id);
                     let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
-                    let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.reviseComment(ele)}><i className="fas fa-edit"></i></button> : <p></p>
+                    // let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.reviseComment(ele)}><i className="fas fa-edit"></i></button> : <p></p>
+                    let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.toggleEditForm()}><i className="fas fa-edit"></i></button> : <p></p>;
 
+                    let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit(ele)}><i className="fas fa-save"></i></button>;
+
+
+                    let commentEditForm = (this.state.showEdit === true) ? 
+                        <form>
+                        <textarea value={ele.body}> </textarea>  
+                        {commentSaveBtn}
+                        </form>
+                        
+                        : <p> nada hoe </p> ;
 
                     return(
                         <li  key={idx} className="photo-show-comment-item">
                             <div id={ele.id}>{ele.body}</div>
-                             <input id="comment-input" type='text'>  </input>
+                             {/* <input id="comment-input" type='text'>  </input> */}
+                             {commentEditForm}
                             {commentUpdateBtn}
+
                             {commentDeleteBtn}
                             <br/>
                             by: {commentUsername}
