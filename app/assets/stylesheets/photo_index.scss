@@ -18,33 +18,18 @@
   width: 20%;
   height: 20%;
   overflow: hidden;
-//   padding: 0px;
-//   margin: 0px;
-//   object-fit: cover;
-    border-style: none;
-    vertical-align: middle;
+  border-style: none;
+  vertical-align: middle;
   // height: 40vh;
   
 }
 
-.photo-index-li:hover{
+.photo-index-li img  {
 
-}
-
-// .photo-index-li:hover {
-//   // background-color: blue;
-// }
-
-.photo-index-li > a{
-  // background-color: BLUE;
-  }
-
-.photo-index-img {
-
-  overflow: hidden;
+  // overflow: hidden;
   display: block!important;
   object-fit: cover;
-  width:  300px;
+  width: 300px;
   height: 300px;
   padding: 0px;
   margin: 0px;
@@ -54,44 +39,31 @@
 }
 
 .photo-index-item-div {
-  // background: blue;
-//    position: absolute;
-//      opacity: 0;
-// background: rgb(0,0,0);
-// background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-    //  background: 
-    // /* top, transparent red */ 
-    // linear-gradient(
-    //   rgba(255, 0, 0, 0.45), 
-    //   rgba(255, 0, 0, 0.45)
-    // ),
-    // height: inherit;
+
+    // width:  300px;
+    // height: 300px;
     // width: 100%;
-      width:  300px;
+    // height: 100%;
+    //  object-fit: cover;
+  width: 300px;
   height: 300px;
     position: absolute;
-    // top: 0px;
-      padding: 0px;
-  margin: 0px;
+    padding: 0px;
+    margin: 0px;
     overflow: hidden;
-  // display: block!important;
-  object-fit: cover;
-    // display: flex; 
-    // flex-direction: column;
-    // justify-content: flex-end;
-    // padding: 20px;
+  
     color: white;
     // pointer-events: none;
     background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.753));
-    transition: opacity 150ms linear;
+    // transition: opacity 150ms linear;
     opacity: 0;
-    // border-radius: 5px;
 }
 
-.photo-index-li:hover .photo-index-img {
-  // opacity: 0.9;
-}
+
 
 .photo-index-li:hover .photo-index-item-div {
    opacity: 1;
+    width: 300px;
+  height: 300px;
+
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PhotoEditForm from './photo_edit_form';
+import Comments from './comments';
+
 
 
 
@@ -13,7 +14,7 @@ class PhotoShow extends React.Component{
             // user_id: this.props.currentUser.id,
             photo_id: "",
             showEdit: false,
-            // currentCommentId: null,
+            currentCommentId: null,
         }
         this.removePhoto = this.removePhoto.bind(this);
         // this.reviseComment = this.reviseComment.bind(this);
@@ -76,13 +77,18 @@ class PhotoShow extends React.Component{
         // '<form> <input type="text" placeholder={ele.body}> </input> <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button> </form>';
         // console.log(commentSaveBtn);
         
-        console.log(ele);
+        // console.log(ele);
         // console.log(ele.id);
       
      
     }
 
-    toggleEditForm() {
+    toggleEditForm(eleId) {
+
+        // console.log(eleId);
+
+        this.setState({currentCommentId: eleId});
+
         if (this.state.showEdit === false) {
             this.setState({showEdit : true})
         } else {
@@ -94,7 +100,7 @@ class PhotoShow extends React.Component{
     handleEditCommentSubmit(e){
         //  e.preventDefault();
          console.log("made it inside handle edit comment submit");
-         console.log(e);
+        //  console.log(e);
 
 
         // this.setState({body: newComm})
@@ -122,7 +128,7 @@ class PhotoShow extends React.Component{
   
 
         this.props.createComment(Object.assign({}, this.state))
-        // .then(() => this.setState({body : "" }))
+        .then(() => this.setState({body : "" }))
         // .then(window.location.reload());
     }
 
@@ -137,6 +143,8 @@ class PhotoShow extends React.Component{
     render(){
         // console.log(this.props);
         if (!this.props.photo) return null;
+        // if (this.props.comments.length <= 0) return null;
+
         let uploaderUsername = this.userIdToUsername(this.props.photo.uploader_id);
         if (uploaderUsername !== "") localStorage.setItem('username', uploaderUsername);
         if (uploaderUsername === "") localStorage.getItem('username');
@@ -152,31 +160,37 @@ class PhotoShow extends React.Component{
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
 
                     let commentUsername = this.userIdToUsername(ele.user_id);
-                    let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
+                    // let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
                     // let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.reviseComment(ele)}><i className="fas fa-edit"></i></button> : <p></p>
-                    let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.toggleEditForm()}><i className="fas fa-edit"></i></button> : <p></p>;
+                    // let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.toggleEditForm(ele.id)}><i className="fas fa-edit"></i></button> : <p></p>;
 
-                    let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit(ele)}><i className="fas fa-save"></i></button>;
+                    // let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit(ele)}><i className="fas fa-save"></i></button>;
 
 
-                    let commentEditForm = (this.state.showEdit === true) ? 
-                        <form>
-                        <textarea value={ele.body}> </textarea>  
-                        {commentSaveBtn}
-                        </form>
+                    // let commentEditForm = (this.state.showEdit === true && ( ele.user_id === this.props.currentUser.id) ) ? 
+                    //     <form>
+                    //     <textarea value={this.state.body} onChange={this.handleInput("body")}> </textarea>  
+                    //     {commentSaveBtn}
+                    //     </form>
                         
-                        : <p> nada hoe </p> ;
+                    //     : <p> nada tho </p> ;
 
                     return(
                         <li  key={idx} className="photo-show-comment-item">
-                            <div id={ele.id}>{ele.body}</div>
-                             {/* <input id="comment-input" type='text'>  </input> */}
-                             {commentEditForm}
-                            {commentUpdateBtn}
+                            <p>{ele.body}</p>
+                            <p>{commentUsername}</p>
 
-                            {commentDeleteBtn}
-                            <br/>
-                            by: {commentUsername}
+                            <Comments comment={ele.body} username={commentUsername}/>
+                            
+                            {/* <div id={ele.id}>{ele.body}</div> */}
+
+                             {/* <input id="comment-input" type='text'>  </input> */}
+                             {/* {commentEditForm} */}
+                            {/* {commentUpdateBtn} */}
+
+                            {/* {commentDeleteBtn} */}
+                            {/* <br/> */}
+                            {/* by: {commentUsername} */}
                         </li>
                     )
                 })}
@@ -234,8 +248,12 @@ class PhotoShow extends React.Component{
                     </div>
                     <div className="comments-div">
                         {/* <h1>Comments Div</h1> */}
-                        {makeComment}
+                        {/* {makeComment} */}
                         {allComments}
+                        {/* <Comments
+                            
+                        /> */}
+
 
                     </div>
                 </div>
