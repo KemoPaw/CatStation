@@ -23,7 +23,7 @@ class PhotoShow extends React.Component{
         // this.handleCommentChange = this.handleCommentChange.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-        this.handleEditCommentSubmit = this.handleEditCommentSubmit.bind(this);
+        // this.handleEditCommentSubmit = this.handleEditCommentSubmit.bind(this);
         this.toggleEditForm = this.toggleEditForm.bind(this);
     }
 
@@ -48,7 +48,6 @@ class PhotoShow extends React.Component{
     }
 
     removePhoto(){
-       
         this.props.deletePhoto(this.props.photo.id).then(() => {
         this.props.history.push(`/photos`)});
     }
@@ -57,7 +56,7 @@ class PhotoShow extends React.Component{
         this.props.deleteComment(ele.id)
     }
 
-    reviseComment(ele){
+    // reviseComment(ele){
         // this.setState({editClicked : true, currentCommentId : ele.id}); 
         // let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button>;
         // let commEditForm = <form>
@@ -81,7 +80,7 @@ class PhotoShow extends React.Component{
         // console.log(ele.id);
       
      
-    }
+    // }
 
     toggleEditForm(eleId) {
 
@@ -97,10 +96,13 @@ class PhotoShow extends React.Component{
 
     }
 
-    handleEditCommentSubmit(e){
+    // handleEditCommentSubmit(ele){
         //  e.preventDefault();
-         console.log("made it inside handle edit comment submit");
+        //  console.log("made it inside handle edit comment submit");
         //  console.log(e);
+
+        // let comm = {body: ele.body, photo_id: ele.photo_id, user_id: ele.user_id};
+        // console.log(comm)
 
 
         // this.setState({body: newComm})
@@ -108,7 +110,7 @@ class PhotoShow extends React.Component{
         // .then(this.props.updateComment(Object.assign({}, this.state)));
 
         // console.log("Hello! from this.handleEditCommentSubmit");
-    }
+    // }
 
     userIdToUsername(userId){
         let username = "";
@@ -134,8 +136,6 @@ class PhotoShow extends React.Component{
 
 
     handleInput(field){
-        // console.log(field.currentTarget.value)
-        // debugger
 
         return (e) => this.setState({ [field]: e.currentTarget.value })
     }
@@ -158,11 +158,11 @@ class PhotoShow extends React.Component{
         const allComments = (!this.props.photo.comments) ? <h1></h1> : 
             <ul>
                 {Object.values(this.props.photo.comments).map( (ele, idx) => {
-
+                    let currentPhotoId = ele.photo_id;
                     let commentUsername = this.userIdToUsername(ele.user_id);
-                    // let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
+                    let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
                     // let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.reviseComment(ele)}><i className="fas fa-edit"></i></button> : <p></p>
-                    // let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.toggleEditForm(ele.id)}><i className="fas fa-edit"></i></button> : <p></p>;
+                    let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.toggleEditForm(ele.id)}><i className="fas fa-edit"></i></button> : <p></p>;
 
                     // let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit(ele)}><i className="fas fa-save"></i></button>;
 
@@ -177,20 +177,16 @@ class PhotoShow extends React.Component{
 
                     return(
                         <li  key={idx} className="photo-show-comment-item">
-                            <p>{ele.body}</p>
-                            <p>{commentUsername}</p>
+                            {/* <p>{ele.body}</p> */}
+                            {/* <p>{commentUsername}</p> */}
 
-                            <Comments comment={ele.body} username={commentUsername}/>
+                            <Comments comment={ele.body} commentId={ele.id} photoId={currentPhotoId} commenterId={ele.user_id} userId={this.props.currentUser.id} username={commentUsername}  commentDeleteBtn={commentDeleteBtn} updateComment={this.props.updateComment}/>
                             
                             {/* <div id={ele.id}>{ele.body}</div> */}
 
                              {/* <input id="comment-input" type='text'>  </input> */}
                              {/* {commentEditForm} */}
                             {/* {commentUpdateBtn} */}
-
-                            {/* {commentDeleteBtn} */}
-                            {/* <br/> */}
-                            {/* by: {commentUsername} */}
                         </li>
                     )
                 })}
@@ -248,7 +244,7 @@ class PhotoShow extends React.Component{
                     </div>
                     <div className="comments-div">
                         {/* <h1>Comments Div</h1> */}
-                        {/* {makeComment} */}
+                        {makeComment}
                         {allComments}
                         {/* <Comments
                             

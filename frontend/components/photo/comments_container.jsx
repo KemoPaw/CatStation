@@ -20,9 +20,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createComment: (comment) => dispatch(createComment(comment)),
+        // createComment: (comment) => dispatch(createComment(comment)),
         updateComment: (comment) => dispatch(updateComment(comment)),
-        deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+        // deleteComment: (commentId) => dispatch(deleteComment(commentId)),
         // fetchUsers: () => dispatch(fetchUsers()),
     };
 };
