@@ -17,13 +17,13 @@ class PhotoShow extends React.Component{
             currentCommentId: null,
         }
         this.removePhoto = this.removePhoto.bind(this);
-        // this.reviseComment = this.reviseComment.bind(this);
+
         this.removeComment = this.removeComment.bind(this);
         this.userIdToUsername = this.userIdToUsername.bind(this);
-        // this.handleCommentChange = this.handleCommentChange.bind(this);
+       
         this.handleInput = this.handleInput.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
-        // this.handleEditCommentSubmit = this.handleEditCommentSubmit.bind(this);
+  
         this.toggleEditForm = this.toggleEditForm.bind(this);
     }
 
@@ -56,32 +56,6 @@ class PhotoShow extends React.Component{
         this.props.deleteComment(ele.id)
     }
 
-    // reviseComment(ele){
-        // this.setState({editClicked : true, currentCommentId : ele.id}); 
-        // let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button>;
-        // let commEditForm = <form>
-        //     <input type="text" placeholder={ele.body}> </input>  
-        //     {commentSaveBtn}
-        //     </form>;
-
-        // this.setState({body: ele.body}) // new state should overwrite the ajax call
-
-        // document.getElementById(ele.id).innerHTML = "<input id=`${ele.id}` type='text'>  </input>";
-
-        // console.log(document.getElementById("comment-input").value);
-
-
-
-
-        // '<form> <input type="text" placeholder={ele.body}> </input> <button className="comment-submit" onClick={this.handleEditCommentSubmit}><i className="fas fa-save"></i></button> </form>';
-        // console.log(commentSaveBtn);
-        
-        // console.log(ele);
-        // console.log(ele.id);
-      
-     
-    // }
-
     toggleEditForm(eleId) {
 
         // console.log(eleId);
@@ -95,22 +69,6 @@ class PhotoShow extends React.Component{
         }
 
     }
-
-    // handleEditCommentSubmit(ele){
-        //  e.preventDefault();
-        //  console.log("made it inside handle edit comment submit");
-        //  console.log(e);
-
-        // let comm = {body: ele.body, photo_id: ele.photo_id, user_id: ele.user_id};
-        // console.log(comm)
-
-
-        // this.setState({body: newComm})
-        // .then(console.log(this.state))
-        // .then(this.props.updateComment(Object.assign({}, this.state)));
-
-        // console.log("Hello! from this.handleEditCommentSubmit");
-    // }
 
     userIdToUsername(userId){
         let username = "";

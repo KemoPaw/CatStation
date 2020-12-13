@@ -37,7 +37,7 @@ class Api::CommentsController < ApplicationController
     # end
 
     def update  
-        @comment = Comment.find(params[id])
+        @comment = Comment.find(params[:id])
         
         if @comment && @comment.update(comment_params)
             @photo = Photo.find(@comment.photo_id)

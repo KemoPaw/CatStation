@@ -18,7 +18,7 @@ class Comments extends React.Component{
 
     componentDidMount(){
 
-       this.setState({body: this.props.comment})
+    //    this.setState({body: this.props.comment})
     //    .then(console.log(this.state));
     }
 
@@ -50,11 +50,12 @@ class Comments extends React.Component{
 
         if (this.state.showEdit === false) {
             this.setState({showEdit : true});
-            this.props.updateComment(Object.assign({}, this.state))
-            // .then(this.setState({body: this.state.body}));
+          
             //start updating the commnet info here
-        } else {
+        } else if (this.state.showEdit === true) {
             this.setState({showEdit : false})
+            this.props.updateComment(Object.assign({}, this.state))
+            .then(this.setState({body: this.state.body}));
               // .then(() =>  this.props.updateComment(this.state))
         }
 
