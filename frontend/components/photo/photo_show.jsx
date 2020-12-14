@@ -137,10 +137,50 @@ class PhotoShow extends React.Component{
 
         let finalUsername = (!uploaderUsername === "") ? uploaderUsername : localStorage.getItem('username');
 
+        // const maxSpeed = this.props.photo.comments;
+        // console.log(maxSpeed);
+        // let newSpeed = maxSpeed.map((ment) => {
+        //     return ment.id
+        // })
+
+        // console.log(newSpeed.values.sort());
+        // console.log(maxSpeed[id]);
+
+
+        // const sortable = Object.fromEntries(
+        //     Object.entries(maxSpeed).sort(([,a],[,b]) => a-b)
+        // );
+
+        // console.log(sortable);
+
+        let sorted = {};
+        let commentSorted = this.props.photo.comments;
+        // console.log(commentSorted);
+
+        // Object
+        //     .keys(commentSorted).sort(function(a, b){
+        //         console.log(commentSorted[b].id );
+        //         return commentSorted[b].id - commentSorted[a].id;
+        //     })
+        //     .forEach(function(key) {
+        //         sorted[key] = commentSorted[key];
+        //     });
+
+        // console.log(sorted);
+
+        var array = $.map(commentSorted, function(value, index) {
+            value.key = index;
+            return value;
+        });
+
+        var sortedData = array.sort(function(p1, p2){
+            return p1.id - p2.id;
+        });
+        // console.log(sortedData);
 
         const allComments = (!this.props.photo.comments) ? <h1></h1> : 
             <ul>
-                {Object.values(this.props.photo.comments).map( (ele, idx) => {
+                {Object.values(sortedData).map( (ele, idx) => {
                     let currentPhotoId = ele.photo_id;
                     let commentUsername = this.userIdToUsername(ele.user_id);
                     let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
