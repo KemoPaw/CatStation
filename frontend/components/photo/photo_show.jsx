@@ -101,20 +101,9 @@ class PhotoShow extends React.Component{
     }
     //think about how your state may change
     render(){
-        // console.log(this.props);
+ 
         if (!this.props.photo) return null;
-        // if (this.props.comments.length <= 0) return null;
-        // console.log(this.props.allComments);
-        // const allfetchedComments = Object.keys(this.props.allComments);
-        // const allfetchedCommentsLastIndex = allfetchedComments[allfetchedComments.length - 1];
-        // console.log(allfetchedComments[allfetchedComments.length - 1]);
-        // console.log(typeof allfetchedCommentsLastIndex);
 
-        // let tester = Number(allfetchedCommentsLastIndex);
-        // console.log(tester);
-        // console.log(typeof tester);
-        // let parsed = parseInt(allfetchedCommentsLastIndex, 10);
-        // console.log(typeof parsed);
 
 
         let uploaderUsername = this.userIdToUsername(this.props.photo.uploader_id);
@@ -122,44 +111,7 @@ class PhotoShow extends React.Component{
         if (uploaderUsername === "") localStorage.getItem('username');
 
         let finalUsername = (!uploaderUsername === "") ? uploaderUsername : localStorage.getItem('username');
-        // let commentCount = this.props.photo.comments.length;
-        // console.log(commentCount);
 
-        // let commentsArrOrder = Array.from(Array(parsed).keys(), n => n + 1);
-        // console.log(sephora);
-
-
-
-        // const maxSpeed = this.props.photo.comments;
-        // console.log(maxSpeed);
-        // let newSpeed = maxSpeed.map((ment) => {
-        //     return ment.id
-        // })
-
-        // console.log(newSpeed.values.sort());
-        // console.log(maxSpeed[id]);
-
-
-        // const sortable = Object.fromEntries(
-        //     Object.entries(maxSpeed).sort(([,a],[,b]) => a-b)
-        // );
-
-        // console.log(sortable);
-
-        // let sorted = {};
-        // console.log(commentSorted);
-
-        // Object
-        //     .keys(commentSorted).sort(function(a, b){
-        //         console.log(commentSorted[b].id );
-        //         return commentSorted[b].id - commentSorted[a].id;
-        //     })
-        //     .forEach(function(key) {
-        //         sorted[key] = commentSorted[key];
-        //     });
-
-        // console.log(sorted);
-        
         let commentSorted = this.props.photo.comments;
 
 
