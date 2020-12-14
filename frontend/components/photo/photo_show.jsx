@@ -131,32 +131,13 @@ class PhotoShow extends React.Component{
                     let currentPhotoId = ele.photo_id;
                     let commentUsername = this.userIdToUsername(ele.user_id);
                     let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
-                    // let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.reviseComment(ele)}><i className="fas fa-edit"></i></button> : <p></p>
-                    let commentUpdateBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.toggleEditForm(ele.id)}><i className="fas fa-edit"></i></button> : <p></p>;
 
-                    // let commentSaveBtn = <button className="comment-submit" onClick={this.handleEditCommentSubmit(ele)}><i className="fas fa-save"></i></button>;
-
-
-                    // let commentEditForm = (this.state.showEdit === true && ( ele.user_id === this.props.currentUser.id) ) ? 
-                    //     <form>
-                    //     <textarea value={this.state.body} onChange={this.handleInput("body")}> </textarea>  
-                    //     {commentSaveBtn}
-                    //     </form>
-                        
-                    //     : <p> nada tho </p> ;
 
                     return(
                         <li  key={idx} className="photo-show-comment-item">
-                            {/* <p>{ele.body}</p> */}
-                            {/* <p>{commentUsername}</p> */}
 
                             <Comments comment={ele.body} commentId={ele.id} photoId={currentPhotoId} commenterId={ele.user_id} userId={this.props.currentUser.id} username={commentUsername}  commentDeleteBtn={commentDeleteBtn} updateComment={this.props.updateComment}/>
-                            
-                            {/* <div id={ele.id}>{ele.body}</div> */}
-
-                             {/* <input id="comment-input" type='text'>  </input> */}
-                             {/* {commentEditForm} */}
-                            {/* {commentUpdateBtn} */}
+  
                         </li>
                     )
                 })}
@@ -168,9 +149,6 @@ class PhotoShow extends React.Component{
                 <button className="comment-submit" onClick={this.handleCommentSubmit}>Submit Comment</button>
             </form>;
 
-        // let delButton = ((this.props.photo.uploader_id === this.props.currentUser.id) && (this.props.currentUser.id !== undefined)) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
-        // if (!this.props.photo) return null;
-        // if (!this.props.currentUser) return null;
         let delButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <button className="photo-show-remove" type="button" onClick={() => this.removePhoto()}>Remove Photo</button> : <div className="photo-show-remove-div"></div>
         // let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? <Link to={`/photos/${this.props.photo.id}/edit`}>Edit Photo </Link> : <div className="photo-show-remove-div"></div>
          let editButton = (this.props.currentUser && (this.props.photo.uploader_id === this.props.currentUser.id) ) ? 
