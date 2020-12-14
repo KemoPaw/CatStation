@@ -129,7 +129,7 @@ class PhotoShow extends React.Component{
         // let commentCount = this.props.photo.comments.length;
         // console.log(commentCount);
 
-        let commentsArrOrder = Array.from(Array(parsed).keys(), n => n + 1);
+        // let commentsArrOrder = Array.from(Array(parsed).keys(), n => n + 1);
         // console.log(sephora);
 
    
@@ -153,8 +153,7 @@ class PhotoShow extends React.Component{
 
         // console.log(sortable);
 
-        let sorted = {};
-        let commentSorted = this.props.photo.comments;
+        // let sorted = {};
         // console.log(commentSorted);
 
         // Object
@@ -167,13 +166,15 @@ class PhotoShow extends React.Component{
         //     });
 
         // console.log(sorted);
+        let commentSorted = this.props.photo.comments;
 
-        var array = $.map(commentSorted, function(value, index) {
+
+        let array = $.map(commentSorted, function(value, index) {
             value.key = index;
             return value;
         });
 
-        var sortedData = array.sort(function(p1, p2){
+        let sortedData = array.sort(function(p1, p2){
             return p1.id - p2.id;
         });
         // console.log(sortedData);
