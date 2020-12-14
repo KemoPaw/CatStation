@@ -1,5 +1,5 @@
 import { RECEIVE_PHOTOS, RECEIVE_PHOTO, REMOVE_PHOTO, RECEIVE_PHOTO_ERRORS} from "../actions/photo_actions";
-import { RECEIVE_COMMENT, REMOVE_COMMENT} from "../actions/comment_actions";
+import { RECEIVE_COMMENT, REMOVE_COMMENT, RECEIVE_COMMENTS} from "../actions/comment_actions";
 
 
 const photosReducer = (state = {}, action) => {
@@ -24,6 +24,7 @@ const photosReducer = (state = {}, action) => {
             return Object.assign({}, state, { [action.photo.id]: action.photo });
         case RECEIVE_COMMENT:
             return Object.assign({}, state, { [action.photo.id]: action.photo });
+     
         default:
             return state;
     }

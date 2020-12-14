@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { fetchPhoto, deletePhoto } from '../../actions/photo_actions';
-import { createComment, deleteComment, updateComment } from '../../actions/comment_actions';
+import { createComment, deleteComment, updateComment, fetchComments } from '../../actions/comment_actions';
 import { fetchUsers} from '../../actions/user_actions';
 
 
@@ -15,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
       photo: state.entities.photos[ownProps.match.params.photoId],
       users: state.entities.users,
       currentUser: state.entities.users[state.session.id],
+      allComments: state.entities.comments,
     //   currentUserId: state.session.id,
     };
 };
@@ -26,6 +27,7 @@ const mapDispatchToProps = dispatch => {
         createComment: (comment) => dispatch(createComment(comment)),
         updateComment: (comment) => dispatch(updateComment(comment)),
         deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+        fetchComments: () => dispatch(fetchComments()),
         fetchUsers: () => dispatch(fetchUsers()),
     };
 };
