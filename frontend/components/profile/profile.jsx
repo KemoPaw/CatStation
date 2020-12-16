@@ -28,25 +28,28 @@ class Profile extends React.Component{
     }
 
     render(){
-        // if (!this.props.profileUser) return null;
+        if (!this.props.profileUser) return null;
 
         // if (!profileUsername) return null;
         // let arr = this.props.location.pathname.split("/");
         // let profileUsername = arr[arr.length -1];
         
         return(
-            <div>
-                <p>Profile Container</p>
+            <div className="profile-outer-div">
+                {/* <p>Profile Container</p> */}
                 {/* <p>Add Username Here</p> */}
-                <h1>{this.props.profileUser.username}</h1>
+                <h1 className="profile-header-username">
+                    {this.props.profileUser.username}
+                </h1>
+
+                <div className="profile-photo-header-div">
+                    Uploaded Cat Images:
+                </div>
 
                 <div>
-                    <p>
-                        Add Photo Gallery Here
-                    </p>
+                    <ProfilePhotoIndex profileUserId={this.props.profileUser.id}/>
+                   
                 </div>
-                {/* <p>{this.props.profileUser}</p> */}
-                <ProfilePhotoIndex profileUserId={this.props.profileUser.id}/>
 
             </div>
             

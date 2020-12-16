@@ -103,6 +103,7 @@ class PhotoShow extends React.Component{
     render(){
  
         if (!this.props.photo) return null;
+        // if(!this.props.currentUser) return null;
 
 
 
