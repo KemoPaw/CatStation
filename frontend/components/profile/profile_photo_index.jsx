@@ -15,17 +15,26 @@ class ProfilePhotoIndex extends React.Component {
 
         const { photos } = this.props;
         if (!photos) return null;
-        console.log(this.state);
+        // console.log(this.state);
+        const {profileUserId} = this.props;
+        // console.log(profileUserId);
+
         return(
             <div className="photo-index-div">
                 <ul className="photo-index-ul">
                     {
                         photos.map(photo=> {
-                            return (<ProfilePhotoIndexItem
-                                key={photo.id}
-                                photo={photo}
-                                // photos={photos}
-                            />)
+                            if(photo.uploader_id === profileUserId){
+                                return (<ProfilePhotoIndexItem
+                                    key={photo.id}
+                                    photo={photo}
+                                    // photos={photos}
+                                />)
+
+                            }
+                            else {
+                                return null;
+                            }
                         })
                     }
                 </ul>

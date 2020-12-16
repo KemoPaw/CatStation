@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     let profileUser; 
     Object.values(state.entities.users).forEach(user => { 
         if (user.username === ownProps.match.params.username) { 
-            profileUser = user.username;
+            profileUser = user;
         }
     });
     return {

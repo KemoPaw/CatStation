@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProfilePhotoIndex from './profile_photo_index';
+import ProfilePhotoIndex from './profile_photo_index_container';
 
 
 class Profile extends React.Component{
@@ -17,6 +17,7 @@ class Profile extends React.Component{
 
         // console.log(this.props.profileUser);
         this.props.fetchUsers();
+        this.props.fetchPhotos();
 
         // let arr = this.props.location.pathname.split("/");
         // const profileUsername = arr[arr.length -1];
@@ -37,7 +38,7 @@ class Profile extends React.Component{
             <div>
                 <p>Profile Container</p>
                 {/* <p>Add Username Here</p> */}
-                <h1>{this.props.profileUser}</h1>
+                <h1>{this.props.profileUser.username}</h1>
 
                 <div>
                     <p>
@@ -45,7 +46,7 @@ class Profile extends React.Component{
                     </p>
                 </div>
                 {/* <p>{this.props.profileUser}</p> */}
-                <ProfilePhotoIndex/>
+                <ProfilePhotoIndex profileUserId={this.props.profileUser.id}/>
 
             </div>
             
