@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProfilePhotoIndex from './profile_photo_index_container';
 
+// import catProfileImage from '../../../app/assets/images/profile-background-cat.jpg'
+
 
 class Profile extends React.Component{
     constructor(props){
@@ -41,6 +43,9 @@ class Profile extends React.Component{
                 <h1 className="profile-header-username">
                     {this.props.profileUser.username}
                 </h1>
+
+                <img id="profile-header-img" src={window.profileHeader}>
+                </img>
 
                 <div className="profile-photo-header-div">
                     Uploaded Cat Images:
