@@ -11,6 +11,8 @@ import PhotoIndex from './photo/photo_index_container';
 import PhotoUploadForm from './photo/photo_upload_form';
 import PhotoEditForm from './photo/photo_edit_form';
 
+import Profile from './profile/profile_container';
+
 
 import PhotoShowContainer from './photo/photo_show_container';
 
@@ -26,6 +28,8 @@ const App = () => (
             <Route exact path="/photos" component={PhotoIndex} />
             <Route exact path="/upload" component={PhotoUploadForm} />
             <Route exact path="/photos/:photoId/edit" component={PhotoEditForm} />
+            <Route exact path="/profile/:username" component={Profile} />
+
 
 
             <Route exact path="/signin" component={LogInFormContainer} />
