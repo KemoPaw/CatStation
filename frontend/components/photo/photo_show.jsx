@@ -180,8 +180,8 @@ class PhotoShow extends React.Component{
                         </Link>
                     </div> */}
                     <h1 className="photo-show-title">{this.props.photo.title}</h1>
-                     <Link to={`/profile/${finalUsername}`}>
-                        <h1 className="photo-show-title">{finalUsername}</h1>
+                     <Link style={{ textDecoration: 'none' }} to={`/profile/${finalUsername}`}>
+                        <h1 className="photo-show-profile-link"><i class="fas fa-user"></i><span>   </span>{finalUsername}</h1>
                      </Link>
                     {/* <h1 className="photo-show-title">{this.props.users}</h1> */}
 
