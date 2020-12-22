@@ -11,6 +11,8 @@ class Profile extends React.Component{
         // this.state = {
         //     profileUser: "",
         // };
+        this.randomProfileBanner = this.randomProfileBanner.bind(this);
+
     }
 
     componentDidMount(){
@@ -25,8 +27,24 @@ class Profile extends React.Component{
         // const profileUsername = arr[arr.length -1];
         // console.log(profileUsername)
         // this.setState({profileUser: profileUsername});
+    }
 
+    randomProfileBanner(){
+        let randomProfileBannerPhotos = [
+            window.proBannerOne,
+            window.proBannerTwo,
+            window.proBannerThree,
+            window.proBannerFour,
+            window.proBannerFive,
+            window.proBannerSix,
+            window.proBannerSeven,
+            window.proBannerEight,
+        ];
 
+        // let randomPhoto = _.sample(randomProfileBannerPhotos);
+        let randomPhoto = randomProfileBannerPhotos[Math.floor(Math.random() * randomProfileBannerPhotos.length)];
+        console.log(randomPhoto);
+        return randomPhoto;
     }
 
     render(){
@@ -35,6 +53,7 @@ class Profile extends React.Component{
         // if (!profileUsername) return null;
         // let arr = this.props.location.pathname.split("/");
         // let profileUsername = arr[arr.length -1];
+        let profileBannerPhoto = this.randomProfileBanner();
         
         return(
             <div className="profile-outer-div">
@@ -44,7 +63,7 @@ class Profile extends React.Component{
                     {this.props.profileUser.username}
                 </h1>
 
-                <img id="profile-header-img" src={window.profileHeader}>
+                <img id="profile-header-img" src={profileBannerPhoto}>
                 </img>
 
                 <div className="profile-photo-header-div">
