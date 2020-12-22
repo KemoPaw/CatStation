@@ -53,7 +53,9 @@ class Profile extends React.Component{
         // if (!profileUsername) return null;
         // let arr = this.props.location.pathname.split("/");
         // let profileUsername = arr[arr.length -1];
-        let profileBannerPhoto = this.randomProfileBanner();
+        // let profileBannerPhoto = this.randomProfileBanner();
+        let profileBannerPhoto = (profileBannerPhoto !== undefined) ?  profileBannerPhoto : this.randomProfileBanner();
+
         
         return(
             <div className="profile-outer-div">
