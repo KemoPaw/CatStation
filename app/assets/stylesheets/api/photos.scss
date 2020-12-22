@@ -83,13 +83,16 @@
 
 .photo-show-close-div  {
   margin: 10px auto;
-  height: 15px;
-  width: 15px;;
+  height: 20px;
+  width: 20px;
   // display: block;
+  position: absolute;
+  top: 50px;
+  right: 16px;
   // padding: 5px;
   // margin: 1px;
   // justify-content: flex-end;
-   display: flex; 
+  //  display: flex;
 
 }
 

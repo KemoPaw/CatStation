@@ -122,6 +122,11 @@ class PhotoUploadForm extends React.Component {
 
     return (
       <div className="photo-upload-div">
+        <div className="photo-upload-back-div">
+                        <Link to="/photos">
+                            <i class="fas fa-arrow-left"></i>
+                        </Link>
+        </div>
           <h1 className="photo-upload-title">Upload a New Photo</h1>
           <h1 className="photo-upload-h1-title">{this.state.title}</h1>
           <form onSubmit={this.formSubmission}>

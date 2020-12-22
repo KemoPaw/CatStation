@@ -149,3 +149,22 @@
     display: block;
     height: 20px;
 }
+
+
+
+.photo-upload-back-div > * {
+  height: 30px;
+  width: 30px;
+  color: gray;
+}
+
+.photo-upload-back-div:hover > * {
+  color:white;
+  cursor: pointer;
+}
+
+.photo-upload-back-div  {
+  
+    margin: 8px 20px;
+ 
+}
