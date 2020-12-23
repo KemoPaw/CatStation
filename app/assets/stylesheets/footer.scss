@@ -1,0 +1,32 @@
+.footer-div {
+    background-color: rgb(23, 23, 23);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    // height: 80px;
+    display: flex;
+    // direction: rtl;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+}
+
+.footer-span > * {
+//   height: 50px;
+//   width: 50px;
+  color: gray;
+}
+
+
+.footer-span > *:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.footer-span > a {
+    // height: 50px;
+    // width: 50px;
+//   padding: 5px;
+margin: 10px
+
+}

@@ -16,6 +16,8 @@ import Profile from './profile/profile_container';
 
 import PhotoShowContainer from './photo/photo_show_container';
 
+import Footer from './footer/footer'
+
 
 const App = () => (
     <div className="main-background">
@@ -37,6 +39,9 @@ const App = () => (
             <Route exact path="/" component={PhotoIndex} />
             <Redirect to="/" />
         </Switch>
+        <footer>
+            <Footer />
+        </footer>
 
     </div>
 );
