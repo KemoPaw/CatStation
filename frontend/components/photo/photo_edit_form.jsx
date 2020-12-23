@@ -120,6 +120,11 @@ class PhotoEditForm extends React.Component {
 
     return (
       <div className="photo-upload-div">
+          <div className="photo-upload-back-div">
+                        <Link to={`/photos/${this.props.photo.id}`}>
+                            <i class="fas fa-arrow-left"></i>
+                        </Link>
+        </div>
           <h1 className="photo-upload-title">Edit Your Photo</h1>
           {/* <h1 className="photo-upload-h1-title">{this.state.title}</h1> */}
            <form onSubmit={this.formSubmission}>
