@@ -30,14 +30,16 @@ class PhotoIndexItem extends React.Component{
 
                 //  <li className="photo-index-li" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} >
                  <li className="photo-index-li" >
-                       <div className="photo-index-item">
+                      
                             <Link to={`/photos/${id}`} className="photo-index-item-link">
                                 {/* <div className="photo-index-item-text">{photo.title}</div> */}
+                                 <div className="photo-index-item">
+                                    <img src={photo.photoUrl} />
 
-                                <img src={photo.photoUrl} />
+                                 </div>
                             </Link>
 
-                       </div>
+                       {/* </div> */}
                  </li>
              )
 
