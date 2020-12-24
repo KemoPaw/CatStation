@@ -3,6 +3,7 @@ import PhotoIndexItem from './photo_index_item';
 
 class PhotoIndex extends React.Component {
 
+    
     componentDidMount(){
         this.props.fetchPhotos();
         this.props.fetchUsers();
@@ -17,14 +18,14 @@ class PhotoIndex extends React.Component {
                         photos.map(photo=> {
                             return (<PhotoIndexItem
                                 key={photo.id}
+                                id={photo.id}
+
                                 photo={photo}
                                 // photos={photos}
                             />)
                         })
                     }
                 </ul>
-             
-
             </div>
         )
     };

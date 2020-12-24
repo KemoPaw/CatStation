@@ -2,20 +2,52 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const PhotoIndexItem = props => {
-    return (
+class PhotoIndexItem extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            addClass: false
+        }
 
-        <li className="photo-index-li">
-            <Link to={`/photos/${props.photo.id}`}>
-                 <img src={props.photo.photoUrl} />
-            </Link>
+        this.mouseEnter = this.mouseEnter.bind(this);
+        this.mouseLeave = this.mouseLeave.bind(this);
 
-            {/* <div className="photo-index-item-div">
-            </div> */}
-            
+    }
 
-        </li>
-    )
+    // componentDidMount(){
+    //     this.props.fetchPhotos();
+    //     this.props.fetchUsers();
+    // }
+
+    mouseEnter(){
+        // console.log('mouse enter');
+        this.setState({ addClass: true });
+    }
+
+    mouseLeave(){
+        // console.log('mouse leave');
+        this.setState({ addClasse: false });
+    }
+
+    render(){
+        const {key, id, photo} = this.props;
+         return (
+
+                //  <li className="photo-index-li" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} >
+                 <li className="photo-index-li" >
+
+                       <div className="photo-index-item">
+                        <Link to={`/photos/${id}`}>
+                            <img src={photo.photoUrl} />
+                        </Link>
+
+                       </div>
+                 </li>
+             )
+
+
+    }
+   
 };
 
 export default PhotoIndexItem;
