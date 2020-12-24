@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from '../search_bar/search_bar_container'
+
 
 //props now has access to openModel()
 
@@ -16,6 +18,7 @@ const Greeting = ( props ) => {
       {/* <div>
         <input type="text"></input>
       </div> */}
+      <SearchBar />
 
       <div>
           <Link to="/signup" className="header-link">Sign Up</Link>
@@ -33,10 +36,8 @@ const Greeting = ( props ) => {
               <Link to="/"><img src={window.brentURL} id="catstation-logo" /></Link>
           </div>
 
-          {/* start on search bar now! */}
-           {/* <div>
-               <input type="text"></input>
-           </div> */}
+        <SearchBar />
+        
 
           <div>
                 <Link to="/upload" className="header-link">Upload Photo</Link>

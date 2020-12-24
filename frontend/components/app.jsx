@@ -39,7 +39,7 @@ const App = () => (
             <Route exact path="/" component={PhotoIndex} />
             <Redirect to="/" />
         </Switch>
-        <footer>
+        <footer id="catstation-footer">
             <Footer />
         </footer>
 

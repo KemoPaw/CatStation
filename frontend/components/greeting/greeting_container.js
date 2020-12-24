@@ -6,6 +6,7 @@ import Greeting from './greeting';
 import {withRouter} from 'react-router-dom';
 
 
+
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
     currentUser: users[session.id]
