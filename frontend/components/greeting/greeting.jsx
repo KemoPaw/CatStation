@@ -11,6 +11,12 @@ const Greeting = ( props ) => {
           <Link to="/"><img src={window.brentURL} id="catstation-logo" /></Link>
       </div>
 
+
+      {/* start on search bar now! */}
+      {/* <div>
+        <input type="text"></input>
+      </div> */}
+
       <div>
           <Link to="/signup" className="header-link">Sign Up</Link>
           <button onClick={() => props.openModal("login")} className="header-link blue-button">Sign In</button>
@@ -26,6 +32,11 @@ const Greeting = ( props ) => {
           <div>
               <Link to="/"><img src={window.brentURL} id="catstation-logo" /></Link>
           </div>
+
+          {/* start on search bar now! */}
+           {/* <div>
+               <input type="text"></input>
+           </div> */}
 
           <div>
                 <Link to="/upload" className="header-link">Upload Photo</Link>
