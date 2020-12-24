@@ -14,11 +14,6 @@ class PhotoIndexItem extends React.Component{
 
     }
 
-    // componentDidMount(){
-    //     this.props.fetchPhotos();
-    //     this.props.fetchUsers();
-    // }
-
     mouseEnter(){
         // console.log('mouse enter');
         this.setState({ addClass: true });
@@ -35,11 +30,12 @@ class PhotoIndexItem extends React.Component{
 
                 //  <li className="photo-index-li" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave} >
                  <li className="photo-index-li" >
-
                        <div className="photo-index-item">
-                        <Link to={`/photos/${id}`}>
-                            <img src={photo.photoUrl} />
-                        </Link>
+                            <Link to={`/photos/${id}`} className="photo-index-item-link">
+                                {/* <div className="photo-index-item-text">{photo.title}</div> */}
+
+                                <img src={photo.photoUrl} />
+                            </Link>
 
                        </div>
                  </li>
