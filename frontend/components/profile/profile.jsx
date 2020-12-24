@@ -8,9 +8,9 @@ import ProfilePhotoIndex from './profile_photo_index_container';
 class Profile extends React.Component{
     constructor(props){
         super(props);
-        // this.state = {
-        //     profileUser: "",
-        // };
+        this.state = {
+            profileUser: "",
+        };
         this.randomProfileBanner = this.randomProfileBanner.bind(this);
 
     }
@@ -29,32 +29,44 @@ class Profile extends React.Component{
         // this.setState({profileUser: profileUsername});
     }
 
-    randomProfileBanner(){
-        let randomProfileBannerPhotos = [
-            window.proBannerOne,
-            window.proBannerTwo,
-            window.proBannerThree,
-            window.proBannerFour,
-            window.proBannerFive,
-            window.proBannerSix,
-            window.proBannerSeven,
-            window.proBannerEight,
-        ];
+    componentWillUnmount(){
+        // profileBannerPhoto = null;
+    }
 
-        // let randomPhoto = _.sample(randomProfileBannerPhotos);
-        let randomPhoto = randomProfileBannerPhotos[Math.floor(Math.random() * randomProfileBannerPhotos.length)];
-        console.log(randomPhoto);
-        return randomPhoto;
+    randomProfileBanner(){
+        // if (profileBannerPhoto) {
+        //     return profileBannerPhoto
+        // }
+        // else {
+            let randomProfileBannerPhotos = [
+                window.proBannerOne,
+                window.proBannerTwo,
+                window.proBannerThree,
+                window.proBannerFour,
+                window.proBannerFive,
+                window.proBannerSix,
+                window.proBannerSeven,
+                window.proBannerEight,
+            ];
+            // let randomPhoto = _.sample(randomProfileBannerPhotos);
+            let randomPhoto = randomProfileBannerPhotos[Math.floor(Math.random() * randomProfileBannerPhotos.length)];
+            // console.log(randomPhoto);
+            return randomPhoto;
+
+        // }
     }
 
     render(){
-        if (!this.props.profileUser) return null;
+        if (!this.props.profileUser && !profileBannerPhoto) return null;
 
         // if (!profileUsername) return null;
         // let arr = this.props.location.pathname.split("/");
         // let profileUsername = arr[arr.length -1];
         // let profileBannerPhoto = this.randomProfileBanner();
-        let profileBannerPhoto = (profileBannerPhoto !== undefined) ?  profileBannerPhoto : this.randomProfileBanner();
+        // let tempPhoto;
+        // let profileBannerPhoto = undefined;
+        
+        let profileBannerPhoto = this.randomProfileBanner();
 
         
         return(
@@ -73,8 +85,7 @@ class Profile extends React.Component{
                 </div>
 
                 <div>
-                    <ProfilePhotoIndex profileUserId={this.props.profileUser.id}/>
-                   
+                    <ProfilePhotoIndex profileUserId={this.props.profileUser.id}/> 
                 </div>
 
             </div>
