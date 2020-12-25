@@ -8,6 +8,7 @@ class searchBar extends React.Component{
             <div>
 
                 <input type="text" placeholder="Hello from the Search Bar"></input>
+                <button type="submit"></button>
             </div>
         )
     }
