@@ -14,4 +14,4 @@ class searchBar extends React.Component{
     }
 }
 
-export default searchBar;
+export default searchBar; 
