@@ -11,6 +11,11 @@ class SearchItem extends React.Component{
 
     }
 
+    componentDidMount(){
+        // console.log("Hello!");
+        // console.log(this.props.location);
+    }
+
     render(){
         const {key, id, photo} = this.props;
          return (
