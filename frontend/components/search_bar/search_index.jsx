@@ -17,8 +17,8 @@ class SearchIndex extends React.Component {
         return(
             <div className="photo-index-div">
                 {/* <p color="white">SEARCH INDEX CONTAINER</p> */}
-                <div>
-                    <p>Search Results for: {photoArrItem}</p>
+                <div className="search-result-div">
+                    <p>Search Results for:   <span>  </span> {photoArrItem}</p>
                 </div>
                 <ul className="photo-index-ul">
                     {
