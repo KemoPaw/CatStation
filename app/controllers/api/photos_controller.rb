@@ -2,6 +2,7 @@ class Api::PhotosController < ApplicationController
 
     def index
         @photos = Photo.all
+        # @photos = keyword ? Photo.search(keyword) : Photo.all
         render "api/photos/index"
     end
 
@@ -47,6 +48,6 @@ class Api::PhotosController < ApplicationController
     private
 
     def photo_params
-        params.require(:photo).permit(:title, :description, :uploader_id, :image)
+        params.require(:photo).permit(:title, :description, :uploader_id, :image, :keyword)
     end
 end

@@ -7,17 +7,29 @@ class searchBar extends React.Component{
 
              super(props);
              this.state = {
-                 searchTerm: "",
+                 keyword: "",
              }
 
         this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
        }
 
-    componentDidMount(){
-        this.props.fetchPhotos();
+    // componentDidMount(){
+    //     this.props.fetchPhotos();
+    // }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let searchTerm = this.state.keyword;
+        // this.props.fetchFilteredPhotos(this.state.keyword);
+        // this.setState({keyword: ''});
+        console.log(this.state.keyword)
+        // .then(() => {
+        // this.props.history.push(`/search/${searchTerm}`)});
     }
     
+
     handleInput(field){
         return (e) => this.setState({ [field]: e.currentTarget.value })
     }
@@ -27,8 +39,13 @@ class searchBar extends React.Component{
 
         return(
             <div>
-                <input id="search-bar-input" type="text" placeholder="Hello from the Search Bar" onChange={this.handleInput("searchTerm")}></input>
-                <button id="search-bar-submit" type="submit">Search</button>
+                <form onSubmit={this.handleSubmit}>
+                    <input id="search-bar-input" type="text" placeholder="Hello from the Search Bar" onChange={this.handleInput("keyword")}></input>
+                    <Link style={{ textDecoration: 'none' }} to={`/search/${this.state.keyword}`}>
+                        <button id="search-bar-submit" type="submit" >Search</button>
+                    </Link>
+
+                </form>
             </div>
         )
     }

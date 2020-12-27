@@ -43,6 +43,11 @@ export const fetchPhotos = () => dispatch => {
         .then(photos => dispatch(receivePhotos(photos)))
 };
 
+export const fetchFilteredPhotos = (data) => dispatch => {
+    return (APIUtil.fetchFilteredPhotos(data))
+        .then(photos => dispatch(receivePhotos(photos)))
+};
+
 
 export const fetchPhoto = (photoId) => dispatch => {
     // debugger

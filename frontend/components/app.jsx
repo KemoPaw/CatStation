@@ -18,6 +18,8 @@ import PhotoShowContainer from './photo/photo_show_container';
 
 import Footer from './footer/footer'
 
+import SearchIndex from './search_bar/search_index_container'
+
 
 const App = () => (
     <div className="main-background">
@@ -31,6 +33,11 @@ const App = () => (
             <Route exact path="/upload" component={PhotoUploadForm} />
             <Route exact path="/photos/:photoId/edit" component={PhotoEditForm} />
             <Route exact path="/profile/:username" component={Profile} />
+
+            <Route exact path="/search/:keyword" component={SearchIndex} />
+
+            
+
 
 
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchPhotos} from '../../actions/photo_actions';
+import { fetchPhotos, fetchFilteredPhotos} from '../../actions/photo_actions';
 // import { createComment, deleteComment, updateComment, fetchComments } from '../../actions/comment_actions';
 // import { fetchUsers} from '../../actions/user_actions';
 
@@ -20,6 +20,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchPhotos: () => dispatch(fetchPhotos()),
+        fetchFilteredPhotos: (data) => dispatch(fetchFilteredPhotos(data)),
+
     };
 };
 

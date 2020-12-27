@@ -16,4 +16,8 @@ class Photo < ApplicationRecord
     # foreign_key: :photo_id, 
     # class_name: :Comment
 
+    def self.search(keyword)
+        self.where("title ILIKE ?", "%#{keyword}%")
+    end
+
 end

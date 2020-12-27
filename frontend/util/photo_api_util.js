@@ -13,6 +13,16 @@ export const fetchPhoto = photoId => {
     })
 }
 
+export const fetchFilteredPhotos = (searchTerm) => {
+    return (
+        $.ajax({
+            url: '/api/photos',
+            method: 'GET',
+            data: { keyword: searchTerm }
+        })
+    )
+}
+
 
 export const createPhoto = photo => {
     return $.ajax({
