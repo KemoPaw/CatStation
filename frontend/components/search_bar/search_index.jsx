@@ -3,10 +3,29 @@ import SearchItem from './search_item';
 
 class SearchIndex extends React.Component {
 
+        constructor(props){
+        super(props);
+
+        this.userIdToUsername = this.userIdToUsername.bind(this);
+
+        }
+
     
     componentDidMount(){
         this.props.fetchPhotos();
         this.props.fetchUsers();
+    }
+
+    userIdToUsername(userId){
+        let username = "";
+
+        Object.values(this.props.users).map(ele => {
+            if(ele.id === userId){
+                // console.log(ele.id);
+                username = this.props.users[ele.id].username;
+            }
+        })
+        return username;
     }
 
     render() {
@@ -30,6 +49,15 @@ class SearchIndex extends React.Component {
 
                                     photo={photo}
                                  />)
+                                }
+                                else if( this.userIdToUsername(photo.uploader_id).toLowerCase().includes(photoArrItem.toLowerCase())) {
+                                    return (<SearchItem
+                                    key={photo.id}
+                                    id={photo.id}
+
+                                    photo={photo}
+                                 />)
+
                                 }
                             else{
                                 return null;

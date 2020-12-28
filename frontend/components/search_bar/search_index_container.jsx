@@ -8,7 +8,8 @@ import SearchIndex from './search_index';
 
 const mapStateToProps = (state) => {
     return ({
-        photos: Object.values(state.entities.photos)
+        photos: Object.values(state.entities.photos),
+        users: state.entities.users,
     });
 };
 

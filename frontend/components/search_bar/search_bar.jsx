@@ -41,7 +41,7 @@ class searchBar extends React.Component{
         return(
             <div>
                 {/* <form onSubmit={this.handleSubmit}> */}
-                    <input id="search-bar-input" type="text" placeholder="Search for photos by title..." onChange={this.handleInput("keyword")}></input>
+                    <input id="search-bar-input" type="text" placeholder="Search for photos by title or uploader..." onChange={this.handleInput("keyword")}></input>
                     <Link style={{ textDecoration: 'none' }} to={`/search/${this.state.keyword}`}>
                         <button id="search-bar-submit" type="submit" >Search</button>
                     </Link>
