@@ -20,7 +20,7 @@ class ProfilePhotoIndex extends React.Component {
         // console.log(profileUserId);
 
         return(
-            <div className="photo-index-div">
+            <div className="photo-profile-index-div">
                 <ul className="photo-index-ul">
                     {
                         photos.map(photo=> {

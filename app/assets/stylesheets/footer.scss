@@ -15,10 +15,13 @@
     padding: 10px;
     // height: 80px;
     display: flex;
+    // display: block;
     // direction: rtl;
     align-items: center;
     align-content: center;
     justify-content: flex-end;
+    // position: fixed;
+    // height: 50px;
 }
 
 .footer-span > * {
@@ -39,4 +42,9 @@
 //   padding: 5px;
 margin: 10px
 
+}
+
+.footer-big-div {
+  // display: block;
+   position: relative;
 }

@@ -8,7 +8,8 @@ class Footer extends React.Component{
 
     render(){
         return(
-            <div className="footer-div">
+            <div className="footer-big-div">
+                 <div className="footer-div">
                 {/* <p>We're in the footer!</p> */}
                 {/* <span>
                     <p>About</p>
@@ -25,6 +26,9 @@ class Footer extends React.Component{
                     
                 </span>
             </div>
+
+            </div>
+           
         )
     }
 }
