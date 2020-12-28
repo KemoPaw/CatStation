@@ -10,7 +10,6 @@ class Profile extends React.Component{
         super(props);
         this.state = {
             profileUser: "",
-            loaded: false,
         };
         this.randomProfileBanner = this.randomProfileBanner.bind(this);
 
@@ -27,7 +26,11 @@ class Profile extends React.Component{
         // let arr = this.props.location.pathname.split("/");
         // const profileUsername = arr[arr.length -1];
         // console.log(profileUsername)
-        this.setState({loaded: true});
+        // this.setState({profileBanner: this.randomProfileBanner()});
+        // let profileBannerPhoto = this.randomProfileBanner();
+
+
+
     }
 
     componentWillUnmount(){
@@ -67,7 +70,7 @@ class Profile extends React.Component{
         // let tempPhoto;
         // let profileBannerPhoto = undefined;
         
-        let profileBannerPhoto = (this.state.loaded) ? this.randomProfileBanner() : <div></div>;
+        let profileBannerPhoto = this.randomProfileBanner();
 
         
         return(
@@ -82,7 +85,7 @@ class Profile extends React.Component{
                 </img>
 
                 <div className="profile-photo-header-div">
-                    Uploaded Cat Images:
+                    {this.props.profileUser.username}'s Uploaded Cat Images:
                 </div>
 
                 <div>
