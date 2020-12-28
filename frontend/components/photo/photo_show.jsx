@@ -129,6 +129,8 @@ class PhotoShow extends React.Component{
         const allComments = (!this.props.photo.comments) ? <h1></h1> : 
             <ul>
                 {Object.values(sortedData).map( (ele, idx) => {
+                    // let commentCurrentUserId = (this.props.currentUser.id) ? this.props.currentUser.id: 99;
+                    let commentCurrentUserId = (this.props.currentUser) ? this.props.currentUser.id : 99;
                     let currentPhotoId = ele.photo_id;
                     let commentUsername = this.userIdToUsername(ele.user_id);
                     let commentDeleteBtn = ((this.props.currentUser) && ( ele.user_id === this.props.currentUser.id)) ? <button type="button" onClick={() => this.removeComment(ele)}><i className="fas fa-trash"></i></button> : <p></p>
@@ -137,7 +139,7 @@ class PhotoShow extends React.Component{
                     return(
                         <li  key={idx} className="photo-show-comment-item">
 
-                            <Comments comment={ele.body} commentId={ele.id} photoId={currentPhotoId} commenterId={ele.user_id} userId={this.props.currentUser.id} username={commentUsername}  commentDeleteBtn={commentDeleteBtn} updateComment={this.props.updateComment}/>
+                            <Comments comment={ele.body} commentId={ele.id} photoId={currentPhotoId} commenterId={ele.user_id} userId={commentCurrentUserId} username={commentUsername}  commentDeleteBtn={commentDeleteBtn} updateComment={this.props.updateComment}/>
   
                         </li>
                     )
@@ -181,7 +183,7 @@ class PhotoShow extends React.Component{
                     </div>
                     <h1 className="photo-show-title">{this.props.photo.title}</h1>
                      <Link style={{ textDecoration: 'none' }} to={`/profile/${finalUsername}`}>
-                        <h1 className="photo-show-profile-link"><i class="fas fa-user"></i><span>   </span>{finalUsername}</h1>
+                        <h1 className="photo-show-profile-link"><i className="fas fa-user"></i><span>   </span>{finalUsername}</h1>
                      </Link>
                     {/* <h1 className="photo-show-title">{this.props.users}</h1> */}
 
