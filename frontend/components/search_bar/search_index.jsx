@@ -32,14 +32,32 @@ class SearchIndex extends React.Component {
         const { photos } = this.props;
         let arr = this.props.location.pathname.split("/");
         let photoArrItem = arr[arr.length -1];
+        let photoCounter = 0;
+        photos.map(photo=> {
+            if(photo.title.toLowerCase().includes(photoArrItem.toLowerCase())){
+                photoCounter += 1;
+            }
+            else if( this.userIdToUsername(photo.uploader_id).toLowerCase().includes(photoArrItem.toLowerCase())) {
+                photoCounter += 1;
+                                  
+            }
+            else{
+                photoCounter += 0;
+
+            }})
+        // console.log(photoCounter);
+        let searchNoResult = (photoCounter === 0) ? <p className="search-no-results">There are no search results for &nbsp; &ldquo; {photoArrItem} &rdquo; , &nbsp; please free to try a different search instead.</p> : <p></p>;
+                        
         // console.log(photoArrItem);
         return(
             <div className="photo-index-div">
                 {/* <p color="white">SEARCH INDEX CONTAINER</p> */}
                 <div className="search-result-div">
-                    <p>Search Results for:   <span>  </span> {photoArrItem}</p>
+                    <p>Search Results for:  &nbsp; {photoArrItem}</p>
                 </div>
-                <ul className="photo-index-ul">
+                {searchNoResult}
+
+                <ul className="photo-search-index-ul">
                     {
                         photos.map(photo=> {
                               if(photo.title.toLowerCase().includes(photoArrItem.toLowerCase())){

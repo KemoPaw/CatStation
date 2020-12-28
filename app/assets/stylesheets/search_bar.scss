@@ -58,3 +58,18 @@
     // align-content: center;
     align-self: center;
 }
+
+.search-no-results {
+    color: grey;
+    font-size: 15px;
+    font-family: 'Commissioner', sans-serif;
+
+}
+
+.photo-search-index-ul {
+ display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+}
