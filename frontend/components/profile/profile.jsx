@@ -54,8 +54,10 @@ class Profile extends React.Component{
             ];
             // let randomPhoto = _.sample(randomProfileBannerPhotos);
             let randomPhoto = randomProfileBannerPhotos[Math.floor(Math.random() * randomProfileBannerPhotos.length)];
+            let profileBannerNumber = this.props.profileUser.id % (randomProfileBannerPhotos.length);
+            // console.log(profileBannerNumber);
             // console.log(randomPhoto);
-            return randomPhoto;
+            return randomProfileBannerPhotos[profileBannerNumber];
 
         // }
     }
