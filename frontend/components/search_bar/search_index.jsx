@@ -65,6 +65,7 @@ class SearchIndex extends React.Component {
                 </div>
 
                 {searchNoResult}
+               
 
                 <ul className="photo-index-ul">
                     {
@@ -92,6 +93,9 @@ class SearchIndex extends React.Component {
                         })
                     }
                 </ul>
+                 <div className="photo-search-result-div">
+                    
+                </div>
                   <div className="photo-search-back-div">
                         <Link className="photo-search-back-btn" style={{ textDecoration: 'none' }}  to="/photos">
                             <p><i className="fas fa-arrow-left"></i> &nbsp; Back to Gallery</p>
