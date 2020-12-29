@@ -10,6 +10,7 @@ class Profile extends React.Component{
         super(props);
         this.state = {
             profileUser: "",
+            currentImg: 0
         };
         // this.randomProfileBanner = this.randomProfileBanner.bind(this);
 
@@ -22,6 +23,7 @@ class Profile extends React.Component{
         // console.log(this.props.profileUser);
         this.props.fetchUsers();
         this.props.fetchPhotos();
+        this.interval = setInterval(() => this.changeBackgroundImage(), 3500);
 
         // let arr = this.props.location.pathname.split("/");
         // const profileUsername = arr[arr.length -1];
@@ -33,8 +35,34 @@ class Profile extends React.Component{
 
     }
 
-    componentWillUnmount(){
-        // profileBannerPhoto = null;
+    componentWillUnmount() {
+      if (this.interval) {
+        clearInterval(this.interval);
+      }
+    }
+
+    changeBackgroundImage() {
+      let newCurrentImg = 0;
+      const {currentImg} = this.state;
+
+       const profileBannerPhotos = [
+                window.proBannerOne,
+                window.proBannerTwo,
+                window.proBannerThree,
+                window.proBannerFour,
+                window.proBannerFive,
+                window.proBannerSix,
+                window.proBannerSeven,
+                window.proBannerEight,
+        ];
+
+      const numOfImages = profileBannerPhotos.length;
+
+      if (currentImg !== numOfImages - 1) {
+        newCurrentImg = currentImg + 1;
+      }
+
+      this.setState({currentImg: newCurrentImg});
     }
 
     // randomProfileBanner(){
@@ -65,6 +93,8 @@ class Profile extends React.Component{
     render(){
         if (!this.props.profileUser ) return null;
 
+         const {currentImg} = this.state;
+
         // if (!profileUsername) return null;
         // let arr = this.props.location.pathname.split("/");
         // let profileUsername = arr[arr.length -1];
@@ -87,6 +117,8 @@ class Profile extends React.Component{
         ];
 
         let profileBannerNumber =  this.props.profileUser.id % (randomProfileBannerPhotos.length - 1);
+        const urlString = randomProfileBannerPhotos[currentImg];
+
 
 
         
@@ -98,7 +130,7 @@ class Profile extends React.Component{
                     {this.props.profileUser.username}
                 </h1>
 
-                <img id="profile-header-img" src={randomProfileBannerPhotos[profileBannerNumber]}>
+                <img id="profile-header-img" src={urlString}>
                 </img>
 
                 <div className="profile-photo-header-div">
