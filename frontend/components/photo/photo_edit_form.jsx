@@ -119,7 +119,7 @@ class PhotoEditForm extends React.Component {
 
 
     return (
-      <div className="photo-upload-div">
+      <div className="photo-edit-div">
           <div className="photo-upload-back-div">
                         <Link to={`/photos/${this.props.photo.id}`}>
                             <i class="fas fa-arrow-left"></i>
