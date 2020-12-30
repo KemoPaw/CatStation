@@ -41,29 +41,29 @@
   align-items: center;
   justify-content: center;
   // padding: 60px;
-  margin: 0px;
+  // margin: 0px;
   padding-left: 50px;
   padding-right: 55px;
-  overflow: auto;
   // background-color: #f44336;
   width: calc(100% - 30px);
   // margin-left: auto;
   // margin-right: auto;
 background-color: black;
-
-
-
-
-
+  // margin-top: 0;
+  // margin-bottom: auto;
+  overflow: auto;
+  height: 100vh;
 }
 
 .photo-show-img > img {
   // display: flex;
-  height: auto;
-  width: calc(100% - 30px);
+  // height: auto;
+  // width: calc(100% - 30px);
   vertical-align: middle;
   padding: 20px;
-  margin: 35px;
+  // margin: 35px;
+
+  // display: block;
   // display: flex;
 
 
