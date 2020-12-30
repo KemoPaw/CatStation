@@ -15,6 +15,7 @@ class PhotoShow extends React.Component{
             photo_id: "",
             showEdit: false,
             currentCommentId: null,
+            dimensions: {},
         }
         this.removePhoto = this.removePhoto.bind(this);
 
@@ -25,6 +26,8 @@ class PhotoShow extends React.Component{
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
   
         this.toggleEditForm = this.toggleEditForm.bind(this);
+
+        this.onImgLoad = this.onImgLoad.bind(this);
     }
 
     componentDidMount(){
@@ -99,7 +102,12 @@ class PhotoShow extends React.Component{
 
         return (e) => this.setState({ [field]: e.currentTarget.value })
     }
-    //think about how your state may change
+
+
+    onImgLoad({target:img}) {
+        this.setState({dimensions:{height:img.offsetHeight,
+                                   width:img.offsetWidth}});
+    }
     render(){
  
         if (!this.props.photo) return null;
@@ -165,17 +173,23 @@ class PhotoShow extends React.Component{
         }}>Edit Photo </Link>
         : <div className="photo-show-edit-div"></div>
 
+        const {width, height} = this.state.dimensions;
+
+        let bestWidth = (width > height) ? "900px" : "600px";
+
 
 
         return(
             <div className="photo-show-div">
 
                 <div className="photo-show-img">
-                    <img src={this.props.photo.photoUrl} />
+                    <img onLoad={this.onImgLoad} src={this.props.photo.photoUrl} width={bestWidth}/>
                 </div>
 
 
                 <div className="photo-show-content">
+                    {/* <p color="white">dimensions width{width}, height{height}</p> */}
+
                     <div className="photo-show-close-div">
                         <Link to="/photos">
                             <i class="fas fa-times-circle"></i>
