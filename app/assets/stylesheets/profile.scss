@@ -1,6 +1,10 @@
 .profile-outer-div {
     background-color: 	rgb(34, 34, 34);
-    height: 100vh;
+    // height: 120vh;
+    min-height: 70%;
+    min-height: -webkit-calc(100% - 35px);
+    min-height: -moz-calc(100% - 35px);
+    min-height: calc(100% - 35px);
 }
 
 .profile-header-username {
@@ -37,5 +41,19 @@
     min-width: 0;
   background-color: black;
   
+  
 
+}
+
+.photo-profile-index-ul {
+     display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  margin: 0px;
+
+}
+
+.profile-photo-div {
+    min-height: 20vh;
+    background-color: black;
 }

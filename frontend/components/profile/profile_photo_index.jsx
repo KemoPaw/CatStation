@@ -21,7 +21,7 @@ class ProfilePhotoIndex extends React.Component {
 
         return(
             <div className="photo-profile-index-div">
-                <ul className="photo-index-ul">
+                <ul className="photo-profile-index-ul">
                     {
                         photos.map(photo=> {
                             if(photo.uploader_id === profileUserId){
@@ -38,8 +38,6 @@ class ProfilePhotoIndex extends React.Component {
                         })
                     }
                 </ul>
-             
-
             </div>
         )
     };
