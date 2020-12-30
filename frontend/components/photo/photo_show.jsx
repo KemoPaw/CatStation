@@ -175,7 +175,7 @@ class PhotoShow extends React.Component{
 
         const {width, height} = this.state.dimensions;
 
-        let bestWidth = (width > height) ? "900px" : "600px";
+        let bestWidth = (width > height) ? "950px" : "600px";
 
 
 
