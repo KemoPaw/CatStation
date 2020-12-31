@@ -10,6 +10,7 @@ require 'open-uri'
 
 User.destroy_all
 Photo.destroy_all
+Comment.destroy_all
 
 demouser = User.create({username: "DemoUser", email: "demo@demo.com", password: "password"})
 
@@ -19,6 +20,7 @@ seeduser3 = User.create({username: "Yellow_Sunflowers", email: "user3@user.com",
 seeduser4 = User.create({username: "WinterRose", email: "user4@user.com", password: "password"})
 seeduser5 = User.create({username: "PinkAzaleaz", email: "user5@user.com", password: "password"})
 seeduser6 = User.create({username: "Sakurae", email: "user6@user.com", password: "password"})
+
 
 
 photo1 = Photo.create({title: "A Special Photo of Ginger!", description: "Ginger is a sweetheart and is a cuddle bug!", uploader_id: demouser.id})
@@ -134,6 +136,154 @@ photo47.image.attach(io: open("https://catstation-seeds.s3-us-west-1.amazonaws.c
 photo48.image.attach(io: open("https://catstation-seeds.s3-us-west-1.amazonaws.com/catstation-cat-photo-48.jpeg"), filename: 'catstation-cat-photo-48.jpeg')
 photo49.image.attach(io: open("https://catstation-seeds.s3-us-west-1.amazonaws.com/catstation-cat-photo-49.jpeg"), filename: 'catstation-cat-photo-49.jpeg')
 photo50.image.attach(io: open("https://catstation-seeds.s3-us-west-1.amazonaws.com/catstation-cat-photo-50.jpeg"), filename: 'catstation-cat-photo-50.jpeg')
+
+
+
+comment1 = Comment.create({user_id: 1, photo_id: 11, body: "That is a derp looking kitty!"})
+comment2 = Comment.create({user_id: 1, photo_id: 16, body: "Wow, Mochi truly is a beautigul cat! Welcome to the cat lover's website!"})
+comment3 = Comment.create({user_id: 1, photo_id: 8, body: "Chedder is so cute!"})
+comment4 = Comment.create({user_id: 1, photo_id: 28, body: "She looks so pretty, you did a great job cleaning her all up!"})
+comment5 = Comment.create({user_id: 1, photo_id: 39, body: "That is a really funny expression on Gary's face!"})
+comment6 = Comment.create({user_id: 1, photo_id: 40, body: "Purr, Purr, Purr!"})
+comment7 = Comment.create({user_id: 1, photo_id: 41, body: "Lulu is so pretty! I can't wait for autumn to arrive again!"})
+comment8 = Comment.create({user_id: 1, photo_id: 48, body: "Wow! Jazz really knows how to pose!"})
+comment9 = Comment.create({user_id: 1, photo_id: 35, body: "Awhh, I'm sorry to hear about Sam. The memories that you've had with him will not go away though."})
+comment10 = Comment.create({user_id: 1, photo_id: 15, body: "I love how her bell almost seems to match her eyes! I hope she continues to keep visiting you!"})
+
+
+comment11 = Comment.create({user_id: 2, photo_id: 1, body: "Ginger is very photogenic!"})
+comment12 = Comment.create({user_id: 2, photo_id: 3, body: "Testing!"})
+comment13 = Comment.create({user_id: 2, photo_id: 6, body: "Testing!"})
+comment14 = Comment.create({user_id: 2, photo_id: 8, body: "Testing!"})
+comment15 = Comment.create({user_id: 2, photo_id: 10, body: "Testing!"})
+comment16 = Comment.create({user_id: 2, photo_id: 22, body: "Testing!"})
+comment17 = Comment.create({user_id: 2, photo_id: 25, body: "Testing!"})
+comment18 = Comment.create({user_id: 2, photo_id: 27, body: "Testing!"})
+comment19 = Comment.create({user_id: 2, photo_id: 36, body: "Testing!"})
+comment20 = Comment.create({user_id: 2, photo_id: 39, body: "Testing!"})
+comment21 = Comment.create({user_id: 2, photo_id: 43, body: "Testing!"})
+comment22 = Comment.create({user_id: 2, photo_id: 49, body: "Testing!"})
+comment23 = Comment.create({user_id: 2, photo_id: 31, body: "Testing!"})
+comment24 = Comment.create({user_id: 2, photo_id: 33, body: "Testing!"})
+
+
+comment25 = Comment.create({user_id: 3, photo_id: 2, body: "Testing!"})
+comment26 = Comment.create({user_id: 3, photo_id: 4, body: "Testing!"})
+comment27 = Comment.create({user_id: 3, photo_id: 7, body: "Testing!"})
+comment28 = Comment.create({user_id: 3, photo_id: 11, body: "Testing!"})
+comment29 = Comment.create({user_id: 3, photo_id: 12, body: "Testing!"})
+comment30 = Comment.create({user_id: 3, photo_id: 17, body: "Testing!"})
+comment31 = Comment.create({user_id: 3, photo_id: 18, body: "Testing!"})
+comment32 = Comment.create({user_id: 3, photo_id: 19, body: "Testing!"})
+comment33 = Comment.create({user_id: 3, photo_id: 21, body: "Testing!"})
+comment34 = Comment.create({user_id: 3, photo_id: 23, body: "Testing!"})
+comment35 = Comment.create({user_id: 3, photo_id: 28, body: "Testing!"})
+comment36 = Comment.create({user_id: 3, photo_id: 29, body: "Testing!"})
+comment37 = Comment.create({user_id: 3, photo_id: 46, body: "Testing!"})
+comment38 = Comment.create({user_id: 3, photo_id: 44, body: "Testing!"})
+comment39 = Comment.create({user_id: 3, photo_id: 48, body: "Testing!"})
+comment40 = Comment.create({user_id: 3, photo_id: 32, body: "Testing!"})
+comment41 = Comment.create({user_id: 3, photo_id: 33, body: "Testing!"})
+comment42 = Comment.create({user_id: 3, photo_id: 26, body: "Testing!"})
+
+
+comment43 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment44 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment45 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment46 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment47 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment48 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment49 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+comment50 = Comment.create({user_id: 1, photo_id: 15, body: "Testing!"})
+comment51 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment52 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment53 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment54 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment55 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment56 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment57 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment58 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment59 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+comment60 = Comment.create({user_id: 1, photo_id: 15, body: "Testing!"})
+comment61 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment62 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment63 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment64 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment65 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment66 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment67 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment68 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment69 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+comment70 = Comment.create({user_id: 1, photo_id: 15, body: "Testing!"})
+comment71 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment72 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment73 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment74 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment75 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment76 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment77 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment78 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment79 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+comment80 = Comment.create({user_id: 1, photo_id: 15, body: "Testing!"})
+comment81 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment82 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment83 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment84 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment85 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment86 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment87 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment88 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment89 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+comment90 = Comment.create({user_id: 1, photo_id: 15, body: "Testing!"})
+comment91 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment92 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment93 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment94 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment95 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment96 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment97 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment98 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment99 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+comment100 = Comment.create({user_id: 1, photo_id: 15, body: "Testing!"})
+comment101 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment102 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment103 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment104 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment105 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment106 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment107 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment108 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment109 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+comment110 = Comment.create({user_id: 1, photo_id: 15, body: "Testing!"})
+comment111 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment112 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment113 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment114 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment115 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment116 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment117 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment118 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment119 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+comment120 = Comment.create({user_id: 1, photo_id: 15, body: "Testing!"})
+comment121 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment122 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment123 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment124 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment125 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment126 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment127 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment128 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+comment129 = Comment.create({user_id: 1, photo_id: 2, body: "Testing!"})
+
+
 
 
 
