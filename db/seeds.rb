@@ -231,7 +231,7 @@ comment78 = Comment.create({user_id: 6, photo_id: 16, body: "Mochi is a very bea
 comment79 = Comment.create({user_id: 6, photo_id: 7, body: "Will she ever be called Queen?"})
 comment80 = Comment.create({user_id: 6, photo_id: 10, body: "Those are the bluest eyes!"})
 comment81 = Comment.create({user_id: 6, photo_id: 20, body: "Adventure Time!"})
-comment82 = Comment.create({user_id: 6, photo_id: 30, body: "The lighting in this photo is so good!"})
+comment82 = Comment.create({user_id: 6, photo_id: 30, body: "Haha, maybe the cat will make it's own volleyball team called Nekoma!"})
 comment83 = Comment.create({user_id: 6, photo_id: 23, body: "Big Yawn"})
 comment84 = Comment.create({user_id: 6, photo_id: 24, body: "She is a very mesmerizing looking cat!"})
 comment85 = Comment.create({user_id: 6, photo_id: 36, body: "The lighting in this photo is so good!"})
@@ -266,7 +266,7 @@ comment101 = Comment.create({user_id: 2, photo_id: 5, body: "His fur is just so 
 comment102 = Comment.create({user_id: 2, photo_id: 20, body: "Cheepuff is clearly well loved!"})
 comment103 = Comment.create({user_id: 2, photo_id: 42, body: "His eyes almost match the grey background."})
 comment104 = Comment.create({user_id: 2, photo_id: 40, body: "There can never be enough kitten photos on this site!"})
-comment105 = Comment.create({user_id: 2, photo_id: 35, body: "Haha, maybe the cat will make it's own volleyball team called Nekoma!"})
+comment105 = Comment.create({user_id: 2, photo_id: 35, body: "This is a wonderful photo..."})
 
 
 comment106 = Comment.create({user_id: 1, photo_id: 13, body: "Always looking quite comfortable while sleeping, that's cats for you!"})
