@@ -140,7 +140,7 @@ photo50.image.attach(io: open("https://catstation-seeds.s3-us-west-1.amazonaws.c
 
 
 comment1 = Comment.create({user_id: 1, photo_id: 11, body: "That is a derp looking kitty!"})
-comment2 = Comment.create({user_id: 1, photo_id: 16, body: "Wow, Mochi truly is a beautigul cat! Welcome to the cat lover's website!"})
+comment2 = Comment.create({user_id: 1, photo_id: 16, body: "Wow, Mochi truly is a beautiful cat! Welcome to the cat lover's website!"})
 comment3 = Comment.create({user_id: 1, photo_id: 8, body: "Chedder is so cute!"})
 comment4 = Comment.create({user_id: 1, photo_id: 28, body: "She looks so pretty, you did a great job cleaning her all up!"})
 comment5 = Comment.create({user_id: 1, photo_id: 39, body: "That is a really funny expression on Gary's face!"})
@@ -288,7 +288,7 @@ comment119 = Comment.create({user_id: 4, photo_id: 28, body: "Wow, I wish I coul
 
 comment120 = Comment.create({user_id: 5, photo_id: 44, body: "Another beautiful photo!"})
 comment121 = Comment.create({user_id: 5, photo_id: 23, body: "And they yell! What for? More food!"})
-comment122 = Comment.create({user_id: 5, photo_id: 16, body: "TWow, I wish I could take photos like these, Mochi looks so calm and collected."})
+comment122 = Comment.create({user_id: 5, photo_id: 16, body: "Wow, I wish I could take photos like these, Mochi looks so calm and collected."})
 comment123 = Comment.create({user_id: 5, photo_id: 10, body: "This is a really well composed photo! Also those blue eyes!"})
 comment124 = Comment.create({user_id: 5, photo_id: 33, body: "May I ask what types of plants are in the photo?"})
 
