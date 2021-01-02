@@ -26,7 +26,7 @@ One of the first challenges that had to be solved after finishing User Authentic
 - Users are able to view, delete, edit, and update a Photo
 - Only the original uploader of the photo can edit, delete, or update it
 - Each user has their own Profiles that display their own uploaded Photos
-- Search bar to search by either User's username OR Photo's Title. 
+- Search bar to search by username OR photo's title. 
 
 # Future Features
 
