@@ -1,12 +1,13 @@
 # CatStation
 
-[CatStation Live Site](https://catstation-app.herokuapp.com/)
+[CatStation](https://catstation-app.herokuapp.com/)
 CatStation is a Full-Stack Project to clone [ArtStation](https://www.artstation.com)
 
 # Technology
 
 The technologies used for this project are: 
   - Ruby
+  - Ruby on Rails
   - React/Redux
   - JavaScript
   - Amazon Web Services (AWS)
@@ -14,23 +15,21 @@ The technologies used for this project are:
   
 # Challenges
   
-One of the features that I took on was end-to-end User Auth, this entailed having a user to Login, Logout, and also Sign Up. Signing back in mean that the user can use their previous credentials if they used the Sign Up feature. The user is also persisted through a refresh by "bootstrapping" the current user to the "application.html.erb" file that passes the user to the React entry file "catstation.jsx". This was a challenge in itself as I had to not only keep track of the current user variable, but also be sure to pass along the right information down the chain to use it for my React Componenets. 
+One of the first challenges that had to be solved after finishing User Authentication would be understanding how to have users be able to upload their own photo. To solve this, I first focused on creating the Upload Form on the frontend, then focused on creating the correct backend calls and tested it to see that upon hitting the upload form I was able to retrieve the uploaded data. From there, I focused on creating an Amazon Bucket to handle all the new uploaded Images!
 
-Another feature that I took on was to not only show off all the images on a "Photo Index Component", but to also have the feature to delete the image permanently from the databse. This involved setting up a "destroy" function all the way from the Photos Controller in my backend to be passed as an ajax call in my "photo_api_util" file to be called in my "Photo Show Container". One of the pitfalls that I had was that although I was deleting photos from my database upon a click of a button; my "Photo Index Component" would not re-render until I had refreshed the page. Although this feature worked, it had made using it clunky and not acceptable. I ended up realizing to use a ".then" statement after the button was involked to "push" a new URL to my history stack that automatically re-rendered the "Photo Index Component" and also re-routing to it automatically upon deleting a photo. 
+
 
 # Current Features
 
 - Users are able to Sign Up, Sign In, and Sign Out depending on the "Logged In Status"
-- Users are able to view the current gallery of photos and can click them to view more information abou the piece
-- Users are able to delete the photo, and be re-routed to the Photo Index Page again
+- Users are able to view the current gallery of photos and can click them to view more information about the Photo
+- Users are able to view, delete, edit, and update a Photo
+- Only the original uploader of the photo can edit, delete, or update it
+- Each user has their own Profiles that display their own uploaded Photos
+- Search bar to search by username OR photo's title. 
 
 # Future Features
 
-- Have a full CRUD for my photos feature, where users are able to also upload and edit their photos
-- Have users be able to comment on images
-- Have users have their own profiles that show off their own uploaded work(s)
-- Have certain restrictions for users:
-  - Only logged in users can upload photos and comment on posts
-  - User can only delete their own photos
+- Photo Likes
 
 
