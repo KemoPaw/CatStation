@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     ReactDOM.render(<Root store={store}/>, root);
-    window.fetchPhotos = fetchPhotos;
-    window.fetchPhoto = fetchPhoto;
+    // window.fetchPhotos = fetchPhotos;
+    // window.fetchPhoto = fetchPhoto;
     // window.login = login;
     // window.signup = signup;
     // window.logout = logout;
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.dispatch = store.dispatch;
     //this first argumentm is a React component, which is why we're inporting React in line 3
 })
