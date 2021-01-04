@@ -26,7 +26,7 @@ This form allowed users to upload Photos of their cat(s), only if the user is lo
 
 The Photo Show Page is essential to the website as it allows users to view the Photo. The original uploader of the photo can Edit and Delete the photo as needed. Same with commenting on the photo, as only the original commenter can edit or delete their comments.
 
-![alt-text](https://github.com/KemoPaw/CatStation/blob/main/app/assets/images/CatStation-Photo-Show.png)
+![alt-text](https://github.com/KemoPaw/CatStation/blob/main/app/assets/images/CatStation-Photo-Show-2.png)
 
 # Profile Page
 
