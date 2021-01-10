@@ -65,31 +65,6 @@ class Profile extends React.Component{
       this.setState({currentImg: newCurrentImg});
     }
 
-    // randomProfileBanner(){
-    //     // if (profileBannerPhoto) {
-    //     //     return profileBannerPhoto
-    //     // }
-    //     // else {
-    //         let randomProfileBannerPhotos = [
-    //             window.proBannerOne,
-    //             window.proBannerTwo,
-    //             window.proBannerThree,
-    //             window.proBannerFour,
-    //             window.proBannerFive,
-    //             window.proBannerSix,
-    //             window.proBannerSeven,
-    //             window.proBannerEight,
-    //         ];
-    //         // let randomPhoto = _.sample(randomProfileBannerPhotos);
-    //         let randomPhoto = randomProfileBannerPhotos[Math.floor(Math.random() * randomProfileBannerPhotos.length)];
-    //         let profileBannerNumber = this.props.profileUser.id % (randomProfileBannerPhotos.length);
-    //         // console.log(profileBannerNumber);
-    //         // console.log(randomPhoto);
-    //         return randomProfileBannerPhotos[profileBannerNumber];
-
-    //     // }
-    // }
-
     render(){
         if (!this.props.profileUser ) return null;
 
