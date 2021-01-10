@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router'
 import { fetchPhotos, fetchFilteredPhotos} from '../../actions/photo_actions';
 // import { createComment, deleteComment, updateComment, fetchComments } from '../../actions/comment_actions';
 // import { fetchUsers} from '../../actions/user_actions';
@@ -25,4 +26,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(searchBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(searchBar));
