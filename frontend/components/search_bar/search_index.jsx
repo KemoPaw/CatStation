@@ -49,6 +49,7 @@ class SearchIndex extends React.Component {
             }})
         // console.log(photoCounter);
         let searchNoResult = (photoCounter === 0) ? <div className="search-no-results-div"><p className="search-no-results">No Search Results found for &nbsp; &ldquo; {photoArrItem} &rdquo; , &nbsp; please free to try a different search instead.</p> </div> : <p></p>;
+        let searchBufferDiv = (photoCounter < 6) ?  <div className="photo-search-result-div"></div> : <div></div>;
                         
         // console.log(photoArrItem);
         return(
@@ -93,9 +94,9 @@ class SearchIndex extends React.Component {
                         })
                     }
                 </ul>
-                 <div className="photo-search-result-div">
-                    
-                </div>
+               
+               {searchBufferDiv}
+
                   <div className="photo-search-back-div">
                         <Link className="photo-search-back-btn" style={{ textDecoration: 'none' }}  to="/photos">
                             <p><i className="fas fa-arrow-left"></i> &nbsp; Back to Gallery</p>
