@@ -44,8 +44,4 @@ The Profile Page displays all of that User's uploaded photos.
 - Each user has their own Profiles that display their own uploaded Photos
 - Search bar to search by username OR photo's title. 
 
-# Future Features
-
-- Photo Likes
-
 
